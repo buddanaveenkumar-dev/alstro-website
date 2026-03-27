@@ -17,19 +17,20 @@ export default function CTA() {
           className="max-w-[560px]"
         >
           <p className="font-heading text-[32px] lg:text-[40px] text-text leading-tight mb-5">
-            The constraint in credit AI is no longer prediction. It is compliant
-            execution.
+            The constraint in underwriting AI is no longer prediction. It is
+            compliant execution.
           </p>
           <p className="text-[15px] text-text-secondary leading-relaxed mb-8">
             We are working with a small number of lenders and partners to
-            validate Alstro in real workflows. If compliant credit decision
-            execution is a priority for your institution, apply to join.
+            validate Alstro in real workflows. If compliant underwriting
+            decision execution is a priority for your institution, request a
+            demo.
           </p>
           <a
-            href="#alpha"
+            href="#validate"
             className="inline-flex items-center gap-2 bg-text text-bg hover:bg-text/90 px-5 py-2.5 rounded-md text-[14px] font-medium transition-colors"
           >
-            Apply to join the alpha program <ArrowRight size={15} />
+            Request a demo <ArrowRight size={15} />
           </a>
         </motion.div>
       </div>

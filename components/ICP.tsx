@@ -39,7 +39,7 @@ export default function ICP() {
           transition={{ duration: 0.4, ease: "easeOut" as const }}
           className="font-heading text-[32px] lg:text-[36px] text-text leading-tight max-w-[480px] mb-12"
         >
-          Built for lenders running AI-assisted credit decisions
+          Built for lenders running AI-assisted underwriting decisions
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-4">

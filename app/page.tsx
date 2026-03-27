@@ -3,13 +3,15 @@ import Hero from "@/components/Hero";
 import WhyNow from "@/components/WhyNow";
 import ExecutionGap from "@/components/ExecutionGap";
 import DecisionFlow from "@/components/DecisionFlow";
+import BeforeAfter from "@/components/BeforeAfter";
 import RuntimeArchitecture from "@/components/RuntimeArchitecture";
 import Applications from "@/components/Applications";
 import PlatformAlignment from "@/components/PlatformAlignment";
-import AlphaProgram from "@/components/AlphaProgram";
-import Deployment from "@/components/Deployment";
 import ICP from "@/components/ICP";
 import Founder from "@/components/Founder";
+import AlphaProgram from "@/components/AlphaProgram";
+import Investors from "@/components/Investors";
+import Deployment from "@/components/Deployment";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -22,13 +24,15 @@ export default function Home() {
         <WhyNow />
         <ExecutionGap />
         <DecisionFlow />
+        <BeforeAfter />
         <RuntimeArchitecture />
         <Applications />
         <PlatformAlignment />
-        <AlphaProgram />
-        <Deployment />
         <ICP />
+        <Deployment />
         <Founder />
+        <AlphaProgram />
+        <Investors />
         <CTA />
       </main>
       <Footer />

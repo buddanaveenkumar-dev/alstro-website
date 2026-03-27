@@ -70,7 +70,7 @@ export default function DecisionFlow() {
           transition={{ duration: 0.4, ease: "easeOut" as const }}
           className="font-heading text-[32px] lg:text-[36px] text-text leading-tight max-w-[580px] mb-3"
         >
-          See how one credit decision flows through Alstro
+          See how one underwriting decision flows through Alstro
         </motion.h2>
         <motion.p
           initial={reduced ? {} : { opacity: 0, y: 12 }}
@@ -79,7 +79,7 @@ export default function DecisionFlow() {
           transition={{ duration: 0.4, ease: "easeOut" as const }}
           className="text-[13px] font-mono text-text-muted mb-14"
         >
-          Illustrative alpha workflow
+          Illustrative beta workflow
         </motion.p>
 
         <div className="max-w-[680px]">

@@ -51,7 +51,7 @@ export default function ExecutionGap() {
           transition={{ duration: 0.4, ease: "easeOut" as const }}
           className="font-heading text-[32px] lg:text-[36px] text-text leading-tight max-w-[600px] mb-12"
         >
-          AI is already used in credit decisions. Compliance at execution is not.
+          AI is already used in underwriting decisions. Compliance at execution is not.
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 gap-4">
