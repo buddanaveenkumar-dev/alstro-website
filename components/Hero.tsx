@@ -145,15 +145,8 @@ export default function Hero() {
       <div className="section-container">
         {/* ── Text block ── */}
         <div className="max-w-[720px]">
-          <motion.p
-            {...fade(0)}
-            className="text-[12px] font-mono text-accent tracking-wide mb-5"
-          >
-            Compliance infrastructure · Underwriting decisions · Beta
-          </motion.p>
-
           <motion.h1
-            {...fade(0.06)}
+            {...fade(0)}
             className="font-heading text-[42px] lg:text-[56px] text-text leading-[1.08] mb-5"
           >
             Compliance infrastructure
