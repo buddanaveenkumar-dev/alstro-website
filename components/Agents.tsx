@@ -6,98 +6,105 @@ const agents = [
   {
     name: "Adverse Action AI",
     regs: "ECOA · FCRA · CFPB 2023-03",
-    desc: "Generates model-specific, ECOA-compliant reason codes from actual decision factors.",
+    desc: "Generates model-specific, ECOA-compliant reason codes from actual underwriting decision factors.",
     bullets: [
       "SHAP attribution per denial",
       "ECOA permissibility check",
-      "<400ms per notice",
+      "Compliant notice in <400ms",
     ],
-    metric: "Handles 95% of denials automatically",
+    metric: "handles 95% of denials automatically",
   },
   {
     name: "Fair Lending AI",
     regs: "ECOA · Reg B · UDAP",
-    desc: "Continuously monitors every decision for disparate impact. Not quarterly. Continuously.",
+    desc: "Continuously monitors every underwriting decision for disparate impact. Not quarterly. Continuously.",
     bullets: [
-      "Disparate impact ratio (DIR)",
+      "Disparate impact ratio (DIR) per decision",
       "Proxy variable detection",
-      "Auto LDA analysis",
+      "Auto less-discriminatory alternative analysis",
     ],
-    metric: "Eliminates 89-day blind spot per model update cycle",
+    metric: "eliminates 89-day blind spot per model cycle",
   },
   {
     name: "Model Governance AI",
     regs: "Fed SR 11-7 · OCC 2011-12",
-    desc: "Auto-generates SR 11-7 documentation. Monitors drift. Keeps you exam-ready always.",
+    desc: "Auto-generates SR 11-7 documentation. Monitors model drift. Keeps you exam-ready at all times.",
     bullets: [
-      "Validation docs auto-gen",
-      "Real-time drift alerts",
+      "Validation docs auto-generated on model change",
+      "Real-time model drift alerts",
       "Change log + version history",
     ],
-    metric: "Reduces doc time from 40 hrs → under 2 hrs",
+    metric: "40 hrs → under 2 hrs per model change",
   },
   {
     name: "Income Intelligence AI",
-    regs: "QM · ATR · CFPB ability-to-repay",
-    desc: "Transforms gig platform data into bankable ATR-compliant income documentation.",
+    regs: "QM · ATR · CFPB ATR rule",
+    desc: "Transforms gig and alternative income data into ATR-compliant underwriting documentation.",
     bullets: [
-      "Stripe / Gusto / Plaid ingest",
+      "Stripe / Gusto / Plaid payroll ingest",
       "Seasonal income normalization",
       "ATR documentation output",
     ],
-    metric: "Approves 15–20% more borrowers competitors currently decline",
+    metric: "approves borrowers competitors currently decline",
   },
 ];
 
 export default function Agents() {
   const prefersReducedMotion = useReducedMotion();
 
-  return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6">
-        <motion.div
-          initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-heading text-3xl lg:text-5xl text-text-1 mb-4">
-            Four agents. Every compliance obligation covered.
-          </h2>
-          <p className="text-lg text-text-2 max-w-2xl mx-auto">
-            Purpose-built for each workflow. Governed by a shared runtime.
-          </p>
-        </motion.div>
+  const fadeUp = {
+    initial: prefersReducedMotion ? {} : { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true } as const,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  };
 
-        <div className="grid md:grid-cols-2 gap-6">
+  return (
+    <section id="agents" className="py-24 border-t border-border">
+      <div className="mx-auto max-w-[1100px] px-6">
+        <motion.p
+          {...fadeUp}
+          className="text-[11px] font-mono text-text-3 uppercase tracking-widest mb-4"
+        >
+          Compliance agents
+        </motion.p>
+
+        <motion.h2
+          {...fadeUp}
+          className="font-heading text-[36px] text-text-1 leading-tight max-w-[600px] mb-12"
+        >
+          Four agents. One runtime. Every underwriting compliance workflow
+          covered.
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 gap-4">
           {agents.map((agent, i) => (
             <motion.div
               key={agent.name}
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.5,
-                ease: "easeOut",
-                delay: prefersReducedMotion ? 0 : i * 0.1,
+                duration: 0.4,
+                ease: "easeOut" as const,
+                delay: prefersReducedMotion ? 0 : i * 0.08,
               }}
-              className="group bg-bg-2 border border-border rounded-xl p-6 lg:p-8 transition-all duration-150 hover:scale-[1.01] hover:border-l-accent hover:border-l-2 flex flex-col"
+              className="group bg-bg border border-border rounded-xl p-7 transition-colors duration-150 hover:border-l-accent hover:border-l-2 flex flex-col"
             >
-              <div className="mb-4">
-                <h3 className="text-lg font-medium text-text-1 mb-1">
+              <div className="flex items-baseline justify-between mb-1">
+                <h3 className="text-[15px] font-medium text-text-1">
                   {agent.name}
                 </h3>
-                <div className="text-xs font-mono text-text-3">
-                  {agent.regs}
-                </div>
+              </div>
+              <div className="text-xs font-mono text-text-3 mb-4">
+                {agent.regs}
               </div>
 
-              <p className="text-sm text-text-2 leading-relaxed mb-5">
+              <p className="text-sm text-text-2 leading-relaxed mb-4">
                 {agent.desc}
               </p>
 
-              <ul className="space-y-2 mb-6 flex-1">
+              <ul className="space-y-2 mb-5 flex-1">
                 {agent.bullets.map((b) => (
                   <li
                     key={b}
@@ -109,7 +116,7 @@ export default function Agents() {
                 ))}
               </ul>
 
-              <div className="pt-4 border-t border-border text-sm text-green font-medium">
+              <div className="pt-4 border-t border-border text-sm font-mono text-text-3">
                 {agent.metric}
               </div>
             </motion.div>

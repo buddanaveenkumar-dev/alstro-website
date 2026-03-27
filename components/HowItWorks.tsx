@@ -4,9 +4,9 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const steps = [
   { num: "1", title: "Ingest", desc: "Model output + decision context received" },
-  { num: "2", title: "Enrich", desc: "Feature attribution computed (SHAP)" },
-  { num: "3", title: "Check", desc: "Policy engine applies ECOA/FCRA/SR 11-7 rules" },
-  { num: "4", title: "Generate", desc: "Compliant artifacts produced (notice, report, doc)" },
+  { num: "2", title: "Attribute", desc: "Feature importance computed (SHAP)" },
+  { num: "3", title: "Check", desc: "Policy engine: ECOA · FCRA · SR 11-7 rules applied" },
+  { num: "4", title: "Generate", desc: "Compliant artifacts produced" },
   { num: "5", title: "Log", desc: "Immutable audit record written" },
   { num: "6", title: "Release", desc: "Decision passed to downstream system" },
 ];
@@ -15,83 +15,113 @@ function StackDiagram() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-[600px] mx-auto my-16">
       {/* Top box */}
       <motion.div
-        initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="bg-bg-2 border border-border rounded-xl p-6 text-center"
+        transition={{ duration: 0.4, ease: "easeOut" as const }}
+        className="bg-bg-3 border border-border rounded-lg p-5 text-center"
       >
-        <div className="text-sm text-text-2 mb-1">Your existing credit stack</div>
-        <div className="text-xs text-text-3 font-mono">
-          FICO · ML scorecard · Zest · internal rules
+        <div className="text-sm text-text-2 mb-1">
+          Your existing underwriting stack
+        </div>
+        <div className="text-xs font-mono text-text-3">
+          FICO · ML scorecard · Zest · rules
         </div>
       </motion.div>
 
-      {/* Connector */}
+      {/* Connector SVG */}
       <motion.div
-        initial={prefersReducedMotion ? {} : { scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+        transition={{ duration: 0.4, ease: "easeOut" as const, delay: 0.15 }}
         className="flex justify-center"
-        style={{ transformOrigin: "top" }}
       >
-        <div className="w-px h-10 border-l-2 border-dashed border-border-2" />
+        <svg
+          width="2"
+          height="40"
+          viewBox="0 0 2 40"
+          className="text-border-2"
+        >
+          <line
+            x1="1"
+            y1="0"
+            x2="1"
+            y2="40"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeDasharray="4 4"
+          />
+        </svg>
       </motion.div>
 
       {/* Alstro Runtime */}
       <motion.div
-        initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-        className="bg-bg-2 border border-accent/40 rounded-xl p-6 shadow-[0_0_30px_-10px_rgba(99,102,241,0.15)]"
+        transition={{ duration: 0.4, ease: "easeOut" as const, delay: 0.2 }}
+        className="border-2 border-accent rounded-lg p-5"
       >
-        <div className="text-center mb-5">
-          <div className="text-xs font-mono text-accent tracking-widest uppercase mb-1">
-            Alstro Runtime
-          </div>
+        <div className="text-center mb-4">
+          <span className="text-xs font-mono text-accent tracking-widest uppercase">
+            Alstro compliance runtime
+          </span>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="flex flex-wrap justify-center gap-2">
           {["Policy engine", "Audit ledger", "Explainability", "HITL escalation"].map(
             (label) => (
-              <div
+              <span
                 key={label}
-                className="bg-bg-3 border border-border rounded-lg px-4 py-3 text-center text-sm text-text-2"
+                className="text-xs text-text-2 border border-border rounded-full px-3 py-1.5"
               >
                 {label}
-              </div>
+              </span>
             )
           )}
         </div>
       </motion.div>
 
-      {/* Connector */}
+      {/* Connector SVG */}
       <motion.div
-        initial={prefersReducedMotion ? {} : { scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, ease: "easeOut", delay: 0.5 }}
+        transition={{ duration: 0.4, ease: "easeOut" as const, delay: 0.35 }}
         className="flex justify-center"
-        style={{ transformOrigin: "top" }}
       >
-        <div className="w-px h-10 border-l-2 border-dashed border-border-2" />
+        <svg
+          width="2"
+          height="40"
+          viewBox="0 0 2 40"
+          className="text-border-2"
+        >
+          <line
+            x1="1"
+            y1="0"
+            x2="1"
+            y2="40"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeDasharray="4 4"
+          />
+        </svg>
       </motion.div>
 
       {/* Bottom box */}
       <motion.div
-        initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+        initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
-        className="bg-bg-2 border border-border rounded-xl p-6 text-center"
+        transition={{ duration: 0.4, ease: "easeOut" as const, delay: 0.4 }}
+        className="bg-bg-3 border border-border rounded-lg p-5 text-center"
       >
         <div className="text-sm text-text-2 mb-1">Your downstream systems</div>
-        <div className="text-xs text-text-3 font-mono">
-          LOS · Decision engine · Adverse action flow
+        <div className="text-xs font-mono text-text-3">
+          LOS · Decision engine · AAN workflow
         </div>
       </motion.div>
     </div>
@@ -101,42 +131,53 @@ function StackDiagram() {
 export default function HowItWorks() {
   const prefersReducedMotion = useReducedMotion();
 
+  const fadeUp = {
+    initial: prefersReducedMotion ? {} : { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true } as const,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  };
+
   return (
     <section id="how-it-works" className="py-24 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6">
-        <motion.div
-          initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+      <div className="mx-auto max-w-[1100px] px-6">
+        <motion.p
+          {...fadeUp}
+          className="text-[11px] font-mono text-text-3 uppercase tracking-widest mb-4"
         >
-          <h2 className="font-heading text-3xl lg:text-5xl text-text-1 mb-4">
-            Alstro sits between your models and your systems.
-          </h2>
-          <p className="text-lg text-text-2 max-w-2xl mx-auto">
-            It doesn&apos;t replace what you have. It governs what it does.
-          </p>
-        </motion.div>
+          The product
+        </motion.p>
+
+        <motion.h2
+          {...fadeUp}
+          className="font-heading text-[36px] text-text-1 leading-tight max-w-[560px] mb-4"
+        >
+          Alstro governs underwriting execution. Not prediction.
+        </motion.h2>
+
+        <motion.p {...fadeUp} className="text-[17px] text-text-2 max-w-[520px]">
+          It doesn&apos;t replace your model. It enforces compliance on every
+          decision your model produces.
+        </motion.p>
 
         <StackDiagram />
 
         {/* Steps */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.4,
-                ease: "easeOut",
-                delay: prefersReducedMotion ? 0 : i * 0.08,
+                ease: "easeOut" as const,
+                delay: prefersReducedMotion ? 0 : i * 0.06,
               }}
-              className="bg-bg-2 border border-border rounded-xl p-4 text-center"
+              className="text-center"
             >
-              <div className="text-xs font-mono text-accent mb-2">
+              <div className="w-8 h-8 rounded-full bg-accent text-white text-xs flex items-center justify-center mx-auto mb-2.5 font-mono">
                 {step.num}
               </div>
               <div className="text-sm font-medium text-text-1 mb-1">
