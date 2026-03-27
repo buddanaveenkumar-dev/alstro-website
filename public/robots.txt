@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alstro.ai/sitemap.xml

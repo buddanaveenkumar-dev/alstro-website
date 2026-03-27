@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alstro AI — Marketing Website
+
+Production marketing website for Alstro AI — compliance infrastructure for credit decisions.
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4**
+- **Framer Motion** (animations)
+- **Lucide React** (icons)
+- **React Hook Form** (contact form)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `.env.example` for required variables:
 
-## Learn More
+- `RESEND_API_KEY` — For form submission emails via Resend
+- `FORMSPREE_ENDPOINT` — Fallback form handler
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Or connect your GitHub repo at [vercel.com](https://vercel.com).
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+├── layout.tsx          # Root layout, fonts, metadata
+├── page.tsx            # Home page (all sections)
+└── globals.css         # CSS variables, base styles
+components/
+├── Nav.tsx             # Fixed nav with scroll spy
+├── Hero.tsx            # Hero + live audit terminal
+├── LogoBar.tsx         # Trust/logo bar
+├── Problem.tsx         # Problem statement + regulatory citation
+├── HowItWorks.tsx      # Stack diagram + 6-step process
+├── Agents.tsx          # 4 AI agent cards
+├── BeforeAfter.tsx     # Adverse action notice comparison
+├── ComparisonTable.tsx # Competitive landscape table
+├── ROI.tsx             # Business case metrics
+├── Investors.tsx       # Investor section + founder bio
+├── Contact.tsx         # Dual CTA form (lenders + investors)
+└── Footer.tsx          # Site footer
+```
