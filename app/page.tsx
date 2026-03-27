@@ -1,12 +1,16 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
-import HowItWorks from "@/components/HowItWorks";
-import Agents from "@/components/Agents";
-import BeforeAfter from "@/components/BeforeAfter";
-import ForLenders from "@/components/ForLenders";
-import EarlyAccess from "@/components/EarlyAccess";
-import Investors from "@/components/Investors";
+import WhyNow from "@/components/WhyNow";
+import ExecutionGap from "@/components/ExecutionGap";
+import DecisionFlow from "@/components/DecisionFlow";
+import RuntimeArchitecture from "@/components/RuntimeArchitecture";
+import Applications from "@/components/Applications";
+import PlatformAlignment from "@/components/PlatformAlignment";
+import AlphaProgram from "@/components/AlphaProgram";
+import Deployment from "@/components/Deployment";
+import ICP from "@/components/ICP";
+import Founder from "@/components/Founder";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,13 +19,17 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Problem />
-        <HowItWorks />
-        <Agents />
-        <BeforeAfter />
-        <ForLenders />
-        <EarlyAccess />
-        <Investors />
+        <WhyNow />
+        <ExecutionGap />
+        <DecisionFlow />
+        <RuntimeArchitecture />
+        <Applications />
+        <PlatformAlignment />
+        <AlphaProgram />
+        <Deployment />
+        <ICP />
+        <Founder />
+        <CTA />
       </main>
       <Footer />
     </>

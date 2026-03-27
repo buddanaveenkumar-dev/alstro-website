@@ -22,28 +22,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alstro AI — Compliance Infrastructure for Underwriting Decisions",
+  title: "Alstro AI — Compliance Infrastructure for Credit Decisions",
   description:
-    "Model-agnostic AI agents that make every underwriting decision ECOA-compliant, fair lending-tested, and SR 11-7 documented. For fintech lenders, community banks, and BaaS platforms.",
+    "Model-agnostic runtime that makes every credit decision compliant, explainable, and audit-ready. Designed for fintech lenders, banks, and BaaS platforms.",
   keywords: [
-    "underwriting compliance AI",
-    "adverse action AI",
+    "credit compliance AI",
+    "adverse action automation",
     "ECOA compliance",
     "fair lending monitoring",
     "SR 11-7 automation",
-    "fintech compliance",
+    "model risk management",
   ],
   openGraph: {
-    title: "Alstro AI — Compliance Infrastructure for Underwriting Decisions",
+    title: "Alstro AI — Compliance Infrastructure for Credit Decisions",
     description:
-      "AI agents for underwriting decision compliance. ECOA · FCRA · SR 11-7. Model-agnostic.",
+      "Model-agnostic compliance runtime for credit decisions. ECOA · FCRA · SR 11-7.",
     type: "website",
     url: "https://alstro.ai",
   },
   twitter: {
     card: "summary_large_image",
     title: "Alstro AI",
-    description: "Compliance infrastructure for underwriting decisions.",
+    description: "Compliance infrastructure for credit decisions.",
   },
 };
 
