@@ -46,19 +46,15 @@ export default function WhyNow() {
           </p>
         </motion.div>
 
-        {/* CFPB Callout */}
-        <motion.div
-          {...fadeUp}
-          className="max-w-[640px] bg-accent-light border-l-[3px] border-l-accent rounded-r-lg p-6"
-        >
-          <p className="text-[11px] font-mono text-accent uppercase tracking-widest mb-3">
-            CFPB Circular 2023-03 · August 2023
-          </p>
-          <p className="font-heading text-[17px] text-text leading-relaxed italic">
-            Generic adverse action reason codes violate ECOA when an AI model
-            made the decision. The notice must reflect the model&apos;s actual
-            decision factors.
-          </p>
+        <motion.div {...fadeUp} className="flex flex-wrap gap-2 max-w-[640px]">
+          {["CFPB 2023-03", "ECOA", "FCRA", "Fed SR 11-7", "OCC 2011-12"].map((reg) => (
+            <span
+              key={reg}
+              className="text-[11px] font-mono text-text-muted border border-border rounded-full px-3 py-1"
+            >
+              {reg}
+            </span>
+          ))}
         </motion.div>
       </div>
     </section>
