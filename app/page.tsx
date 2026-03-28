@@ -9,7 +9,7 @@ import RegulatoryArchitecture from "@/components/RegulatoryArchitecture";
 import Applications from "@/components/Applications";
 import PlatformAlignment from "@/components/PlatformAlignment";
 import ICP from "@/components/ICP";
-import Deployment from "@/components/Deployment";
+import Founder from "@/components/Founder";
 import AlphaProgram from "@/components/AlphaProgram";
 import Footer from "@/components/Footer";
 
@@ -28,7 +28,7 @@ export default function Home() {
         <Applications />
         <PlatformAlignment />
         <ICP />
-        <Deployment />
+        <Founder />
         <AlphaProgram />
       </main>
       <Footer />

@@ -5,18 +5,11 @@ import { useForm } from "react-hook-form";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-const validating = [
-  "Shadow-mode decision processing",
-  "Adverse action workflow generation",
-  "Fair lending monitoring outputs",
-  "Governance documentation quality",
-];
-
-const reasons = [
-  { title: "Evaluate before procurement", desc: "See Alstro on your data before any commitment. No contract required." },
-  { title: "Test in shadow mode", desc: "Run parallel to your existing workflow. No production impact." },
-  { title: "Shape the system design", desc: "Design partners influence the product roadmap directly." },
-  { title: "Early access advantage", desc: "First institutions to validate compliance infrastructure for AI underwriting decisions." },
+const tiles = [
+  { title: "See results on your data", desc: "Not a generic demo. Your actual decisions, your models, your compliance workflow." },
+  { title: "Zero production impact", desc: "Shadow mode runs parallel to your existing workflow. Nothing changes until you decide." },
+  { title: "Shape the product", desc: "Validation partners influence the roadmap directly. Your use cases become the product." },
+  { title: "No contract required", desc: "Evaluate the output completely before any procurement decision." },
 ];
 
 interface FormData {
@@ -28,7 +21,7 @@ interface FormData {
   challenge: string;
 }
 
-export default function AlphaProgram() {
+export default function DemoForm() {
   const reduced = useReducedMotion();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -56,6 +49,13 @@ export default function AlphaProgram() {
   const input = "w-full bg-bg border border-border rounded-md px-3.5 py-2.5 text-[14px] text-text placeholder:text-text-muted focus:outline-none focus:border-text transition-colors";
   const select = "w-full bg-bg border border-border rounded-md px-3.5 py-2.5 text-[14px] text-text focus:outline-none focus:border-text transition-colors appearance-none";
 
+  const fadeUp = {
+    initial: reduced ? {} : { opacity: 0, y: 12 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true } as const,
+    transition: { duration: 0.4, ease: "easeOut" as const },
+  };
+
   return (
     <section id="validate" className="py-20 border-t border-border">
       <div className="section-container">
@@ -63,81 +63,43 @@ export default function AlphaProgram() {
           {/* Left — info */}
           <div>
             <motion.p
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
+              {...fadeUp}
               className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-3"
             >
-              Beta program
+              Validation
             </motion.p>
             <motion.h2
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
-              className="font-heading text-[32px] lg:text-[36px] text-text leading-tight mb-5"
+              {...fadeUp}
+              className="font-heading text-[36px] lg:text-[40px] text-text leading-tight mb-5"
             >
-              Validate Alstro with your data
+              See Alstro on your data.
             </motion.h2>
-            <motion.p
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
-              className="text-[15px] text-text-secondary leading-relaxed mb-3"
-            >
-              Alstro is in beta. We are working with a small number of lenders
-              to validate the system on real underwriting data.
-            </motion.p>
-            <motion.p
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
-              className="text-[15px] text-text-secondary leading-relaxed mb-8"
-            >
-              Working with select lenders to validate:
-            </motion.p>
+            <motion.div {...fadeUp} className="space-y-4 mb-12">
+              <p className="text-[16px] text-text-secondary leading-relaxed">
+                We are running validation with a limited number of lenders. The
+                process: we run your actual underwriting decisions through Alstro
+                in shadow mode — parallel to your existing workflow, no
+                production impact. You see exactly what Alstro produces. No
+                commitment required.
+              </p>
+              <p className="text-[16px] text-text-secondary leading-relaxed">
+                If compliant underwriting decision execution is a priority for
+                your institution, request a demo.
+              </p>
+            </motion.div>
 
-            <motion.ul
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
-              className="space-y-3 mb-12"
-            >
-              {validating.map((v) => (
-                <li key={v} className="flex items-center gap-2.5 text-[14px] text-text-secondary">
-                  <span className="w-1 h-1 rounded-full bg-accent shrink-0" />
-                  {v}
-                </li>
+            <motion.div {...fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {tiles.map((t) => (
+                <div key={t.title}>
+                  <h4 className="text-[14px] font-medium text-text mb-1">
+                    {t.title}
+                  </h4>
+                  <p className="text-[13px] text-text-muted leading-relaxed">
+                    {t.desc}
+                  </p>
+                </div>
               ))}
-            </motion.ul>
-
-            <motion.p
-              initial={reduced ? {} : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" as const }}
-              className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-5"
-            >
-              Why participate
-            </motion.p>
-            <div className="space-y-4">
-              {reasons.map((r, i) => (
-                <motion.div
-                  key={r.title}
-                  initial={reduced ? {} : { opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.04 }}
-                >
-                  <h4 className="text-[14px] font-medium text-text mb-0.5">{r.title}</h4>
-                  <p className="text-[13px] text-text-muted">{r.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Right — form */}
@@ -149,20 +111,21 @@ export default function AlphaProgram() {
             className="lg:pt-12"
           >
             <div className="bg-bg-raised border border-border rounded-xl p-7">
-              <p className="text-[15px] font-medium text-text mb-1">Request a demo</p>
+              <p className="text-[15px] font-medium text-text mb-1">
+                Request a demo
+              </p>
               <p className="text-[13px] text-text-muted mb-6">
-                Run your actual decision data through Alstro in shadow mode. Validate the output. Shape the product.
+                Run your actual underwriting decisions through Alstro in shadow
+                mode. Validate the output. Shape the product.
               </p>
 
               {submitted ? (
-                <div className="py-10 text-center">
-                  <p className="text-[16px] font-heading text-text mb-2">
-                    Application received.
-                  </p>
-                  <p className="text-[14px] text-text-secondary">
+                <div className="text-center py-12">
+                  <p className="text-base text-text mb-2">Request received.</p>
+                  <p className="text-sm text-text-secondary">
                     Naveen will be in touch within one business day.
                   </p>
-                  <p className="text-[13px] text-text-muted mt-1">
+                  <p className="font-mono text-xs text-text-muted mt-4">
                     — Naveen Budda, Founder
                   </p>
                 </div>
@@ -185,7 +148,6 @@ export default function AlphaProgram() {
                       <option value="Model Risk">Model Risk / Fair Lending</option>
                       <option value="BSA Officer">BSA Officer</option>
                       <option value="Platform Partner">Platform Partner / BD</option>
-                      <option value="Investor">Investor</option>
                       <option value="Other">Other</option>
                     </select>
                     {errors.role && <p className="text-[12px] text-red mt-1">Required</p>}
@@ -203,8 +165,8 @@ export default function AlphaProgram() {
                     <select {...register("volume", { required: true })} className={select} defaultValue="">
                       <option value="" disabled>Monthly underwriting decisions</option>
                       <option value="<1K">Under 1,000</option>
-                      <option value="1K-10K">1,000–10,000</option>
-                      <option value="10K-50K">10,000–50,000</option>
+                      <option value="1K-10K">1,000 – 10,000</option>
+                      <option value="10K-50K">10,000 – 50,000</option>
                       <option value="50K+">Over 50,000</option>
                     </select>
                     {errors.volume && <p className="text-[12px] text-red mt-1">Required</p>}
@@ -221,13 +183,19 @@ e.g. adverse action methodology for ML models, fair lending monitoring frequency
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full bg-text text-bg hover:bg-text/90 disabled:opacity-50 px-5 py-2.5 rounded-md text-[14px] font-medium transition-colors flex items-center justify-center gap-2 mt-2"
+                    className="w-full bg-text text-bg hover:bg-text/90 disabled:opacity-50 px-5 py-3 rounded-md text-[15px] font-medium transition-colors flex items-center justify-center gap-2 mt-2"
                   >
                     {submitting ? "Submitting..." : (<>Request a demo <ArrowRight size={15} /></>)}
                   </button>
                 </form>
               )}
 
+              {!submitted && (
+                <p className="text-[12px] text-text-muted mt-4 text-center">
+                  We are validating with a limited number of lenders. No SDRs.
+                  You will hear directly from Naveen.
+                </p>
+              )}
             </div>
           </motion.div>
         </div>

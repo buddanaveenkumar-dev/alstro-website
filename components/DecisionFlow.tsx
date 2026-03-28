@@ -7,7 +7,7 @@ const steps = [
   {
     num: "01",
     title: "Ingest model output",
-    desc: "Credit decision and model output received — score, features, outcome, and context.",
+    desc: "Underwriting decision and model output received — score, features, outcome, and context.",
     detail: "GBM-v4.2 · score: 0.38 · outcome: deny",
     status: "received",
   },

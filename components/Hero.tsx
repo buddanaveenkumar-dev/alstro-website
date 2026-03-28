@@ -147,30 +147,24 @@ export default function Hero() {
         <div className="max-w-[720px]">
           <motion.h1
             {...fade(0)}
-            className="font-heading text-[42px] lg:text-[56px] text-text leading-[1.08] mb-5"
+            className="font-heading text-[40px] lg:text-[56px] text-text leading-[1.1] mb-6"
           >
-            Compliance infrastructure
+            AI agents that make every
             <br />
-            for underwriting decisions
+            underwriting decision compliant.
           </motion.h1>
 
           <motion.p
-            {...fade(0.12)}
-            className="text-[17px] text-text-secondary leading-relaxed max-w-[580px] mb-4"
+            {...fade(0.08)}
+            className="text-[16px] text-text-secondary leading-[1.7] max-w-[580px] mb-8"
           >
-            Model-agnostic runtime that enforces compliance on every
-            underwriting decision — at the point it&apos;s made.
+            Every underwriting decision triggers a compliance obligation.
+            Adverse action notices. Fair lending checks. Model governance.
+            Alstro automates that workflow at the point of every decision —
+            for any lender, on any model, without replacing what you run.
           </motion.p>
 
-          <motion.p
-            {...fade(0.16)}
-            className="text-[15px] text-text-muted leading-relaxed max-w-[540px] mb-8"
-          >
-            Alstro sits between your underwriting stack and your execution
-            systems — integrating with the platforms lenders already rely on.
-          </motion.p>
-
-          <motion.div {...fade(0.2)} className="flex flex-wrap items-center gap-3 mb-5">
+          <motion.div {...fade(0.16)} className="flex flex-wrap items-center gap-3 mb-4">
             <a
               href="#validate"
               className="inline-flex items-center gap-2 bg-text text-bg hover:bg-text/90 px-5 py-2.5 rounded-md text-[14px] font-medium transition-colors"
@@ -185,6 +179,10 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          <motion.p {...fade(0.2)} className="text-[12px] text-text-muted">
+            Model-agnostic · Works with FICO, ML scorecards, Zest, and internal
+            rules · No model replacement required
+          </motion.p>
         </div>
 
         {/* ── Architecture diagram ── */}
