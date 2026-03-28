@@ -185,9 +185,6 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.p {...fade(0.24)} className="text-[12px] text-text-muted font-mono">
-            Working with select lenders and design partners in beta.
-          </motion.p>
         </div>
 
         {/* ── Architecture diagram ── */}

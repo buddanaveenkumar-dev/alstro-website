@@ -16,7 +16,6 @@ export default function Footer() {
             <a href="#runtime" className="text-text-muted hover:text-text transition-colors">Architecture</a>
             <a href="#partners" className="text-text-muted hover:text-text transition-colors">Platforms</a>
             <a href="#validate" className="text-text-muted hover:text-text transition-colors">Validate</a>
-            <a href="#investors" className="text-text-muted hover:text-text transition-colors">Investors</a>
           </div>
         </div>
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-text-muted">

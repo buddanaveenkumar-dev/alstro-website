@@ -9,7 +9,6 @@ const links = [
   { label: "Architecture", href: "#runtime" },
   { label: "Global", href: "#regulatory-architecture" },
   { label: "Validate", href: "#validate" },
-  { label: "Investors", href: "#investors" },
 ];
 
 export default function Nav() {

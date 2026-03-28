@@ -228,12 +228,6 @@ e.g. adverse action methodology for ML models, fair lending monitoring frequency
                 </form>
               )}
 
-              {!submitted && (
-                <p className="text-[12px] text-text-muted mt-4">
-                  Beta program — limited spots. No SDRs. You&apos;ll hear
-                  directly from Naveen within one business day.
-                </p>
-              )}
             </div>
           </motion.div>
         </div>
