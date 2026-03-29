@@ -13,15 +13,14 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[13px] text-text-muted">
-              Compliance infrastructure for underwriting decisions.
+              Execution infrastructure for regulated AI in financial services.
             </p>
           </div>
           <div className="flex flex-wrap gap-6 text-[13px]">
-            <a href="#decision-flow" className="text-text-muted hover:text-text transition-colors">Product</a>
+            <a href="#what-we-build" className="text-text-muted hover:text-text transition-colors">Product</a>
             <a href="#runtime" className="text-text-muted hover:text-text transition-colors">Architecture</a>
-            <a href="#regulatory-architecture" className="text-text-muted hover:text-text transition-colors">Global</a>
-            <a href="#partners" className="text-text-muted hover:text-text transition-colors">Partners</a>
-            <a href="#validate" className="text-text-muted hover:text-text transition-colors">Validate</a>
+            <a href="#partners" className="text-text-muted hover:text-text transition-colors">Platforms</a>
+            <a href="#validate" className="text-text-muted hover:text-text transition-colors">Connect</a>
           </div>
         </div>
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-text-muted">

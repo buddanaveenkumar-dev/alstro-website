@@ -5,11 +5,22 @@ import { useForm } from "react-hook-form";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-const tiles = [
-  { title: "See results on your data", desc: "Not a generic demo. Your actual decisions, your models, your compliance workflow." },
-  { title: "Zero production impact", desc: "Shadow mode runs parallel to your existing workflow. Nothing changes until you decide." },
-  { title: "Shape the product", desc: "Validation partners influence the roadmap directly. Your use cases become the product." },
-  { title: "No contract required", desc: "Evaluate the output completely before any procurement decision." },
+const paths = [
+  {
+    label: "For platforms",
+    title: "Exploring regulated AI in financial services",
+    desc: "Discuss how Alstro fits as execution infrastructure within your FSI platform strategy.",
+  },
+  {
+    label: "For lenders",
+    title: "Modernizing underwriting infrastructure",
+    desc: "See Alstro on your actual decision data — shadow mode, no production impact, no commitment.",
+  },
+  {
+    label: "For strategic partnerships",
+    title: "Early collaboration and integration",
+    desc: "Help shape the execution layer for regulated AI deployment.",
+  },
 ];
 
 interface FormData {
@@ -17,11 +28,10 @@ interface FormData {
   company: string;
   role: string;
   email: string;
-  volume: string;
-  challenge: string;
+  context: string;
 }
 
-export default function DemoForm() {
+export default function CTA() {
   const reduced = useReducedMotion();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -57,49 +67,49 @@ export default function DemoForm() {
   };
 
   return (
-    <section id="validate" className="py-20 border-t border-border">
+    <section id="validate" className="py-20 border-t border-border section-alt">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
-          {/* Left — info */}
+          {/* Left — why reach out */}
           <div>
             <motion.p
               {...fadeUp}
               className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-3"
             >
-              Validation
+              Get in touch
             </motion.p>
             <motion.h2
               {...fadeUp}
-              className="font-heading text-[36px] lg:text-[40px] text-text leading-tight mb-5"
+              className="font-heading text-[36px] lg:text-[40px] text-text leading-tight mb-8"
             >
-              See Alstro on your data.
+              Explore how Alstro fits your stack.
             </motion.h2>
-            <motion.div {...fadeUp} className="space-y-4 mb-12">
-              <p className="text-[16px] text-text-secondary leading-relaxed">
-                We are running validation with a limited number of lenders. The
-                process: we run your actual underwriting decisions through Alstro
-                in shadow mode — parallel to your existing workflow, no
-                production impact. You see exactly what Alstro produces. No
-                commitment required.
-              </p>
-              <p className="text-[16px] text-text-secondary leading-relaxed">
-                If compliant underwriting decision execution is a priority for
-                your institution, request a demo.
-              </p>
-            </motion.div>
 
-            <motion.div {...fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {tiles.map((t) => (
-                <div key={t.title}>
-                  <h4 className="text-[14px] font-medium text-text mb-1">
-                    {t.title}
+            <div className="space-y-6">
+              {paths.map((p, i) => (
+                <motion.div
+                  key={p.label}
+                  initial={reduced ? {} : { opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut" as const,
+                    delay: reduced ? 0 : i * 0.05,
+                  }}
+                >
+                  <p className="text-[10px] font-mono text-text-muted uppercase tracking-widest mb-1">
+                    {p.label}
+                  </p>
+                  <h4 className="text-[15px] font-medium text-text mb-1">
+                    {p.title}
                   </h4>
                   <p className="text-[13px] text-text-muted leading-relaxed">
-                    {t.desc}
+                    {p.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Right — form */}
@@ -108,15 +118,14 @@ export default function DemoForm() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: "easeOut" as const, delay: 0.1 }}
-            className="lg:pt-12"
+            className="lg:pt-10"
           >
             <div className="bg-bg-raised border border-border rounded-xl p-7">
               <p className="text-[15px] font-medium text-text mb-1">
-                Request a demo
+                Request a conversation
               </p>
               <p className="text-[13px] text-text-muted mb-6">
-                Run your actual underwriting decisions through Alstro in shadow
-                mode. Validate the output. Shape the product.
+                Architecture discussion, platform fit, or early collaboration.
               </p>
 
               {submitted ? (
@@ -142,12 +151,12 @@ export default function DemoForm() {
                   <div>
                     <select {...register("role", { required: true })} className={select} defaultValue="">
                       <option value="" disabled>Your role</option>
-                      <option value="CRO">Chief Risk Officer</option>
-                      <option value="CCO">Chief Compliance Officer</option>
+                      <option value="Platform / Partnerships">Platform / Partnerships</option>
+                      <option value="Corp Dev / Strategy">Corp Dev / Strategy</option>
+                      <option value="FSI Product / Solutions">FSI Product / Solutions</option>
+                      <option value="CRO / CCO">Chief Risk / Compliance Officer</option>
                       <option value="Head of Credit">Head of Credit / Underwriting</option>
                       <option value="Model Risk">Model Risk / Fair Lending</option>
-                      <option value="BSA Officer">BSA Officer</option>
-                      <option value="Platform Partner">Platform Partner / BD</option>
                       <option value="Other">Other</option>
                     </select>
                     {errors.role && <p className="text-[12px] text-red mt-1">Required</p>}
@@ -162,20 +171,9 @@ export default function DemoForm() {
                     {errors.email && <p className="text-[12px] text-red mt-1">Valid email required</p>}
                   </div>
                   <div>
-                    <select {...register("volume", { required: true })} className={select} defaultValue="">
-                      <option value="" disabled>Monthly underwriting decisions</option>
-                      <option value="<1K">Under 1,000</option>
-                      <option value="1K-10K">1,000 – 10,000</option>
-                      <option value="10K-50K">10,000 – 50,000</option>
-                      <option value="50K+">Over 50,000</option>
-                    </select>
-                    {errors.volume && <p className="text-[12px] text-red mt-1">Required</p>}
-                  </div>
-                  <div>
                     <textarea
-                      {...register("challenge")}
-                      placeholder="What is your most pressing compliance challenge? (optional)
-e.g. adverse action methodology for ML models, fair lending monitoring frequency, SR 11-7 backlog..."
+                      {...register("context")}
+                      placeholder="What are you exploring? (optional)"
                       rows={3}
                       className={input}
                     />
@@ -185,16 +183,9 @@ e.g. adverse action methodology for ML models, fair lending monitoring frequency
                     disabled={submitting}
                     className="w-full bg-text text-bg hover:bg-text/90 disabled:opacity-50 px-5 py-3 rounded-md text-[15px] font-medium transition-colors flex items-center justify-center gap-2 mt-2"
                   >
-                    {submitting ? "Submitting..." : (<>Request a demo <ArrowRight size={15} /></>)}
+                    {submitting ? "Submitting..." : (<>Request a conversation <ArrowRight size={15} /></>)}
                   </button>
                 </form>
-              )}
-
-              {!submitted && (
-                <p className="text-[12px] text-text-muted mt-4 text-center">
-                  We are validating with a limited number of lenders. No SDRs.
-                  You will hear directly from Naveen.
-                </p>
               )}
             </div>
           </motion.div>

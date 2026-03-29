@@ -22,9 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alstro AI — Compliance Infrastructure for Underwriting Decisions",
+  title: "Alstro AI — Execution Infrastructure for Regulated AI in Financial Services",
   description:
-    "Model-agnostic runtime that enforces compliance on every underwriting decision — adverse action notices, fair lending checks, and SR 11-7 governance. For fintech lenders, banks, and BaaS platforms.",
+    "The missing execution layer that makes AI-driven financial decisions deployable in regulated environments. Explainability, audit trails, and compliance enforcement for platforms and lenders.",
   keywords: [
     "underwriting compliance AI",
     "adverse action automation",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://alstro.ai"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Alstro AI — Compliance Infrastructure for Underwriting Decisions",
+    title: "Alstro AI — Execution Infrastructure for Regulated AI in Financial Services",
     description:
-      "Model-agnostic compliance runtime for underwriting decisions. ECOA · FCRA · SR 11-7.",
+      "The execution layer that makes AI-driven financial decisions deployable in regulated environments.",
     type: "website",
     url: "https://alstro.ai",
     siteName: "Alstro AI",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alstro AI",
-    description: "Compliance infrastructure for underwriting decisions.",
+    description: "Execution infrastructure for regulated AI in financial services.",
   },
   robots: { index: true, follow: true },
 };
@@ -60,7 +60,7 @@ const jsonLd = {
   name: "Alstro AI",
   applicationCategory: "BusinessApplication",
   description:
-    "Model-agnostic compliance runtime that enforces ECOA, FCRA, and SR 11-7 compliance on every underwriting decision.",
+    "Execution infrastructure that makes AI-driven financial decisions deployable in regulated environments.",
   url: "https://alstro.ai",
   operatingSystem: "Cloud",
   offers: {

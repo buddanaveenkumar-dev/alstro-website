@@ -56,7 +56,6 @@ function AuditFeed() {
     }
     indexRef.current = 6;
     setEvents(initial.reverse());
-
     if (reduced) return;
     const interval = setInterval(addEvent, 2400);
     return () => clearInterval(interval);
@@ -67,16 +66,15 @@ function AuditFeed() {
   return (
     <div className="border border-border-strong rounded-xl bg-bg-muted overflow-hidden">
       <div className="flex items-center gap-2 px-5 py-2.5 border-b border-border text-[11px] font-mono text-text-muted">
-        <span>Alstro runtime</span>
+        <span>Alstro execution layer</span>
         <span>·</span>
-        <span>underwriting compliance</span>
+        <span>regulated workflow</span>
         <span>·</span>
         <span className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-green pulse-live" />
           live
         </span>
       </div>
-
       <div className="px-5 py-3 min-h-[220px] sm:min-h-[252px]">
         <AnimatePresence initial={false}>
           {events.map((event) => (
@@ -91,40 +89,21 @@ function AuditFeed() {
               <span className={event.status === "pass" ? "text-green" : "text-amber"}>
                 {event.status === "pass" ? "✓" : "⚠"}
               </span>
-              <span className="font-mono text-text-muted shrink-0 w-[120px] hidden sm:block">
-                {event.id}
-              </span>
+              <span className="font-mono text-text-muted shrink-0 w-[120px] hidden sm:block">{event.id}</span>
               <span className="text-text-secondary truncate flex-1">{event.text}</span>
-              <span className="font-mono text-text-muted shrink-0 w-[42px] text-right">
-                {event.time}
-              </span>
-              <span className="text-text-muted shrink-0 w-[56px] text-right text-[12px] hidden sm:block">
-                {event.ago}
-              </span>
+              <span className="font-mono text-text-muted shrink-0 w-[42px] text-right">{event.time}</span>
+              <span className="text-text-muted shrink-0 w-[56px] text-right text-[12px] hidden sm:block">{event.ago}</span>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
-
       <div className="flex items-center justify-between px-5 py-2 border-t border-border text-[11px] font-mono text-text-muted">
-        <span>{events.length} events · 0 violations · {warnCount} escalation{warnCount !== 1 ? "s" : ""}</span>
+        <span>{events.length} decisions processed · 0 violations · {warnCount} escalation{warnCount !== 1 ? "s" : ""}</span>
         <span>ECOA · FCRA · SR 11-7</span>
       </div>
     </div>
   );
 }
-
-/* ── Regulation pills ──────────────────────────────────── */
-
-const regulations = ["ECOA", "FCRA", "Reg B", "SR 11-7", "CFPB 2023-03"];
-
-/* ── Stats ─────────────────────────────────────────────── */
-
-const stats = [
-  { value: "<400ms", label: "adverse action", sub: "notice latency" },
-  { value: "40 hrs → 2 hrs", label: "SR 11-7 doc time", sub: "per model change" },
-  { value: "Continuous", label: "fair lending", sub: "monitoring" },
-];
 
 /* ── Hero ──────────────────────────────────────────────── */
 
@@ -143,107 +122,57 @@ export default function Hero() {
   return (
     <section className="pt-24 pb-16 lg:pt-32 lg:pb-24">
       <div className="section-container">
-        {/* ── Text block ── */}
         <div className="max-w-[720px]">
-          <motion.h1
+          <motion.p
             {...fade(0)}
+            className="text-[12px] font-mono text-accent tracking-wide mb-5"
+          >
+            Execution infrastructure for regulated AI
+          </motion.p>
+
+          <motion.h1
+            {...fade(0.06)}
             className="font-heading text-[40px] lg:text-[56px] text-text leading-[1.1] mb-6"
           >
-            AI agents that make every
+            AI is ready for financial services.
             <br />
-            underwriting decision compliant.
+            Deployment is not.
           </motion.h1>
 
           <motion.p
-            {...fade(0.08)}
-            className="text-[16px] text-text-secondary leading-[1.7] max-w-[580px] mb-8"
+            {...fade(0.12)}
+            className="text-[17px] text-text-secondary leading-[1.7] max-w-[600px] mb-8"
           >
-            Every underwriting decision triggers a compliance obligation.
-            Adverse action notices. Fair lending checks. Model governance.
-            Alstro automates that workflow at the point of every decision —
-            for any lender, on any model, without replacing what you run.
+            Every AI-driven financial decision requires explainability, audit
+            trails, and regulatory defensibility before it can reach production.
+            Alstro is the execution layer that makes that possible — for
+            platforms, lenders, and every model in between.
           </motion.p>
 
-          <motion.div {...fade(0.16)} className="flex flex-wrap items-center gap-3 mb-4">
+          <motion.div {...fade(0.18)} className="flex flex-wrap items-center gap-3 mb-5">
             <a
               href="#validate"
               className="inline-flex items-center gap-2 bg-text text-bg hover:bg-text/90 px-5 py-2.5 rounded-md text-[14px] font-medium transition-colors"
             >
-              Request a demo <ArrowRight size={15} />
+              Discuss platform fit <ArrowRight size={15} />
             </a>
             <a
-              href="#decision-flow"
+              href="#what-we-build"
               className="inline-flex items-center gap-2 text-[14px] text-text-secondary hover:text-text border border-border hover:border-border-strong px-5 py-2.5 rounded-md transition-colors"
             >
-              See how it works <ArrowDown size={15} />
+              Explore architecture <ArrowDown size={15} />
             </a>
           </motion.div>
 
-          <motion.p {...fade(0.2)} className="text-[12px] text-text-muted">
-            Model-agnostic · Works with FICO, ML scorecards, Zest, and internal
-            rules · No model replacement required
+          <motion.p {...fade(0.22)} className="text-[12px] text-text-muted">
+            Model-agnostic · Works with any AI/ML platform · No model
+            replacement required
           </motion.p>
         </div>
 
-        {/* ── Architecture diagram ── */}
-        <motion.div {...fade(0.3)} className="mt-14 lg:mt-18 max-w-[640px]">
-          <div className="space-y-0">
-            <div className="bg-bg-muted border border-border rounded-lg px-5 py-4">
-              <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-1.5">Your models</p>
-              <p className="text-[13px] text-text-secondary">Credit scorecards · ML models · Rules engines · FICO</p>
-            </div>
-            <div className="flex items-center py-2 pl-8"><div className="w-px h-6 bg-border-strong" /></div>
-            <div className="bg-bg-raised border-2 border-text rounded-lg px-5 py-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-[11px] font-mono text-text uppercase tracking-widest font-medium">Alstro Runtime</span>
-                <span className="text-[10px] font-mono text-accent bg-accent-light rounded px-1.5 py-[1px]">compliance layer</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["Policy checks", "Explainability", "Fair lending", "Audit logging", "HITL escalation"].map((l) => (
-                  <span key={l} className="text-[12px] text-text-secondary bg-bg-muted border border-border rounded px-2.5 py-1">{l}</span>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center py-2 pl-8"><div className="w-px h-6 bg-border-strong" /></div>
-            <div className="bg-bg-muted border border-border rounded-lg px-5 py-4">
-              <p className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-1.5">Your execution systems</p>
-              <p className="text-[13px] text-text-secondary">LOS · Decision engines · Adverse action workflows</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ── Audit feed ── */}
-        <motion.div {...fade(0.4)} className="mt-12 max-w-[860px]">
+        {/* Audit feed */}
+        <motion.div {...fade(0.3)} className="mt-14 max-w-[860px]">
           <AuditFeed />
-        </motion.div>
-
-        {/* ── Stat callouts ── */}
-        <motion.div
-          {...fade(0.5)}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center divide-y sm:divide-y-0 sm:divide-x divide-border"
-        >
-          {stats.map((s) => (
-            <div key={s.value} className="text-center px-10 py-4 sm:py-0">
-              <div className="text-[28px] font-heading text-text leading-tight">{s.value}</div>
-              <div className="text-[13px] text-text-muted">{s.label}</div>
-              <div className="text-[13px] text-text-muted">{s.sub}</div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* ── Regulation pills (FIX 8) ── */}
-        <motion.div
-          {...fade(0.55)}
-          className="mt-6 flex flex-wrap gap-2 justify-center"
-        >
-          {regulations.map((r) => (
-            <span
-              key={r}
-              className="border border-border-strong rounded-full px-3 py-1 text-xs font-mono text-text-muted"
-            >
-              {r}
-            </span>
-          ))}
         </motion.div>
       </div>
     </section>

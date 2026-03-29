@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function WhyNow() {
+export default function TheProblem() {
   const reduced = useReducedMotion();
 
   const fadeUp = {
@@ -13,36 +13,38 @@ export default function WhyNow() {
   };
 
   return (
-    <section className="pt-28 pb-20 border-t border-border">
+    <section className="pt-24 pb-20 border-t border-border">
       <div className="section-container">
         <motion.p
           {...fadeUp}
           className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-3"
         >
-          Why this matters now
+          The problem
         </motion.p>
         <motion.h2
           {...fadeUp}
-          className="font-heading text-[36px] lg:text-[40px] text-text leading-tight max-w-[560px] mb-10"
+          className="font-heading text-[36px] lg:text-[40px] text-text leading-tight max-w-[600px] mb-10"
         >
-          The compliance gap in underwriting AI is structural, not incidental.
+          AI platforms are moving into lending and underwriting. Deployment keeps
+          stalling.
         </motion.h2>
 
         <motion.div {...fadeUp} className="max-w-[640px] space-y-5 mb-10">
           <p className="text-[16px] text-text-secondary leading-relaxed">
-            Lenders have deployed AI in underwriting faster than the compliance
-            infrastructure required to run it safely. Models score applications.
-            Scorecards set thresholds. Alternative data expands access. None of
-            this is the problem.
+            AI and ML models are already making underwriting decisions —
+            scoring applications, setting thresholds, evaluating alternative
+            data. The model capability is not the bottleneck.
           </p>
           <p className="text-[16px] text-text-secondary leading-relaxed">
-            The problem is execution. CFPB Circular 2023-03 made it explicit:
-            when an AI model makes the denial, a generic reason code is not a
-            compliant adverse action notice. Fair lending tests happen quarterly
-            while models update monthly. SR 11-7 documentation requires 40–60
-            hours per model change that most compliance teams don&apos;t have.
-            Every lender running AI-assisted underwriting is carrying regulatory
-            exposure they can see but can&apos;t yet systematically close.
+            The bottleneck is execution. Regulated financial decisions require
+            defensible explanations, traceable audit records, fair lending
+            verification, and policy-aligned adverse action notices — before
+            they can reach production. Without this layer, AI adoption in
+            financial services slows to the speed of manual compliance review.
+          </p>
+          <p className="text-[16px] text-text-secondary leading-relaxed font-medium text-text">
+            This is not only a model problem. It is an execution architecture
+            problem.
           </p>
         </motion.div>
 
