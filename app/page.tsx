@@ -1,9 +1,13 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import BeforeAfter from "@/components/BeforeAfter";
-import DecisionFlow from "@/components/DecisionFlow";
-import Applications from "@/components/Applications";
-import DemoForm from "@/components/DemoForm";
+import StatsBar from "@/components/StatsBar";
+import Problem from "@/components/Problem";
+import Solution from "@/components/Solution";
+import ShadowValidation from "@/components/ShadowValidation";
+import ROI from "@/components/ROI";
+import Platforms from "@/components/Platforms";
+import TrustBar from "@/components/TrustBar";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,10 +16,14 @@ export default function Home() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <BeforeAfter />
-        <DecisionFlow />
-        <Applications />
-        <DemoForm />
+        <StatsBar />
+        <Problem />
+        <Solution />
+        <ShadowValidation />
+        <ROI />
+        <Platforms />
+        <TrustBar />
+        <CTA />
       </main>
       <Footer />
     </>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Serif, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -9,47 +9,46 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const geist = Geist({
-  variable: "--font-geist",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Alstro AI — Execution Infrastructure for Regulated AI in Financial Services",
+  title: "Alstro — Every AI lending decision, provable before it executes",
   description:
-    "The missing execution layer that makes AI-driven financial decisions deployable in regulated environments. Explainability, audit trails, and compliance enforcement for platforms and lenders.",
+    "Enforcement layer that makes every AI-driven lending decision provable, compliant, and reproducible. ECOA adverse action, FCRA dispute resolution, SR 11-7 governance. Model-agnostic. Shadow pilot available.",
   keywords: [
-    "underwriting compliance AI",
+    "AI lending compliance",
     "adverse action automation",
-    "ECOA compliance",
-    "fair lending monitoring",
+    "ECOA enforcement",
+    "FCRA dispute investigation",
     "SR 11-7 automation",
-    "model risk management",
+    "AI credit decision audit",
     "CFPB 2023-03",
-    "regtech",
-    "fintech compliance",
+    "lending compliance infrastructure",
   ],
   metadataBase: new URL("https://alstro.ai"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Alstro AI — Execution Infrastructure for Regulated AI in Financial Services",
-    description:
-      "The execution layer that makes AI-driven financial decisions deployable in regulated environments.",
+    title: "Alstro — Every AI lending decision, provable before it executes",
+    description: "Enforcement layer for AI-driven lending decisions. ECOA · FCRA · SR 11-7.",
     type: "website",
     url: "https://alstro.ai",
-    siteName: "Alstro AI",
+    siteName: "Alstro",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alstro AI",
-    description: "Execution infrastructure for regulated AI in financial services.",
+    title: "Alstro",
+    description: "Every AI lending decision — provable before it executes.",
   },
   robots: { index: true, follow: true },
 };
@@ -57,46 +56,25 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Alstro AI",
+  name: "Alstro",
   applicationCategory: "BusinessApplication",
-  description:
-    "Execution infrastructure that makes AI-driven financial decisions deployable in regulated environments.",
+  description: "Enforcement layer that makes every AI-driven lending decision provable, compliant, and reproducible before execution.",
   url: "https://alstro.ai",
   operatingSystem: "Cloud",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Beta program — request a demo",
-  },
-  creator: {
-    "@type": "Organization",
-    name: "Alstro AI Inc.",
-    url: "https://alstro.ai",
-  },
+  creator: { "@type": "Organization", name: "Alstro AI Inc.", url: "https://alstro.ai" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <a href="#main-content" className="skip-to-content">
-          Skip to content
-        </a>
+        <a href="#main-content" className="skip-to-content">Skip to content</a>
         {children}
       </body>
     </html>

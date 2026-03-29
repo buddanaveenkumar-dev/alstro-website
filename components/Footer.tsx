@@ -1,32 +1,18 @@
 export default function Footer() {
+  const founderEmail = process.env.NEXT_PUBLIC_FOUNDER_EMAIL || "naveen@alstro.ai";
+
   return (
-    <footer className="border-t border-border">
-      <div className="section-container py-10">
-        <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
-          <div>
-            <p className="font-heading text-[18px] text-text">Alstro</p>
-            <p className="text-sm text-text-muted mt-1">
-              Compliance infrastructure for underwriting decisions.
-            </p>
-            <p className="font-mono text-xs text-text-muted mt-3">
-              &copy; {new Date().getFullYear()} Alstro AI Inc.
-            </p>
-          </div>
-          <div className="text-left sm:text-right">
-            <p className="font-mono text-xs text-text-muted">
-              ECOA · FCRA · SR 11-7
-            </p>
-            <a
-              href="mailto:naveen@alstro.ai"
-              className="font-mono text-xs text-text-muted hover:text-text-secondary transition-colors mt-1 block"
-            >
-              naveen@alstro.ai
-            </a>
-            <p className="font-mono text-xs text-text-muted mt-3">
-              US · Beta
-            </p>
-          </div>
-        </div>
+    <footer className="border-t border-border py-8">
+      <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="font-mono text-[11px] text-text-muted">
+          &copy; {new Date().getFullYear()} Alstro AI Inc.
+        </p>
+        <a href={`mailto:${founderEmail}`} className="font-mono text-[11px] text-text-muted hover:text-text transition-colors">
+          {founderEmail}
+        </a>
+        <p className="font-mono text-[11px] text-text-muted">
+          alstro.ai
+        </p>
       </div>
     </footer>
   );
