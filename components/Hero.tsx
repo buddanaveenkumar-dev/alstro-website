@@ -6,17 +6,17 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 
 /* ── Audit Feed ─────────────────────────────────────────── */
 
-const baseEvents = [
-  { id: "AA-20251114-4189", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "312ms" },
-  { id: "FL-20251114-4188", status: "pass" as const, text: "Fair lending check · DI ratio 0.81 · passed", time: "89ms" },
-  { id: "MG-20251114-4187", status: "warn" as const, text: "Model drift alert · HITL escalated", time: "44ms" },
-  { id: "AA-20251114-4186", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "298ms" },
-  { id: "FL-20251114-4185", status: "pass" as const, text: "Fair lending check · DI ratio 0.84 · passed", time: "91ms" },
-  { id: "AA-20251114-4184", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "305ms" },
-  { id: "FL-20251114-4183", status: "pass" as const, text: "Fair lending check · DI ratio 0.79 · passed", time: "94ms" },
-  { id: "MG-20251114-4182", status: "warn" as const, text: "Model drift alert · HITL escalated", time: "51ms" },
-  { id: "AA-20251114-4181", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "289ms" },
-  { id: "FL-20251114-4180", status: "pass" as const, text: "Fair lending check · DI ratio 0.82 · passed", time: "87ms" },
+const eventPool = [
+  { id: "AA-20251114-4201", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "312ms" },
+  { id: "FL-20251114-4200", status: "pass" as const, text: "Fair lending check · DI ratio 0.81 · passed", time: "89ms" },
+  { id: "AA-20251114-4199", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "298ms" },
+  { id: "MG-20251114-4198", status: "warn" as const, text: "Model drift alert · HITL escalated", time: "44ms" },
+  { id: "AA-20251114-4197", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "305ms" },
+  { id: "FL-20251114-4196", status: "pass" as const, text: "Fair lending check · DI ratio 0.84 · passed", time: "91ms" },
+  { id: "AA-20251114-4195", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "289ms" },
+  { id: "FL-20251114-4194", status: "pass" as const, text: "Fair lending check · DI ratio 0.79 · passed", time: "94ms" },
+  { id: "MG-20251114-4193", status: "warn" as const, text: "Model drift alert · HITL escalated", time: "51ms" },
+  { id: "AA-20251114-4192", status: "pass" as const, text: "Adverse action generated · ECOA-compliant", time: "315ms" },
 ];
 
 interface FeedEvent {
@@ -25,57 +25,56 @@ interface FeedEvent {
   text: string;
   time: string;
   key: number;
-  ago: string;
-}
-
-function getAgo(i: number) {
-  if (i === 0) return "just now";
-  return `${i * 3}s ago`;
 }
 
 function AuditFeed() {
   const [events, setEvents] = useState<FeedEvent[]>([]);
   const counterRef = useRef(0);
   const indexRef = useRef(0);
+  const totalRef = useRef(1247);
+  const escalationsRef = useRef(3);
+  const [total, setTotal] = useState(1247);
+  const [escalations, setEscalations] = useState(3);
   const reduced = useReducedMotion();
 
   const addEvent = useCallback(() => {
-    const base = baseEvents[indexRef.current % baseEvents.length];
+    const base = eventPool[indexRef.current % eventPool.length];
     indexRef.current++;
-    const ev: FeedEvent = { ...base, key: counterRef.current++, ago: "just now" };
-    setEvents((prev) => {
-      const updated = prev.map((e, i) => ({ ...e, ago: getAgo(i + 1) }));
-      return [ev, ...updated].slice(0, 7);
-    });
+    const ev: FeedEvent = { ...base, key: counterRef.current++ };
+    totalRef.current++;
+    if (base.status === "warn") escalationsRef.current++;
+    setTotal(totalRef.current);
+    setEscalations(escalationsRef.current);
+    setEvents((prev) => [ev, ...prev].slice(0, 6));
   }, []);
 
   useEffect(() => {
-    const initial: FeedEvent[] = [];
-    for (let i = 5; i >= 0; i--) {
-      initial.push({ ...baseEvents[i], key: counterRef.current++, ago: getAgo(5 - i) });
+    // Seed with 6 events immediately
+    const seed: FeedEvent[] = [];
+    for (let i = 0; i < 6; i++) {
+      seed.push({ ...eventPool[i], key: counterRef.current++ });
+      indexRef.current = i + 1;
     }
-    indexRef.current = 6;
-    setEvents(initial.reverse());
+    setEvents(seed);
+
     if (reduced) return;
     const interval = setInterval(addEvent, 2400);
     return () => clearInterval(interval);
   }, [addEvent, reduced]);
 
-  const warnCount = events.filter((e) => e.status === "warn").length;
-
   return (
     <div className="border border-border-strong rounded-xl bg-bg-muted overflow-hidden">
       <div className="flex items-center gap-2 px-5 py-2.5 border-b border-border text-[11px] font-mono text-text-muted">
-        <span>Alstro execution layer</span>
+        <span>Alstro runtime</span>
         <span>·</span>
-        <span>regulated workflow</span>
+        <span>underwriting compliance</span>
         <span>·</span>
         <span className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-green pulse-live" />
           live
         </span>
       </div>
-      <div className="px-5 py-3 min-h-[220px] sm:min-h-[252px]">
+      <div className="px-5 py-3 min-h-[200px]">
         <AnimatePresence initial={false}>
           {events.map((event) => (
             <motion.div
@@ -92,18 +91,25 @@ function AuditFeed() {
               <span className="font-mono text-text-muted shrink-0 w-[120px] hidden sm:block">{event.id}</span>
               <span className="text-text-secondary truncate flex-1">{event.text}</span>
               <span className="font-mono text-text-muted shrink-0 w-[42px] text-right">{event.time}</span>
-              <span className="text-text-muted shrink-0 w-[56px] text-right text-[12px] hidden sm:block">{event.ago}</span>
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
       <div className="flex items-center justify-between px-5 py-2 border-t border-border text-[11px] font-mono text-text-muted">
-        <span>{events.length} decisions processed · 0 violations · {warnCount} escalation{warnCount !== 1 ? "s" : ""}</span>
+        <span>{total.toLocaleString()} decisions processed · 0 violations · {escalations} escalations</span>
         <span>ECOA · FCRA · SR 11-7</span>
       </div>
     </div>
   );
 }
+
+/* ── Stats ─────────────────────────────────────────────── */
+
+const stats = [
+  { value: "<400ms", label: "adverse action", sub: "notice latency" },
+  { value: "40hrs → 2hrs", label: "SR 11-7 docs", sub: "per model change" },
+  { value: "Continuous", label: "fair lending", sub: "monitoring" },
+];
 
 /* ── Hero ──────────────────────────────────────────────── */
 
@@ -122,57 +128,69 @@ export default function Hero() {
   return (
     <section className="pt-24 pb-16 lg:pt-32 lg:pb-24">
       <div className="section-container">
-        <div className="max-w-[720px]">
+        <div className="max-w-[720px] mx-auto text-center">
           <motion.p
             {...fade(0)}
-            className="text-[12px] font-mono text-accent tracking-wide mb-5"
+            className="text-[11px] font-mono text-text-muted tracking-widest uppercase mb-5"
           >
-            Execution infrastructure for regulated AI
+            Compliance infrastructure · Underwriting decisions · US
           </motion.p>
 
           <motion.h1
             {...fade(0.06)}
-            className="font-heading text-[40px] lg:text-[56px] text-text leading-[1.1] mb-6"
+            className="font-heading text-[38px] lg:text-[58px] text-text leading-[1.1] mb-6"
           >
-            AI is ready for financial services.
+            Make every underwriting
             <br />
-            Deployment is not.
+            decision compliant.
           </motion.h1>
 
           <motion.p
             {...fade(0.12)}
-            className="text-[17px] text-text-secondary leading-[1.7] max-w-[600px] mb-8"
+            className="text-[17px] text-text-secondary leading-relaxed max-w-[540px] mx-auto mb-8"
           >
-            Every AI-driven financial decision requires explainability, audit
-            trails, and regulatory defensibility before it can reach production.
-            Alstro is the execution layer that makes that possible — for
-            platforms, lenders, and every model in between.
+            Adverse action notices. Fair lending checks. Model governance.
+            Alstro automates every compliance obligation triggered by an
+            underwriting decision — for any lender, on any model.
           </motion.p>
 
-          <motion.div {...fade(0.18)} className="flex flex-wrap items-center gap-3 mb-5">
+          <motion.div {...fade(0.18)} className="flex flex-wrap items-center justify-center gap-3 mb-3">
             <a
-              href="#validate"
+              href="#demo"
               className="inline-flex items-center gap-2 bg-text text-bg hover:bg-text/90 px-5 py-2.5 rounded-md text-[14px] font-medium transition-colors"
             >
-              Discuss platform fit <ArrowRight size={15} />
+              Request a demo <ArrowRight size={15} />
             </a>
             <a
-              href="#what-we-build"
+              href="#how-it-works"
               className="inline-flex items-center gap-2 text-[14px] text-text-secondary hover:text-text border border-border hover:border-border-strong px-5 py-2.5 rounded-md transition-colors"
             >
-              Explore architecture <ArrowDown size={15} />
+              See how it works <ArrowDown size={15} />
             </a>
           </motion.div>
 
           <motion.p {...fade(0.22)} className="text-[12px] text-text-muted">
-            Model-agnostic · Works with any AI/ML platform · No model
-            replacement required
+            Model-agnostic · No model replacement · Deploys in shadow mode
           </motion.p>
         </div>
 
         {/* Audit feed */}
-        <motion.div {...fade(0.3)} className="mt-14 max-w-[860px]">
+        <motion.div {...fade(0.3)} className="mt-14 max-w-[860px] mx-auto">
           <AuditFeed />
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          {...fade(0.4)}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center divide-y sm:divide-y-0 sm:divide-x divide-border"
+        >
+          {stats.map((s) => (
+            <div key={s.value} className="text-center px-10 py-4 sm:py-0">
+              <div className="text-[28px] font-heading text-text leading-tight">{s.value}</div>
+              <div className="text-[13px] text-text-muted">{s.label}</div>
+              <div className="text-[13px] text-text-muted">{s.sub}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

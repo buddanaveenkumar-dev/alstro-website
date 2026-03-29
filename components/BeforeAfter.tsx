@@ -25,14 +25,14 @@ export default function BeforeAfter() {
           {...fadeUp}
           className="font-heading text-[32px] lg:text-[36px] text-text leading-tight max-w-[560px] mb-3"
         >
-          What a compliant adverse action notice actually looks like.
+          What compliant looks like.
         </motion.h2>
         <motion.p
           {...fadeUp}
           className="text-[16px] text-text-secondary max-w-[580px] mb-12"
         >
-          CFPB Circular 2023-03 requires that the notice reflect the
-          model&apos;s actual decision factors — not generic codes.
+          CFPB Circular 2023-03: when AI made the decision, the adverse
+          action notice must reflect the model&apos;s actual decision factors.
         </motion.p>
 
         <div className="grid lg:grid-cols-2 gap-6">

@@ -38,11 +38,11 @@ body {
   line-height: 1.6;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: var(--font-heading), Georgia, serif;
   font-weight: 400;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 ::selection {
@@ -50,7 +50,6 @@ h1, h2 {
   color: var(--color-accent);
 }
 
-/* Skip to content */
 .skip-to-content {
   position: absolute;
   top: -100%;
@@ -64,18 +63,14 @@ h1, h2 {
   font-size: 13px;
   transition: top 0.2s;
 }
-.skip-to-content:focus {
-  top: 0;
-}
+.skip-to-content:focus { top: 0; }
 
-/* Focus ring */
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* Section container */
 .section-container {
   max-width: 1120px;
   margin-left: auto;
@@ -83,68 +78,12 @@ h1, h2 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-
 @media (min-width: 1024px) {
-  .section-container {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
+  .section-container { padding-left: 2.5rem; padding-right: 2.5rem; }
 }
 
-/* Alternating section backgrounds */
-.section-alt {
-  background-color: var(--color-bg-muted);
-}
-
-/* Card hover lift */
-.card-hover {
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-/* Nav link underline */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--color-text);
-  transition: width 200ms ease;
-}
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Audit feed scroll */
-.feed-scroll::-webkit-scrollbar {
-  width: 3px;
-}
-.feed-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.feed-scroll::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
-  border-radius: 2px;
-}
-
-/* Pulse animation for live dot */
 @keyframes pulse-live {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
-.pulse-live {
-  animation: pulse-live 2s ease-in-out infinite;
-}
-
-/* Button press */
-button:active, a[role="button"]:active {
-  transform: scale(0.98);
-}
+.pulse-live { animation: pulse-live 2s ease-in-out infinite; }
