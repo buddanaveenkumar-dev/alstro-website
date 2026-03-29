@@ -1,46 +1,45 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans, DM_Mono } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
 
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Alstro — Every AI lending decision, provable before it executes",
+  title: "Alstro — Provable AI Lending Decisions",
   description:
-    "Enforcement layer that makes every AI-driven lending decision provable, compliant, and reproducible. ECOA adverse action, FCRA dispute resolution, SR 11-7 governance. Model-agnostic. Shadow pilot available.",
+    "The enforcement layer that makes every AI-driven lending decision compliant, explainable, and reproducible — before it executes.",
   keywords: [
     "AI lending compliance",
-    "adverse action automation",
-    "ECOA enforcement",
-    "FCRA dispute investigation",
+    "adverse action enforcement",
+    "ECOA compliance",
+    "FCRA litigation defense",
     "SR 11-7 automation",
-    "AI credit decision audit",
     "CFPB 2023-03",
     "lending compliance infrastructure",
   ],
   metadataBase: new URL("https://alstro.ai"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Alstro — Every AI lending decision, provable before it executes",
-    description: "Enforcement layer for AI-driven lending decisions. ECOA · FCRA · SR 11-7.",
+    title: "Alstro — Provable AI Lending Decisions",
+    description: "Enforcement layer for AI lending decisions. ECOA · FCRA · SR 11-7.",
     type: "website",
     url: "https://alstro.ai",
     siteName: "Alstro",
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alstro",
-    description: "Every AI lending decision — provable before it executes.",
+    description: "Your AI makes the decision. Alstro makes it provable.",
   },
   robots: { index: true, follow: true },
 };
@@ -58,23 +57,21 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Alstro",
   applicationCategory: "BusinessApplication",
-  description: "Enforcement layer that makes every AI-driven lending decision provable, compliant, and reproducible before execution.",
+  description: "Enforcement layer that makes every AI-driven lending decision provable before execution.",
   url: "https://alstro.ai",
   operatingSystem: "Cloud",
   creator: { "@type": "Organization", name: "Alstro AI Inc.", url: "https://alstro.ai" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
-        <a href="#main-content" className="skip-to-content">Skip to content</a>
+        <a href="#main" className="skip-link">Skip to content</a>
         {children}
       </body>
     </html>
