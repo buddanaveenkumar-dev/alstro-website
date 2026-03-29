@@ -19,7 +19,6 @@ export default function Footer() {
           <div className="flex flex-wrap gap-6 text-[13px]">
             <a href="#what-we-build" className="text-text-muted hover:text-text transition-colors">Product</a>
             <a href="#runtime" className="text-text-muted hover:text-text transition-colors">Architecture</a>
-            <a href="#partners" className="text-text-muted hover:text-text transition-colors">Platforms</a>
             <a href="#validate" className="text-text-muted hover:text-text transition-colors">Connect</a>
           </div>
         </div>

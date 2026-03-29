@@ -8,7 +8,6 @@ import BeforeAfter from "@/components/BeforeAfter";
 import RuntimeArchitecture from "@/components/RuntimeArchitecture";
 import RegulatoryArchitecture from "@/components/RegulatoryArchitecture";
 import Applications from "@/components/Applications";
-import PlatformAlignment from "@/components/PlatformAlignment";
 import Founder from "@/components/Founder";
 import AlphaProgram from "@/components/AlphaProgram";
 import Footer from "@/components/Footer";
@@ -27,7 +26,6 @@ export default function Home() {
         <RuntimeArchitecture />
         <RegulatoryArchitecture />
         <Applications />
-        <PlatformAlignment />
         <Founder />
         <AlphaProgram />
       </main>

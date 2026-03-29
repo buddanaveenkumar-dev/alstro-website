@@ -13,44 +13,58 @@ export default function Founder() {
   };
 
   return (
-    <section className="py-20 border-t border-border">
+    <section className="py-24 border-t border-border border-b border-b-border">
       <div className="section-container">
-        <motion.p
-          {...fadeUp}
-          className="text-[11px] font-mono text-text-muted uppercase tracking-widest mb-8"
-        >
-          Founder
-        </motion.p>
-
         <motion.div
           {...fadeUp}
-          className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-12 items-start"
+          className="max-w-[880px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-16 items-start"
         >
-          <div>
-            <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center font-mono text-white font-medium text-base mb-5">
-              NB
+          {/* Left — credentials */}
+          <div className="flex flex-col gap-5">
+            <div>
+              <p className="text-base font-medium text-text tracking-tight">
+                Naveen Budda
+              </p>
+              <p className="text-sm text-text-muted mt-0.5">
+                Founder, Alstro AI
+              </p>
             </div>
-            <p className="text-base font-medium text-text mb-0.5">
-              Naveen Budda
-            </p>
-            <p className="text-sm text-text-muted mb-5">Founder, Alstro AI</p>
-            <p className="text-sm text-text-secondary leading-relaxed mb-4">
-              Built and operated AI lending infrastructure at KarmaLife —
-              alternative data credit systems deployed across 500,000+ users on
-              regulated balance sheets. Understands what it takes to move
-              AI-driven financial decisions from prototype to production in
-              regulated environments.
-            </p>
-            <p className="text-sm text-text-secondary leading-relaxed">
-              Building the execution layer he needed but did not have — the
-              infrastructure between model output and regulated outcome.
-            </p>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-3 items-start">
+                <span className="font-mono text-[11px] text-text-muted mt-0.5 shrink-0 uppercase tracking-wider">
+                  Previously
+                </span>
+                <span className="text-sm text-text-secondary leading-relaxed">
+                  Built AI lending infrastructure at KarmaLife —
+                  alternative data credit systems deployed across
+                  500,000+ users on regulated balance sheets.
+                </span>
+              </div>
+              <div className="flex gap-3 items-start">
+                <span className="font-mono text-[11px] text-text-muted mt-0.5 shrink-0 uppercase tracking-wider">
+                  Focus
+                </span>
+                <span className="text-sm text-text-secondary leading-relaxed">
+                  Credit risk modeling, compliance obligations,
+                  and production execution in regulated markets.
+                </span>
+              </div>
+            </div>
+
+            <a
+              href="mailto:naveen@alstro.ai"
+              className="font-mono text-xs text-text-muted hover:text-accent transition-colors w-fit"
+            >
+              naveen@alstro.ai
+            </a>
           </div>
 
-          <div className="border-l-[3px] border-l-accent pl-7 pt-1">
-            <p className="font-heading text-[18px] leading-relaxed text-text italic">
+          {/* Right — quote */}
+          <div className="border-l border-border-strong pl-8 py-1">
+            <p className="font-heading text-[17px] leading-[1.7] text-text-secondary italic">
               &ldquo;I have sat across the table from a regulator explaining an
-              AI credit decision. The layer between the model and that
+              AI credit decision. The infrastructure between the model and that
               conversation did not exist. That is what Alstro is.&rdquo;
             </p>
           </div>

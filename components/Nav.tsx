@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "Problem", href: "#what-we-build" },
   { label: "Architecture", href: "#runtime" },
-  { label: "Platforms", href: "#partners" },
   { label: "Connect", href: "#validate" },
 ];
 
