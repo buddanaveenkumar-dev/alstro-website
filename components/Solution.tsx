@@ -64,17 +64,17 @@ export default function Solution() {
             </div>
 
             <div className="hidden md:flex items-center px-1">
-              <svg width="28" height="12" viewBox="0 0 28 12" fill="none"><path d="M0 6h24m0 0l-4-4m4 4l-4 4" stroke="#3b82f6" strokeWidth="1.5"/></svg>
+              <svg width="28" height="12" viewBox="0 0 28 12" fill="none"><path d="M0 6h24m0 0l-4-4m4 4l-4 4" stroke="var(--color-accent)" strokeWidth="1.5"/></svg>
             </div>
             <div className="flex md:hidden justify-center py-1">
-              <svg width="12" height="24" viewBox="0 0 12 24" fill="none"><path d="M6 0v20m0 0l-4-4m4 4l4-4" stroke="#3b82f6" strokeWidth="1.5"/></svg>
+              <svg width="12" height="24" viewBox="0 0 12 24" fill="none"><path d="M6 0v20m0 0l-4-4m4 4l4-4" stroke="var(--color-accent)" strokeWidth="1.5"/></svg>
             </div>
 
-            <div className="flex-[2] border-2 border-accent rounded-lg p-5 bg-bg-elevated">
+            <div className="flex-[2] border-2 border-accent rounded-lg p-5 bg-bg">
               <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-3 text-center">Alstro Enforcement Layer</p>
               <div className="grid grid-cols-2 gap-2">
                 {["Policy enforcement", "Explanation generation", "Immutable audit trail", "Deterministic replay"].map((c) => (
-                  <div key={c} className="bg-bg-surface border border-border rounded px-2.5 py-1.5 text-center">
+                  <div key={c} className="bg-bg border border-border rounded px-2.5 py-1.5 text-center">
                     <span className="text-[11px] text-text-secondary">{c}</span>
                   </div>
                 ))}
@@ -82,10 +82,10 @@ export default function Solution() {
             </div>
 
             <div className="hidden md:flex items-center px-1">
-              <svg width="28" height="12" viewBox="0 0 28 12" fill="none"><path d="M0 6h24m0 0l-4-4m4 4l-4 4" stroke="#3b82f6" strokeWidth="1.5"/></svg>
+              <svg width="28" height="12" viewBox="0 0 28 12" fill="none"><path d="M0 6h24m0 0l-4-4m4 4l-4 4" stroke="var(--color-accent)" strokeWidth="1.5"/></svg>
             </div>
             <div className="flex md:hidden justify-center py-1">
-              <svg width="12" height="24" viewBox="0 0 12 24" fill="none"><path d="M6 0v20m0 0l-4-4m4 4l4-4" stroke="#3b82f6" strokeWidth="1.5"/></svg>
+              <svg width="12" height="24" viewBox="0 0 12 24" fill="none"><path d="M6 0v20m0 0l-4-4m4 4l4-4" stroke="var(--color-accent)" strokeWidth="1.5"/></svg>
             </div>
 
             <div className="flex-1 border border-border rounded-lg p-4 text-center flex flex-col justify-center">
@@ -106,7 +106,7 @@ export default function Solution() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.05 }}
-                className="bg-bg-elevated border border-border rounded-lg p-6 hover:border-accent/40 transition-colors duration-200"
+                className="bg-bg border border-border rounded-lg p-6 hover:border-accent/40 transition-colors duration-200"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Icon size={18} className="text-accent" />

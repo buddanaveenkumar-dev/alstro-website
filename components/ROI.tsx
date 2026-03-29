@@ -36,7 +36,7 @@ export default function ROI() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.06 }}
-              className="bg-bg-elevated border border-border rounded-lg p-6"
+              className="bg-bg border border-border rounded-lg p-6"
             >
               <p className="font-mono text-[32px] text-accent leading-none mb-3">{m.value}</p>
               <p className="text-[14px] font-medium text-text mb-2">{m.label}</p>
@@ -45,7 +45,7 @@ export default function ROI() {
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="bg-bg-elevated border border-border rounded-lg p-6 max-w-[640px]">
+        <motion.div {...fadeUp} className="bg-bg border border-border rounded-lg p-6 max-w-[640px]">
           <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-3">
             Example: mid-size fintech, 5,000 denials/month
           </p>

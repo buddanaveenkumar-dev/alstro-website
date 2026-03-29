@@ -59,7 +59,7 @@ export default function ShadowValidation() {
 
         <motion.div
           {...fadeUp}
-          className="bg-bg-elevated border border-accent/20 rounded-lg p-6 max-w-[640px]"
+          className="bg-bg-surface border border-accent/20 rounded-lg p-6 max-w-[640px]"
         >
           <p className="text-[15px] text-text leading-relaxed">
             <span className="text-accent font-medium">Why shadow mode matters:</span>{" "}
