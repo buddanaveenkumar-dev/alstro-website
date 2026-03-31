@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const easeOutExpo = (x: number): number => x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
 
 export default function StatsBar() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   const [c1, setC1] = useState(0);
@@ -13,41 +14,75 @@ export default function StatsBar() {
   const [c3, setC3] = useState(0);
   const [c4, setC4] = useState(0);
 
+  // Check visibility on mount and scroll
   useEffect(() => {
+    if (hasAnimated) return;
+    
     if (!ref.current) return;
+
+    const checkVisibility = () => {
+      const rect = ref.current?.getBoundingClientRect();
+      if (rect && rect.top < window.innerHeight * 0.8) {
+        setIsVisible(true);
+      }
+    };
+
+    checkVisibility();
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); }
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
+    
     observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+    window.addEventListener("scroll", checkVisibility, { once: true });
+    
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
+    };
+  }, [hasAnimated]);
 
+  // Animate when visible
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasAnimated) return;
+
+    setHasAnimated(true);
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setC1(8369); setC2(37.4); setC3(74.77); setC4(400);
+      setC1(8369);
+      setC2(37.4);
+      setC3(74.77);
+      setC4(400);
       return;
     }
 
     let startTime: number;
     const duration = 1500;
+    
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const e = easeOutExpo(progress);
+      
       setC1(Math.floor(e * 8369));
       setC2(e * 37.4);
       setC3(e * 74.77);
       setC4(Math.floor(e * 400));
-      if (progress < 1) requestAnimationFrame(animate);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
     };
+    
     requestAnimationFrame(animate);
-  }, [isVisible]);
+  }, [isVisible, hasAnimated]);
 
   return (
     <section ref={ref} className="bg-surface border-y border-border py-12 md:py-16" aria-label="Industry statistics">
