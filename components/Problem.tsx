@@ -11,28 +11,31 @@ const cards = [
 
 export default function Problem() {
   const reduced = useReducedMotion();
-  const fadeUp = { initial: reduced ? {} : { opacity: 0, y: 12 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } as const, transition: { duration: 0.4, ease: "easeOut" as const } };
+  const fadeUp = { initial: reduced ? {} : { opacity: 0, y: 15 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } as const, transition: { duration: 0.5, ease: "easeOut" as const } };
 
   return (
-    <section id="problem" className="py-24">
-      <div className="container-main">
-        <motion.p {...fadeUp} className="font-mono text-[11px] text-accent uppercase tracking-[0.15em] mb-3">The structural problem</motion.p>
-        <motion.h2 {...fadeUp} className="font-heading text-[30px] lg:text-[40px] text-text leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-4">
-          Lenders can execute AI decisions. They cannot prove those decisions were correct.
+    <section id="problem" className="py-24 lg:py-32 relative">
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-red/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container-main relative z-10">
+        <motion.p {...fadeUp} className="font-mono text-[12px] text-red uppercase tracking-[0.2em] mb-4 font-semibold">The structural problem</motion.p>
+        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-text leading-[1.1] tracking-[-0.02em] max-w-[720px] mb-6">
+          Lenders can execute AI decisions. They cannot <span className="text-gradient">prove those decisions were correct</span>.
         </motion.h2>
-        <motion.p {...fadeUp} className="text-[16px] text-text-2 max-w-[540px] mb-14">
-          When an AI model denies credit, four things fail simultaneously. No lender handles all four.
+        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-16 font-light">
+          When an AI model denies credit, four things fail simultaneously. No lender handles all four correctly.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {cards.map((c, i) => (
-            <motion.div key={c.num} initial={reduced ? {} : { opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.05 }}
-              className="bg-surface border border-border rounded-sm p-6 border-l-[3px] border-l-red"
+            <motion.div key={c.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.1 }}
+              className="glass-panel rounded-xl p-8 border-l-[4px] border-l-red card-hover-effect relative overflow-hidden group"
             >
-              <p className="font-mono text-[11px] text-text-3 mb-3">{c.num}</p>
-              <h3 className="text-[16px] font-semibold text-text mb-2">{c.title}</h3>
-              <p className="text-[14px] text-text-2 leading-relaxed mb-3">{c.body}</p>
-              <p className="font-mono text-[10px] text-text-3 uppercase tracking-[0.08em]">{c.ref}</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150" />
+              <p className="font-mono text-[12px] text-red/80 mb-4 font-semibold">{c.num}</p>
+              <h3 className="text-[18px] sm:text-[20px] font-semibold text-text mb-3 leading-tight">{c.title}</h3>
+              <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed mb-6 font-light">{c.body}</p>
+              <p className="font-mono text-[11px] text-text-3 uppercase tracking-[0.1em]">{c.ref}</p>
             </motion.div>
           ))}
         </div>

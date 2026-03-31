@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #08090c;
-  --color-surface: #0f1117;
-  --color-elevated: #161920;
-  --color-border: #1e222d;
-  --color-border-active: #2a3040;
-  --color-text: #e4e7ec;
-  --color-text-2: #8891a3;
-  --color-text-3: #545d72;
-  --color-accent: #2563eb;
-  --color-accent-surface: rgba(37, 99, 235, 0.06);
-  --color-accent-border: rgba(37, 99, 235, 0.15);
-  --color-red: #dc2626;
-  --color-amber: #d97706;
-  --color-green: #059669;
+  --color-bg: #030407;
+  --color-surface: #0a0c10;
+  --color-elevated: #11141d;
+  --color-border: #1f2430;
+  --color-border-active: #31394a;
+  --color-text: #f1f3f5;
+  --color-text-2: #a1a1aa;
+  --color-text-3: #5c677e;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #60a5fa;
+  --color-accent-surface: rgba(59, 130, 246, 0.08);
+  --color-accent-border: rgba(59, 130, 246, 0.2);
+  --color-purple: #8b5cf6;
+  --color-red: #ef4444;
+  --color-amber: #f59e0b;
+  --color-green: #10b981;
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-ibm-plex-sans);
   --font-mono: var(--font-ibm-plex-mono);
@@ -28,21 +30,24 @@ html {
 
 body {
   background: var(--color-bg);
+  background-image: radial-gradient(circle at 15% 50px, rgba(59, 130, 246, 0.15), transparent 25%),
+                    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
   font-weight: 500;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
@@ -67,16 +72,59 @@ h1, h2, h3 {
 }
 
 .container-main {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 @media (min-width: 1024px) {
-  .container-main { padding: 0 2.5rem; }
+  .container-main { padding: 0 3rem; }
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
 }
 .animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Custom Utilities for Premium Vibe */
+.glass-panel {
+  background: rgba(10, 12, 16, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to bottom right, #ffffff, #a1a1aa);
+}
+
+.text-gradient-accent {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, var(--color-accent), var(--color-purple));
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #2563eb 100%);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.button-primary:hover {
+  background: linear-gradient(135deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255,255,255,0.15);
+}

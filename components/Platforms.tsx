@@ -10,42 +10,47 @@ const cards = [
 
 export default function Platforms() {
   const reduced = useReducedMotion();
-  const fadeUp = { initial: reduced ? {} : { opacity: 0, y: 12 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } as const, transition: { duration: 0.4, ease: "easeOut" as const } };
+  const fadeUp = { initial: reduced ? {} : { opacity: 0, y: 15 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } as const, transition: { duration: 0.5, ease: "easeOut" as const } };
 
   return (
-    <section id="platforms" className="py-24">
-      <div className="container-main">
-        <motion.p {...fadeUp} className="font-mono text-[11px] text-accent uppercase tracking-[0.15em] mb-3">For platform partners</motion.p>
-        <motion.h2 {...fadeUp} className="font-heading text-[30px] lg:text-[40px] text-text leading-[1.1] tracking-[-0.02em] max-w-[600px] mb-6">
-          The compliance runtime your FSI product is missing.
+    <section id="platforms" className="py-24 lg:py-32 relative">
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-purple/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container-main relative z-10">
+        <motion.p {...fadeUp} className="font-mono text-[12px] text-purple uppercase tracking-[0.2em] mb-4 font-semibold">For platform partners</motion.p>
+        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-text leading-[1.1] tracking-[-0.02em] max-w-[680px] mb-12">
+          The <span className="text-gradient">compliance runtime</span> your FSI product is missing.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 mb-12">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 mb-12 items-center">
           {/* Left text */}
           <motion.div {...fadeUp} className="lg:col-span-3">
-            <p className="text-[15px] text-text-2 leading-relaxed mb-4">
+            <p className="text-[17px] text-text-2 leading-relaxed mb-6 font-light">
               Salesforce Financial Services Cloud, Microsoft Azure FSI, ServiceNow FSO, and nCino all sell AI-assisted lending workflows into regulated institutions.
             </p>
-            <p className="text-[15px] text-text-2 leading-relaxed mb-4">Every enterprise deal hits the same wall:</p>
-            <p className="text-[19px] text-text font-medium leading-snug mb-4">
-              &ldquo;How does your AI handle ECOA adverse action requirements?&rdquo;
+            <p className="text-[17px] text-text-2 leading-relaxed mb-6 font-light">Every enterprise deal hits the same wall:</p>
+            <div className="glass-panel p-6 border-l-[4px] border-l-purple rounded-lg mb-8 shadow-[0_8px_32px_rgba(139,92,246,0.05)]">
+              <p className="text-[20px] text-text font-medium leading-snug italic">
+                &ldquo;How does your AI handle ECOA adverse action requirements?&rdquo;
+              </p>
+            </div>
+            <p className="text-[17px] text-text-2 leading-relaxed mb-8 font-light">
+              <span className="text-text font-medium">Alstro is the answer.</span> One runtime integration delivers compliance enforcement to every lender on your platform.
             </p>
-            <p className="text-[15px] text-text-2 leading-relaxed mb-6">
-              Alstro is the answer. One runtime integration delivers compliance enforcement to every lender on your platform. Jurisdiction-agnostic: US regulatory pack is live. UK and EU packs are in design.
-            </p>
-            <p className="text-[13px] text-text-3 italic">
-              This is not a partnership pitch. It is a capability gap that creates acquisition interest.
+            <p className="font-mono text-[12px] text-purple/80 uppercase tracking-[0.1em] font-medium p-4 bg-purple/5 rounded-md border border-purple/10">
+              This is not a partnership pitch. It is a capability gap that drives acquisition.
             </p>
           </motion.div>
 
           {/* Right cards */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-6">
             {cards.map((c, i) => (
-              <motion.div key={c.title} initial={reduced ? {} : { opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.06 }}
-                className="bg-surface border border-border rounded-sm p-5 hover:border-accent/30 transition-colors duration-200"
+              <motion.div key={c.title} initial={reduced ? {} : { opacity: 0, x: 15 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.1 }}
+                className="glass-panel rounded-xl p-6 hover:border-purple/30 group transition-all duration-300 relative overflow-hidden"
               >
-                <h3 className="font-mono text-[11px] text-accent uppercase tracking-[0.08em] mb-2">{c.title}</h3>
-                <p className="text-[14px] text-text-2 leading-relaxed">{c.desc}</p>
+                <div className="absolute top-0 right-0 w-16 h-16 bg-purple/10 rounded-bl-[60px] transition-transform duration-500 group-hover:scale-150" />
+                <h3 className="font-mono text-[11px] font-bold text-purple uppercase tracking-[0.1em] mb-3 relative z-10">{c.title}</h3>
+                <p className="text-[15px] text-text-2 leading-relaxed font-light relative z-10">{c.desc}</p>
               </motion.div>
             ))}
           </div>
