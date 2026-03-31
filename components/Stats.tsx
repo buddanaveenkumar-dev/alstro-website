@@ -90,30 +90,30 @@ export default function StatsBar() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 max-w-[1000px] mx-auto text-center">
           {/* Pain stats — red */}
           <div>
-            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2">
-              {c1.toLocaleString()}
+            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2" suppressHydrationWarning>
+              {c1 > 0 ? c1.toLocaleString() : "—"}
             </div>
             <div className="text-[14px] text-text-3 font-medium">FCRA lawsuits filed in 2025</div>
           </div>
 
           <div>
-            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2">
-              +{c2.toFixed(1)}%
+            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2" suppressHydrationWarning>
+              {c2 > 0 ? `+${c2.toFixed(1)}%` : "—"}
             </div>
             <div className="text-[14px] text-text-3 font-medium">Year-over-year increase</div>
           </div>
 
           <div>
-            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2">
-              ${c3.toFixed(2)}M
+            <div className="text-[32px] md:text-[40px] font-bold text-red tracking-tight leading-none mb-2" suppressHydrationWarning>
+              {c3 > 0 ? `$${c3.toFixed(2)}M` : "—"}
             </div>
             <div className="text-[14px] text-text-3 font-medium">Class action settlements 2025</div>
           </div>
 
           {/* Solution stat — blue */}
           <div>
-            <div className="text-[32px] md:text-[40px] font-bold text-accent tracking-tight leading-none mb-2">
-              &lt;{c4}ms
+            <div className="text-[32px] md:text-[40px] font-bold text-accent tracking-tight leading-none mb-2" suppressHydrationWarning>
+              {c4 > 0 ? `<${c4}ms` : "—"}
             </div>
             <div className="text-[14px] text-text-3 font-medium">Alstro proof generation</div>
           </div>
