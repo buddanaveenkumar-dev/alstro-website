@@ -10,6 +10,7 @@ import MarketProof from "@/components/MarketProof";
 import RegulatoryBar from "@/components/RegulatoryBar";
 import About from "@/components/About";
 import CTA from "@/components/CTA";
+import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <About />
         <CTA />
       </main>
+      <StickyCTA />
       <Footer />
     </>
   );

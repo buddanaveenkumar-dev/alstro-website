@@ -26,16 +26,22 @@ export default function Problem() {
           When an AI model denies credit, four things fail simultaneously. No lender handles all four correctly.
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 flex-col flex lg:grid">
           {cards.map((c, i) => (
-            <motion.div key={c.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.1 }}
-              className="glass-panel rounded-xl p-8 border-l-[4px] border-l-red card-hover-effect relative overflow-hidden group"
+            <motion.div key={c.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut", delay: reduced ? 0 : i * 0.1 }}
+              className="glass-panel rounded-xl p-8 border-l-[4px] border-l-red relative overflow-hidden group hover:-translate-y-[3px] hover:shadow-[0_12px_32px_-8px_rgba(239,68,68,0.15)] transition-all duration-300 flex flex-col justify-between min-h-[240px]"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150" />
-              <p className="font-mono text-[12px] text-red/80 mb-4 font-semibold">{c.num}</p>
-              <h3 className="text-[18px] sm:text-[20px] font-semibold text-text mb-3 leading-tight">{c.title}</h3>
-              <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed mb-6 font-light">{c.body}</p>
-              <p className="font-mono text-[11px] text-text-3 uppercase tracking-[0.1em]">{c.ref}</p>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150 z-0" />
+              <div className="absolute -top-4 right-4 text-[100px] font-mono font-bold text-text-3 opacity-5 select-none pointer-events-none z-0 tracking-tighter">
+                {c.num}
+              </div>
+              <div className="relative z-10 mb-6">
+                <h3 className="text-[20px] sm:text-[22px] font-semibold text-text mb-3 leading-tight pr-8">{c.title}</h3>
+                <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed font-light">{c.body}</p>
+              </div>
+              <div className="relative z-10 mt-auto">
+                <span className="inline-block font-mono text-[11px] text-text-3 uppercase tracking-[0.1em] bg-elevated border border-border/50 px-3 py-1.5 rounded-full">{c.ref}</span>
+              </div>
             </motion.div>
           ))}
         </div>

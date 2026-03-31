@@ -1,25 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #ffffff;
-  --color-surface: #f8fafc;
-  --color-elevated: #ffffff;
-  --color-border: #e2e8f0;
-  --color-border-active: #cbd5e1;
-  --color-text: #0f172a;
-  --color-text-2: #334155;
-  --color-text-3: #64748b;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-surface: rgba(37, 99, 235, 0.05);
-  --color-accent-border: rgba(37, 99, 235, 0.2);
-  --color-purple: #4f46e5;
-  --color-red: #ef4444;
-  --color-amber: #f59e0b;
-  --color-green: #10b981;
-  --color-navy: #0f172a;
-  --font-heading: var(--font-space-grotesk);
-  --font-body: var(--font-ibm-plex-sans);
+  --color-bg: #0A0F1C;
+  --color-surface: #111827;
+  --color-elevated: #1F2937;
+  --color-surface-lighter: #0F1629;
+  --color-border: rgba(255, 255, 255, 0.08); /* 8-10% opacity */
+  --color-border-active: rgba(255, 255, 255, 0.15); /* 15-20% opacity */
+  --color-text: #F9FAFB;
+  --color-text-2: #D1D5DB; /* lightened for contrast */
+  --color-text-3: #9CA3AF;
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-green: #10B981;
+  --color-red: #EF4444;
+  --color-purple: #8B5CF6;
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
   --font-mono: var(--font-ibm-plex-mono);
 }
 
@@ -31,28 +28,29 @@ html {
 
 body {
   background: var(--color-bg);
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), system-ui, sans-serif;
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: var(--color-navy);
+/* Base Headings */
+h1 { font-size: 52px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+h2 { font-size: 40px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+h3 { font-size: 24px; font-weight: 600; line-height: 1.2; }
+h4, h5, h6 { font-weight: 600; line-height: 1.2; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 20px; }
+  body { line-height: 1.7; }
+  h1, h2, h3 { letter-spacing: 0; }
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.15);
-  color: var(--color-navy);
+  background: rgba(59, 130, 246, 0.3);
+  color: #fff;
 }
 
 .skip-link {
@@ -75,61 +73,70 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
+/* Reduced motion requirement */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
 .container-main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-@media (min-width: 1024px) {
-  .container-main { padding: 0 3rem; }
-}
 
+/* Animations */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(1.2); }
 }
 .animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
-/* Custom Utilities for Premium Light Vibe (Fintech Style) */
+/* Custom Utilities for Institutional Dark Vibe */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.04), 0 1px 3px -1px rgba(0,0,0,0.02);
-}
-
-.text-gradient {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(to bottom right, var(--color-navy), var(--color-text-3));
-}
-
-.text-gradient-accent {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(135deg, var(--color-accent), var(--color-purple));
-}
-
-.button-primary {
-  background: var(--color-navy);
-  color: white;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
   transition: all 0.2s ease;
-}
-.button-primary:hover {
-  background: #1e293b;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-  transform: translateY(-1px);
 }
 
 .card-hover-effect {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .card-hover-effect:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08), 0 4px 8px -4px rgba(0,0,0,0.04);
+  transform: translateY(-2px);
   border-color: var(--color-border-active);
+}
+
+.text-gradient {
+  color: var(--color-text);
+}
+
+.text-gradient-accent {
+  color: var(--color-accent);
+}
+
+.button-primary {
+  background: var(--color-accent);
+  color: white;
+  transition: all 0.2s ease;
+}
+.button-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.button-ghost {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: all 0.2s ease;
+}
+.button-ghost:hover {
+  border-color: var(--color-border-active);
+  background: rgba(255, 255, 255, 0.05);
 }

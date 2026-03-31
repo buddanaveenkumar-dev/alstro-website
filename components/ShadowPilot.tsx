@@ -19,38 +19,54 @@ export default function ShadowPilot() {
       
       <div className="container-main relative z-10">
         <motion.p {...fadeUp} className="font-mono text-[12px] text-accent uppercase tracking-[0.2em] mb-4 font-semibold">Shadow validation</motion.p>
-        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-navy leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-6">
+        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-text leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-6">
           See <span className="text-gradient">proof on your actual decisions</span> — before committing to anything.
         </motion.h2>
-        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-16 font-medium">
+        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-20 font-light">
           Shadow mode runs in parallel with your existing pipeline. Zero production impact. 30 days. You see the output. You decide with data.
         </motion.p>
 
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        {/* Horizontal/Vertical Stepper */}
+        <div className="flex flex-col lg:flex-row relative gap-y-12 mb-20">
+          {/* Timeline background line for mobile/desktop */}
+          <div className="absolute left-[31px] lg:left-0 lg:top-[31px] top-0 bottom-0 lg:bottom-auto lg:right-0 w-[2px] lg:w-full lg:h-[2px] bg-border-active/30 -z-10 hidden lg:block" />
+
           {steps.map((s, i) => (
-            <motion.div key={s.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.1 }}
-              className="glass-panel p-8 rounded-xl relative group overflow-hidden"
+            <motion.div key={s.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut" as const, delay: reduced ? 0 : i * 0.2 }}
+              className="flex-1 relative flex flex-row lg:flex-col items-start gap-6 lg:gap-8 group"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150" />
-              <div className="relative z-10">
-                <p className="font-mono text-[28px] text-accent/30 font-bold mb-4 drop-shadow-sm">{s.num}</p>
-                <h3 className="text-[18px] sm:text-[20px] font-semibold text-navy mb-3">{s.title}</h3>
+              {/* Stepper Node */}
+              <div className="relative shrink-0">
+                <div className="w-16 h-16 rounded-full bg-surface border-2 border-border flex items-center justify-center font-mono text-[20px] font-bold text-accent shadow-[0_4px_12px_rgba(59,130,246,0.1)] group-hover:border-accent group-hover:bg-accent/5 transition-all duration-300 z-10 relative">
+                  {s.num}
+                </div>
+                {i < steps.length - 1 && (
+                  <>
+                    <div className="absolute left-8 top-16 bottom-[-3rem] w-[2px] bg-gradient-to-b from-border-active to-border lg:hidden -z-10" />
+                    <div className="absolute top-8 left-16 right-[-2rem] h-[2px] bg-gradient-to-r from-border-active to-border hidden lg:block -z-10 w-full" />
+                  </>
+                )}
+              </div>
+
+              {/* Stepper Content */}
+              <div className="pt-3 lg:pt-0 lg:pr-8">
+                <h3 className="text-[20px] sm:text-[22px] font-semibold text-text mb-3">{s.title}</h3>
                 <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed font-light">{s.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="glass-panel bg-surface p-8 rounded-xl border-l-[4px] border-l-accent max-w-[700px] mb-12 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/20 to-transparent" />
-          <p className="text-[16px] sm:text-[17px] text-navy leading-relaxed font-light">
-            <span className="text-gradient-accent font-semibold">Why shadow mode works:</span>{" "}
+        {/* Highlight Callout */}
+        <motion.div {...fadeUp} className="bg-surface/80 p-6 md:p-8 rounded-xl border-l-[4px] border-l-accent max-w-[800px] mb-12 shadow-lg ml-0 md:ml-8">
+          <p className="text-[17px] sm:text-[18px] text-text-2 leading-relaxed font-light">
+            <span className="text-text font-semibold tracking-wide">Why shadow mode works:</span>{" "}
             Compliance buyers do not replace processes without evidence. Shadow mode generates the exact mathematical evidence on your own data. That is why it converts every single time.
           </p>
         </motion.div>
 
-        <motion.div {...fadeUp}>
-          <a href="mailto:sales@alstro.ai" className="button-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-lg text-[16px] font-semibold">
+        <motion.div {...fadeUp} className="ml-0 md:ml-8">
+          <a href="#cta" className="button-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-[16px] font-semibold transition-transform hover:scale-[1.02]">
             Apply for Shadow Pilot <ArrowRight size={18} />
           </a>
         </motion.div>

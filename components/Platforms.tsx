@@ -22,7 +22,7 @@ export default function Platforms() {
           The <span className="text-gradient">compliance runtime</span> your FSI product is missing.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 mb-12 items-center">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left text */}
           <motion.div {...fadeUp} className="lg:col-span-3">
             <p className="text-[17px] text-text-2 leading-relaxed mb-6 font-light">
@@ -55,6 +55,19 @@ export default function Platforms() {
             ))}
           </div>
         </div>
+
+        {/* Integration Logo Row */}
+        <motion.div {...fadeUp} className="mt-24 border-t border-border/50 pt-16">
+          <p className="font-mono text-[12px] text-text-3 uppercase tracking-[0.1em] text-center mb-10 font-medium">
+            Designed to integrate with
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+            <span className="font-heading text-[20px] md:text-[24px] font-bold text-text-3 hover:text-text transition-colors duration-300">Salesforce <span className="font-light">FSC</span></span>
+            <span className="font-heading text-[20px] md:text-[24px] font-bold text-text-3 hover:text-text transition-colors duration-300">Microsoft <span className="font-light">Azure FSI</span></span>
+            <span className="font-heading text-[20px] md:text-[24px] font-bold text-text-3 hover:text-text transition-colors duration-300">ServiceNow <span className="font-light">FSO</span></span>
+            <span className="font-heading text-[20px] md:text-[24px] font-bold text-text-3 hover:text-text transition-colors duration-300 lowercase tracking-widest"><span className="text-text-3 hover:text-text transition-colors duration-300 font-semibold lowercase">n</span>Cino</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
