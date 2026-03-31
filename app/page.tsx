@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import EvidenceBar from "@/components/EvidenceBar";
 import Problem from "@/components/Problem";
 import Architecture from "@/components/Architecture";
 import ShadowPilot from "@/components/ShadowPilot";
@@ -19,7 +18,6 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <EvidenceBar />
         <Problem />
         <Architecture />
         <ShadowPilot />

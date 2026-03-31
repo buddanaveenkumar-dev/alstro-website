@@ -1,46 +1,53 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const cards = [
-  { num: "01", title: "Adverse action notices are non-compliant", body: "CFPB Circular 2023-03 requires model-specific explanations. Most lenders still send boilerplate. Every AI denial is potentially non-compliant.", ref: "CFPB Circular 2023-03" },
-  { num: "02", title: "Fair lending tests lag 89 days behind models", body: "Models update monthly. Tests run quarterly. Disparate impact builds undetected across protected classes.", ref: "ECOA · Reg B" },
-  { num: "03", title: "Model governance is 6–18 months behind", body: "SR 11-7 requires 40–60 hours of documentation per model change. Most teams never catch up.", ref: "Fed SR 11-7 · OCC 2011-12" },
-  { num: "04", title: "No provable record exists", body: "When disputes arrive, lenders reconstruct manually. This is the #1 reason they lose FCRA cases.", ref: "FCRA §611" },
+  { num: "01", title: "Adverse action notices are non-compliant", body: "CFPB Circular 2023-03 requires model-specific explanations. Most lenders still send boilerplate. Every AI denial is potentially non-compliant.", ref: "CFPB Circular 2023-03", colorClass: "border-l-[4px] border-l-red" },
+  { num: "02", title: "Fair lending tests lag 89 days behind models", body: "Models update monthly. Tests run quarterly. Disparate impact builds undetected across protected classes.", ref: "ECOA · Reg B", colorClass: "border-l-[4px] border-l-amber" },
+  { num: "03", title: "Model governance is 6–18 months behind", body: "SR 11-7 requires 40–60 hours of documentation per model change. Most teams never catch up.", ref: "Fed SR 11-7 · OCC 2011-12", colorClass: "border-l-[4px] border-l-amber" },
+  { num: "04", title: "No provable record exists", body: "When disputes arrive, lenders reconstruct manually. This is the #1 reason they lose FCRA cases.", ref: "FCRA §611", colorClass: "border-l-[4px] border-l-red" },
 ];
 
 export default function Problem() {
-  const reduced = useReducedMotion();
-  const fadeUp = { initial: reduced ? {} : { opacity: 0, y: 15 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } as const, transition: { duration: 0.5, ease: "easeOut" as const } };
-
   return (
-    <section id="problem" className="py-24 lg:py-32 relative">
-      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-red/5 rounded-full blur-[100px] pointer-events-none" />
-      
-      <div className="container-main relative z-10">
-        <motion.p {...fadeUp} className="font-mono text-[12px] text-red uppercase tracking-[0.2em] mb-4 font-semibold">The structural problem</motion.p>
-        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-text leading-[1.1] tracking-[-0.02em] max-w-[720px] mb-6">
-          Lenders can execute AI decisions. They cannot <span className="text-gradient">prove those decisions were correct</span>.
-        </motion.h2>
-        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-16 font-light">
-          When an AI model denies credit, four things fail simultaneously. No lender handles all four correctly.
-        </motion.p>
+    <section id="problem" className="py-24 lg:py-32 bg-bg relative">
+      <div className="container-main reveal-stagger">
+        {/* Header */}
+        <div className="reveal flex flex-col items-start gap-3 mb-16">
+          <p className="font-mono text-[13px] text-accent font-semibold uppercase tracking-wide">The structural problem</p>
+          <h2 className="max-w-[700px] text-text">
+            Lenders can execute AI decisions. They cannot prove those decisions were correct.
+          </h2>
+          <p className="text-[17px] text-text-2 max-w-[600px]">
+            When an AI model denies credit, four things fail simultaneously. No lender handles all four correctly.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 flex-col flex lg:grid">
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 reveal-stagger">
           {cards.map((c, i) => (
-            <motion.div key={c.num} initial={reduced ? {} : { opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: "easeOut", delay: reduced ? 0 : i * 0.1 }}
-              className="glass-panel rounded-xl p-8 border-l-[4px] border-l-red relative overflow-hidden group hover:-translate-y-[3px] hover:shadow-[0_12px_32px_-8px_rgba(239,68,68,0.15)] transition-all duration-300 flex flex-col justify-between min-h-[240px]"
+            <motion.div 
+              key={c.num} 
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
+              className={`bg-white border border-border rounded-2xl p-8 relative overflow-hidden group hover:-translate-y-1 hover:border-accent hover:shadow-[0_4px_24px_rgba(37,99,235,0.08)] transition-all duration-300 flex flex-col justify-between min-h-[260px] ${c.colorClass}`}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150 z-0" />
-              <div className="absolute -top-4 right-4 text-[100px] font-mono font-bold text-text-3 opacity-5 select-none pointer-events-none z-0 tracking-tighter">
+              <div className="absolute top-4 right-6 text-[80px] font-heading font-semibold text-text opacity-[0.04] select-none pointer-events-none leading-none z-0">
                 {c.num}
               </div>
-              <div className="relative z-10 mb-6">
-                <h3 className="text-[20px] sm:text-[22px] font-semibold text-text mb-3 leading-tight pr-8">{c.title}</h3>
-                <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed font-light">{c.body}</p>
+              
+              <div className="relative z-10 mb-8">
+                <h3 className="mb-3 pr-8">{c.title}</h3>
+                <p className="text-text-2 font-normal">{c.body}</p>
               </div>
+              
               <div className="relative z-10 mt-auto">
-                <span className="inline-block font-mono text-[11px] text-text-3 uppercase tracking-[0.1em] bg-elevated border border-border/50 px-3 py-1.5 rounded-full">{c.ref}</span>
+                <span className="inline-block font-mono text-[12px] text-accent bg-accent-light px-3 py-1.5 rounded text-left">
+                  {c.ref}
+                </span>
               </div>
             </motion.div>
           ))}

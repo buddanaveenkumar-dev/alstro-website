@@ -43,13 +43,13 @@ export default function StickyCTA() {
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-4 w-full flex justify-center pointer-events-none"
         >
-          <div className="glass-panel bg-surface/90 backdrop-blur-xl border border-border px-6 py-4 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-6 pointer-events-auto">
-            <p className="hidden md:block text-[14px] font-medium text-text-2 border-r border-border/50 pr-6 mr-1">
+          <div className="bg-white/95 backdrop-blur-md border border-border px-6 py-4 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.1)] flex items-center gap-6 pointer-events-auto transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
+            <p className="hidden md:block text-[14px] font-medium text-text-2 border-r border-border pr-6 mr-1">
               Zero production risk shadow pilot.
             </p>
-            <a href="#cta" className="button-primary inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[14px] font-semibold whitespace-nowrap group">
+            <a href="#cta" className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full text-[14px]">
               Apply for Pilot
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={16} className="-mr-1" />
             </a>
           </div>
         </motion.div>
