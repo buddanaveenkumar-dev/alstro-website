@@ -19,10 +19,10 @@ export default function ShadowPilot() {
       
       <div className="container-main relative z-10">
         <motion.p {...fadeUp} className="font-mono text-[12px] text-accent uppercase tracking-[0.2em] mb-4 font-semibold">Shadow validation</motion.p>
-        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-text leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-6">
+        <motion.h2 {...fadeUp} className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] text-navy leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-6">
           See <span className="text-gradient">proof on your actual decisions</span> — before committing to anything.
         </motion.h2>
-        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-16 font-light">
+        <motion.p {...fadeUp} className="text-[17px] sm:text-[19px] text-text-2 max-w-[600px] mb-16 font-medium">
           Shadow mode runs in parallel with your existing pipeline. Zero production impact. 30 days. You see the output. You decide with data.
         </motion.p>
 
@@ -34,23 +34,23 @@ export default function ShadowPilot() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-150" />
               <div className="relative z-10">
                 <p className="font-mono text-[28px] text-accent/30 font-bold mb-4 drop-shadow-sm">{s.num}</p>
-                <h3 className="text-[18px] sm:text-[20px] font-semibold text-text mb-3">{s.title}</h3>
+                <h3 className="text-[18px] sm:text-[20px] font-semibold text-navy mb-3">{s.title}</h3>
                 <p className="text-[15px] sm:text-[16px] text-text-2 leading-relaxed font-light">{s.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="glass-panel bg-accent/5 p-8 rounded-xl border-l-[4px] border-l-accent max-w-[700px] mb-12 shadow-[0_8px_32px_rgba(59,130,246,0.1)] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/50 to-transparent" />
-          <p className="text-[16px] sm:text-[17px] text-text leading-relaxed font-light">
+        <motion.div {...fadeUp} className="glass-panel bg-surface p-8 rounded-xl border-l-[4px] border-l-accent max-w-[700px] mb-12 shadow-[0_4px_16px_rgba(15,23,42,0.04)] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent/20 to-transparent" />
+          <p className="text-[16px] sm:text-[17px] text-navy leading-relaxed font-light">
             <span className="text-gradient-accent font-semibold">Why shadow mode works:</span>{" "}
             Compliance buyers do not replace processes without evidence. Shadow mode generates the exact mathematical evidence on your own data. That is why it converts every single time.
           </p>
         </motion.div>
 
         <motion.div {...fadeUp}>
-          <a href="mailto:naveen@alstro.ai" className="button-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-md text-[16px] font-semibold">
+          <a href="mailto:sales@alstro.ai" className="button-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-lg text-[16px] font-semibold">
             Apply for Shadow Pilot <ArrowRight size={18} />
           </a>
         </motion.div>

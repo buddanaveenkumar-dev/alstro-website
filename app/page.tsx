@@ -8,6 +8,7 @@ import ROI from "@/components/ROI";
 import Platforms from "@/components/Platforms";
 import MarketProof from "@/components/MarketProof";
 import RegulatoryBar from "@/components/RegulatoryBar";
+import About from "@/components/About";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Platforms />
         <MarketProof />
         <RegulatoryBar />
+        <About />
         <CTA />
       </main>
       <Footer />
