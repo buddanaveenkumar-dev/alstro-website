@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://alstro.ai",
     siteName: "Alstro",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alstro — Provable AI Lending Decisions",
     description: "Cryptographic proof of compliance for every AI lending decision.",
-    images: ["/og-image.png"],
+    images: ["/api/og"],
   },
   robots: { index: true, follow: true },
 };
