@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-bg relative px-6 text-center overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-      <span className="font-heading text-[24px] font-bold text-text tracking-[0.05em] mb-12 relative z-10">ALSTRO<span className="text-accent ml-0.5">.</span></span>
-      <h1 className="font-heading text-[64px] md:text-[80px] font-semibold text-text mb-6 relative z-10">404</h1>
-      <p className="text-[18px] md:text-[20px] text-text-2 mb-10 max-w-[400px] relative z-10">
-        This page doesn&apos;t exist. But your audit trail should.
-      </p>
-      <Link href="/" className="button-primary px-8 py-3.5 rounded-lg text-[15px] font-medium z-10 transition-transform hover:scale-105">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-bg px-6 text-center">
+      <span className="font-heading text-[18px] font-semibold text-text mb-16">
+        ALSTRO<span className="text-accent">.</span>
+      </span>
+      <h1 className="text-[64px] md:text-[80px] font-semibold text-text mb-4 leading-none">404</h1>
+      <p className="text-[18px] text-text-2 mb-2">This page doesn&apos;t exist.</p>
+      <p className="text-[16px] text-text-3 mb-10">But your audit trail should.</p>
+      <Link href="/" className="btn-primary">
         Back to Home
       </Link>
     </div>

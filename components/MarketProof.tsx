@@ -1,85 +1,80 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
 export default function MarketProof() {
   return (
-    <section className="py-24 lg:py-32 relative bg-surface">
-      <div className="container-main reveal-stagger">
-        <div className="reveal flex flex-col items-center text-center gap-3 mb-16">
-          <p className="font-mono text-[13px] text-accent font-semibold uppercase tracking-wide">The alternative</p>
-          <h2 className="max-w-[700px] text-text">
-            Wait 15 days or intercept in 15 milliseconds.
+    <section className="py-[100px] max-md:py-[60px] bg-surface" aria-labelledby="market-heading">
+      <div className="container-main">
+        <div className="reveal text-center mb-16">
+          <p className="font-mono text-[13px] text-accent font-semibold uppercase tracking-[0.08em] mb-4">Market validation</p>
+          <h2 id="market-heading" className="max-w-[700px] mx-auto">
+            Bridgeforce proved the market. Alstro solves the problem they cannot.
           </h2>
         </div>
 
-        <div className="reveal flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-8 mb-16 relative max-w-[900px] mx-auto">
-          
-          {/* VS Badge */}
-          <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-border rounded-full z-20 items-center justify-center font-mono font-bold text-text-3 text-[14px] shadow-sm">
-            VS
-          </div>
+        {/* Side-by-side comparison */}
+        <div className="reveal grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto mb-12">
 
-          {/* Left Card: Bridgeforce/Manual */}
-          <div className="flex-1 bg-white rounded-2xl p-8 relative overflow-hidden border border-border border-t-4 border-t-red shadow-sm flex flex-col hover:-translate-y-1 transition-transform">
-            <p className="font-mono text-[11px] text-red uppercase tracking-wider mb-3 font-semibold">Downstream</p>
-            <p className="text-[24px] font-bold text-text mb-8 tracking-tight">Bridgeforce / Manual</p>
-            
-            <ul className="space-y-5 text-[15px] sm:text-[16px] text-text-2 mb-8 flex-1">
+          {/* Left: Bridgeforce — neutral/muted */}
+          <div className="bg-white rounded-2xl p-8 border border-border border-l-4 border-l-border relative">
+            <p className="font-mono text-[12px] text-text-3 uppercase tracking-wider mb-2 font-semibold">Downstream</p>
+            <h3 className="text-[22px] text-text-2 mb-6">Bridgeforce Data Solutions</h3>
+            <ul className="space-y-4 text-[15px] text-text-2">
               <li className="flex items-start gap-3">
-                <XCircle size={20} className="text-red shrink-0 mt-0.5" />
-                <span><strong className="text-text font-semibold">15+ days</strong> to catch errors in secondary review</span>
+                <XCircle size={18} className="text-text-3 shrink-0 mt-0.5" aria-hidden="true" />
+                ~$20M revenue over 10 years
               </li>
               <li className="flex items-start gap-3">
-                <XCircle size={20} className="text-red shrink-0 mt-0.5" />
-                <span><strong className="text-text font-semibold">$10k+</strong> per model change in documentation</span>
+                <XCircle size={18} className="text-text-3 shrink-0 mt-0.5" aria-hidden="true" />
+                50+ financial institution clients
               </li>
               <li className="flex items-start gap-3">
-                <XCircle size={20} className="text-red shrink-0 mt-0.5" />
-                <span>Manual compliance checks via sampling</span>
+                <XCircle size={18} className="text-text-3 shrink-0 mt-0.5" aria-hidden="true" />
+                6 of top 20 banks, 7 of top 10 credit unions
               </li>
               <li className="flex items-start gap-3">
-                <XCircle size={20} className="text-red shrink-0 mt-0.5" />
-                <span>Scan Metro 2® data only after furnishing</span>
+                <XCircle size={18} className="text-text-3 shrink-0 mt-0.5" aria-hidden="true" />
+                Scans Metro 2® data after furnishing
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle size={18} className="text-text-3 shrink-0 mt-0.5" aria-hidden="true" />
+                Entire business case: FCRA litigation growth
               </li>
             </ul>
           </div>
 
-          <div className="flex lg:hidden w-12 h-12 mx-auto bg-white border border-border rounded-full z-20 items-center justify-center font-mono font-bold text-text-3 text-[14px]">
-            VS
-          </div>
-
-          {/* Right Card: Alstro */}
-          <div className="flex-1 bg-white rounded-2xl p-8 relative overflow-hidden border border-border border-t-4 border-t-green shadow-[0_8px_32px_rgba(16,185,129,0.08)] flex flex-col hover:-translate-y-1 transition-transform">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-green/5 rounded-bl-[100px]" />
-            <p className="font-mono text-[11px] text-green uppercase tracking-wider mb-3 font-bold">Upstream</p>
-            <p className="text-[24px] font-bold text-text mb-8 tracking-tight relative z-10">Alstro</p>
-            
-            <ul className="space-y-5 text-[15px] sm:text-[16px] text-text-2 mb-8 flex-1 relative z-10">
+          {/* Right: Alstro — wins visually */}
+          <div className="bg-white rounded-2xl p-8 border-2 border-accent relative shadow-[0_0_24px_rgba(37,99,235,0.08)] bg-gradient-to-br from-accent-light/30 to-white border-l-4 border-l-accent">
+            <p className="font-mono text-[12px] text-accent uppercase tracking-wider mb-2 font-bold">Upstream</p>
+            <h3 className="text-[22px] text-text mb-6">Alstro</h3>
+            <ul className="space-y-4 text-[15px] text-text">
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-green shrink-0 mt-0.5" />
-                <span><strong className="text-text font-semibold">14ms</strong> decision interception latency</span>
+                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                Generates provable record before errors reach the bureau
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-green shrink-0 mt-0.5" />
-                <span><strong className="text-text font-semibold">$0</strong> manual effort required</span>
+                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                Pre-execution enforcement, not post-furnishing scanning
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-green shrink-0 mt-0.5" />
-                <span>Automated 100% enforcement capability</span>
+                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                Complementary — not competitive
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="text-green shrink-0 mt-0.5" />
-                <span>Pre-execution blocking guarantees compliance</span>
+                <CheckCircle2 size={18} className="text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                Their customer base is our initial market
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="reveal max-w-[800px] mx-auto bg-white border border-border p-6 rounded-lg shadow-sm text-center">
-          <p className="text-[16px] text-text-2">
-            Bridgeforce solved the <span className="font-bold text-text">downstream</span> problem. Alstro solves the <span className="font-bold text-text">upstream</span> problem. Generating proof at the point of decision eliminates the manual backend reconstruction.
+        {/* Concluding paragraph */}
+        <div className="reveal max-w-[700px] mx-auto text-center">
+          <p className="text-[17px] text-text-2 leading-relaxed">
+            Bridgeforce validated that financial institutions will pay to reduce FCRA exposure. They built $20M doing it downstream.{" "}
+            <span className="text-text font-semibold">The upstream problem — generating proof at the point of decision — is what they cannot solve.</span>{" "}
+            That is Alstro.
           </p>
         </div>
       </div>

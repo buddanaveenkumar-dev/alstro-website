@@ -1,48 +1,76 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
 export default function Platforms() {
   return (
-    <section id="platforms" className="py-24 lg:py-32 bg-bg relative border-y border-border">
-      <div className="container-main reveal-stagger">
-        <div className="reveal flex flex-col items-center text-center mb-16">
-          <h2 className="max-w-[700px] text-text mb-12">
-            The compliance standard for AI lending platforms
+    <section id="platforms" className="py-[100px] max-md:py-[60px] bg-bg" aria-labelledby="platforms-heading">
+      <div className="container-main">
+        <div className="reveal text-center mb-16">
+          <p className="font-mono text-[13px] text-accent font-semibold uppercase tracking-[0.08em] mb-4">For platform partners</p>
+          <h2 id="platforms-heading" className="max-w-[700px] mx-auto mb-4">
+            The compliance runtime your FSI product is missing.
           </h2>
-          
-          {/* Logo Row */}
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-16 opacity-60 grayscale">
-            <span className="font-heading text-[24px] font-bold text-text-2">LoanPro</span>
-            <span className="font-heading text-[24px] font-bold text-text-2 tracking-tight">taktile</span>
-            <span className="font-heading text-[24px] font-bold text-text-2">Zest AI</span>
-            <span className="font-heading text-[24px] font-bold text-text-2">databricks</span>
-            <span className="font-heading text-[24px] font-bold text-text-2">salesforce</span>
+          <p className="text-[17px] text-text-2 max-w-[640px] mx-auto">
+            Salesforce Financial Services Cloud, Microsoft Azure FSI, ServiceNow FSO, and nCino all sell AI-assisted lending workflows into regulated institutions. Every enterprise deal hits the same wall.
+          </p>
+        </div>
+
+        {/* Platform logo row */}
+        <div className="reveal mb-16">
+          <p className="font-mono text-[13px] text-text-3 uppercase tracking-[0.08em] text-center mb-8 font-medium">Designed to integrate with</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16">
+            {["Salesforce FSC", "Microsoft Azure FSI", "ServiceNow FSO", "nCino"].map((name) => (
+              <span key={name} className="font-heading text-[18px] md:text-[22px] font-bold text-text-3 opacity-40 hover:opacity-80 transition-opacity duration-300 cursor-default select-none">
+                {name}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Info Cards */}
-        <div className="reveal grid md:grid-cols-2 gap-6 lg:gap-8 max-w-[900px] mx-auto mb-12">
-          <div className="bg-white border border-border p-8 rounded-2xl shadow-sm hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-shadow">
-            <h3 className="text-[20px] font-semibold text-text mb-3">For Origination Platforms</h3>
-            <p className="text-[16px] text-text-2 leading-relaxed">
-              Provide out-of-the-box compliance for your lenders. Embed Alstro's runtime and let your customers deploy advanced AI decisioning with instant regulatory documentation.
-            </p>
+        {/* Blockquote */}
+        <div className="reveal max-w-[700px] mx-auto text-center mb-16 relative">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[80px] leading-none text-accent opacity-[0.08] font-serif select-none pointer-events-none" aria-hidden="true">&ldquo;</span>
+          <p className="text-[24px] md:text-[28px] text-text font-medium italic leading-relaxed relative z-10">
+            &ldquo;How does your AI handle ECOA adverse action requirements?&rdquo;
+          </p>
+          <p className="text-[17px] text-text-2 mt-6">
+            <span className="text-text font-semibold">Alstro is the answer.</span> One runtime integration delivers compliance enforcement to every lender on your platform.
+          </p>
+        </div>
+
+        {/* Three capability cards */}
+        <div className="grid md:grid-cols-3 gap-6 reveal-stagger">
+          <div className="reveal card">
+            <h3 className="text-[18px] mb-3">One integration, every lender</h3>
+            <p className="text-[15px] text-text-2 leading-relaxed">Embed once. Every lender on your platform gets provable compliance automatically.</p>
           </div>
 
-          <div className="bg-white border border-border p-8 rounded-2xl shadow-sm hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-shadow">
-            <h3 className="text-[20px] font-semibold text-text mb-3">For AI Model Providers</h3>
-            <p className="text-[16px] text-text-2 leading-relaxed">
-              Let lenders deploy your models without regulatory risk. We generate the adverse action notices and policy proofs so your models pass compliance review faster.
-            </p>
+          <div className="reveal card">
+            <h3 className="text-[18px] mb-3">Jurisdiction-agnostic runtime</h3>
+            <p className="text-[15px] text-text-2 leading-relaxed mb-4">One integration covers global operations.</p>
+            <div className="flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-green-light text-green px-2.5 py-1 rounded">
+                <span className="w-1.5 h-1.5 rounded-full bg-green" aria-hidden="true" />US Pack · Live
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-surface text-text-3 px-2.5 py-1 rounded border border-border">
+                <span className="w-1.5 h-1.5 rounded-full bg-text-3" aria-hidden="true" />UK Pack · In design
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-surface text-text-3 px-2.5 py-1 rounded border border-border">
+                <span className="w-1.5 h-1.5 rounded-full bg-text-3" aria-hidden="true" />EU Pack · In design
+              </span>
+            </div>
+          </div>
+
+          <div className="reveal card">
+            <h3 className="text-[18px] mb-3">Model-agnostic API</h3>
+            <p className="text-[15px] text-text-2 leading-relaxed">Works on top of FICO, gradient boosted trees, logistic regression, internal scorecards — without model access or replacement.</p>
           </div>
         </div>
 
-        <div className="reveal flex justify-center">
-          <a href="#cta" className="inline-flex items-center gap-2 text-accent font-medium hover:text-accent-hover transition-colors">
-            Partner with Alstro <ArrowRight size={16} />
-          </a>
+        {/* "Not a partnership pitch" callout */}
+        <div className="reveal mt-8 text-center">
+          <p className="font-mono text-[12px] text-text-3 uppercase tracking-[0.05em] font-medium p-4 bg-surface rounded-lg border border-border inline-block">
+            This is not a partnership pitch. It is a capability gap that drives acquisition.
+          </p>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import StatsBar from "@/components/Stats";
 import Problem from "@/components/Problem";
 import Architecture from "@/components/Architecture";
 import ShadowPilot from "@/components/ShadowPilot";
@@ -11,6 +12,7 @@ import About from "@/components/About";
 import CTA from "@/components/CTA";
 import StickyCTA from "@/components/StickyCTA";
 import Footer from "@/components/Footer";
+import RevealObserver from "@/components/RevealObserver";
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
+        <StatsBar />
         <Problem />
         <Architecture />
         <ShadowPilot />
@@ -30,6 +33,7 @@ export default function Home() {
       </main>
       <StickyCTA />
       <Footer />
+      <RevealObserver />
     </>
   );
 }
