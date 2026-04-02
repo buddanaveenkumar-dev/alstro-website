@@ -76,7 +76,7 @@ h3 {
 }
 
 ::selection {
-  background: rgba(0, 229, 160, 0.15);
+  background: rgba(0, 201, 139, 0.15);
   color: var(--color-text);
 }
 
@@ -116,7 +116,7 @@ h3 {
     transform: none !important;
     transition: none !important;
   }
-  .marquee-track {
+  .marquee-track, .marquee-track-reverse {
     animation: none !important;
   }
 }
@@ -143,11 +143,17 @@ h3 {
     border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 24px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
   .card:hover {
     border-color: var(--color-border-accent);
-    box-shadow: 0 0 30px var(--accent-glow);
+    box-shadow: 0 0 40px var(--accent-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Badge color shift on card hover */
+  .card:hover .badge-accent {
+    color: var(--color-accent);
   }
 
   /* ── Buttons ────────────── */
@@ -211,7 +217,10 @@ h3 {
   .input-field:focus {
     outline: none;
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(0, 201, 139, 0.12);
+    box-shadow: 0 0 0 3px rgba(0, 201, 139, 0.10);
+  }
+  .input-field.field-error {
+    border-color: #E53E3E;
   }
   .input-field::placeholder {
     color: var(--color-text-3);
@@ -230,26 +239,72 @@ h3 {
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.4s ease-out both;
-  }
-
   .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
   .reveal-stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
   .reveal-stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
   .reveal-stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
+
+  /* ── Hero Typewriter ────── */
+
+  @keyframes typewriter-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .typewriter-line {
+    opacity: 0;
+    animation: typewriter-in 0.4s ease-out forwards;
+  }
+
+  /* ── Hero Shimmer ───────── */
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 100% center; }
+    50% { background-position: 0% center; }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(120deg, var(--color-text) 0%, var(--color-accent) 40%, var(--color-text) 60%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* ── Live Dot Pulse ─────── */
+
+  @keyframes live-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 201, 139, 0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(0, 201, 139, 0); }
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: live-pulse 2s ease-in-out infinite;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .live-dot-sm {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: live-pulse 2s ease-in-out infinite;
+    display: inline-block;
+    flex-shrink: 0;
+  }
 
   /* ── Compliance Marquee ─── */
 
@@ -269,26 +324,37 @@ h3 {
   }
   .marquee-container::before {
     left: 0;
-    background: linear-gradient(to right, #FFFFFF, transparent);
+    background: linear-gradient(to right, var(--color-bg), transparent);
   }
   .marquee-container::after {
     right: 0;
-    background: linear-gradient(to left, #FFFFFF, transparent);
+    background: linear-gradient(to left, var(--color-bg), transparent);
   }
 
   .marquee-track {
     display: flex;
-    gap: 12px;
+    gap: 24px;
     width: max-content;
-    animation: marquee 40s linear infinite;
+    animation: scroll-left 30s linear infinite;
   }
-  .marquee-container:hover .marquee-track {
+  .marquee-track-reverse {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+  }
+  .marquee-container:hover .marquee-track,
+  .marquee-container:hover .marquee-track-reverse {
     animation-play-state: paused;
   }
 
-  @keyframes marquee {
+  @keyframes scroll-left {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+  @keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 
   /* ── Pipeline Animations ── */
@@ -306,18 +372,10 @@ h3 {
     100% { top: calc(100% + 6px); opacity: 0; }
   }
 
-  /* ── Hero shimmer ───────── */
+  /* ── Rotating Border ────── */
 
-  @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
-
-  /* ── Dot Grid Hero BG ───── */
-
-  .dot-grid-bg {
-    background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
-    background-size: 26px 26px;
-    opacity: 0.25;
+  @keyframes rotate-gradient {
+    0% { --border-angle: 0deg; }
+    100% { --border-angle: 360deg; }
   }
 }

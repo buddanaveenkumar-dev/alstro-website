@@ -30,7 +30,6 @@ export default function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Focus trap
   useEffect(() => {
     if (!open || !menuRef.current) return;
     const focusable = menuRef.current.querySelectorAll<HTMLElement>('a, button');
@@ -74,14 +73,18 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
+            <a href="#cta" className="btn-primary inline-flex items-center gap-2" style={{ padding: "8px 20px", fontSize: 14 }}>
+              Join Shadow Pilot
+              <span className="live-dot-sm" aria-hidden="true" />
+            </a>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile hamburger */}
           <div className="flex md:hidden items-center gap-3">
             <button
               className="text-text-2 p-2 -mr-2 relative z-50 flex flex-col justify-center items-center w-10 h-10"
               onClick={() => setOpen(!open)}
-              aria-label="Toggle menu"
+              aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-menu"
             >
@@ -96,7 +99,7 @@ export default function Nav() {
       {/* Mobile Menu */}
       {open && (
         <>
-          <div className="fixed inset-0 z-[100] bg-black/40 md:hidden" onClick={close} aria-hidden="true" />
+          <div className="fixed inset-0 z-[100] bg-black/20 md:hidden" onClick={close} aria-hidden="true" />
           <div
             ref={menuRef}
             id="mobile-menu"
@@ -112,6 +115,10 @@ export default function Nav() {
                   {l.label}
                 </a>
               ))}
+              <a href="#cta" onClick={close} className="btn-primary mt-4 justify-center">
+                Join Shadow Pilot
+                <span className="live-dot-sm" aria-hidden="true" />
+              </a>
             </div>
             <div className="mt-auto mb-8">
               <p className="font-mono text-[12px] text-text-3 tracking-wider uppercase">Institutional Compliance Layer</p>

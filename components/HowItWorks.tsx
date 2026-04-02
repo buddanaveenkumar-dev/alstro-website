@@ -15,6 +15,23 @@ export default function HowItWorks() {
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes flowRight { 0%{left:-6px;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{left:calc(100% + 6px);opacity:0} }
         @keyframes flowDown { 0%{top:-6px;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{top:calc(100% + 6px);opacity:0} }
+        @keyframes border-spin {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .alstro-layer {
+          position: relative;
+          padding: 2px;
+          border-radius: 12px;
+          background: linear-gradient(90deg, rgba(0,201,139,0.35), rgba(0,201,139,0.08), rgba(0,201,139,0.35));
+          background-size: 200% 100%;
+          animation: border-spin 4s ease-in-out infinite;
+          box-shadow: 0 0 30px rgba(0,201,139,0.06);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .alstro-layer { animation: none; }
+        }
       `}} />
 
       <div className="container-main">
@@ -52,8 +69,8 @@ export default function HowItWorks() {
               </div>
             </div>
 
-            {/* Center: Alstro Enforcement Layer */}
-            <div className="flex-[1.4] lg:min-w-[320px] relative z-10 p-[2px] rounded-xl bg-gradient-to-br from-accent/40 to-accent/10 shadow-[0_0_30px_rgba(0,201,139,0.08)] shrink-0">
+            {/* Center: Alstro Enforcement Layer — animated border */}
+            <div className="flex-[1.4] lg:min-w-[320px] relative z-10 alstro-layer shrink-0">
               <div className="rounded-[10px] px-5 py-6 bg-white h-full">
                 <p className="text-center text-accent text-[13px] font-bold uppercase tracking-wider mb-4">Alstro Enforcement Layer</p>
                 <div className="grid grid-cols-2 gap-2">
@@ -63,7 +80,7 @@ export default function HowItWorks() {
                     { Icon: Database, text: "Audit Ledger" },
                     { Icon: RotateCcw, text: "Replay" },
                   ].map(({ Icon, text }) => (
-                    <div key={text} className="flex items-center gap-2 p-2.5 bg-[rgba(0,201,139,0.05)] border border-[rgba(0,201,139,0.15)] rounded-lg">
+                    <div key={text} className="flex items-center gap-2 p-2.5 bg-[rgba(0,201,139,0.04)] border border-[rgba(0,201,139,0.12)] rounded-lg">
                       <Icon size={14} className="text-accent shrink-0" aria-hidden="true" />
                       <span className="text-[12px] text-text font-semibold">{text}</span>
                     </div>
@@ -97,18 +114,18 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* Capability Cards — compact 4-column */}
+        {/* Capability Cards — compact 4-column with hover */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal-stagger mb-10">
           {capabilities.map((c) => {
             const Icon = c.icon;
             return (
-              <div key={c.title} className="reveal card flex flex-col gap-3">
+              <div key={c.title} className="reveal card flex flex-col gap-3 group">
                 <div className="flex items-center gap-2.5">
                   <Icon size={18} className="text-accent shrink-0" aria-hidden="true" />
                   <h3 className="text-[16px] m-0 leading-tight">{c.title}</h3>
                 </div>
                 <p className="text-[14px] text-text-2 leading-relaxed">{c.desc}</p>
-                <span className="mt-auto inline-flex self-start font-mono text-[11px] font-semibold text-accent bg-[rgba(0,201,139,0.06)] border border-[rgba(0,201,139,0.15)] rounded px-2.5 py-1 uppercase tracking-wide">
+                <span className="badge-accent mt-auto inline-flex self-start font-mono text-[11px] font-semibold text-text-3 bg-surface border border-border rounded px-2.5 py-1 uppercase tracking-wide transition-colors duration-300">
                   {c.badge}
                 </span>
               </div>
