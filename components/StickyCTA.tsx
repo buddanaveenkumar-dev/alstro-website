@@ -10,7 +10,7 @@ export default function StickyCTA() {
   useEffect(() => {
     // Check if user already dismissed this session
     if (typeof window !== "undefined" && sessionStorage.getItem("sticky-cta-dismissed") === "true") {
-      setDismissed(true);
+      window.setTimeout(() => setDismissed(true), 0);
     }
   }, []);
 
@@ -49,7 +49,7 @@ export default function StickyCTA() {
         </p>
         <div className="flex items-center gap-3 shrink-0">
           <a href="#cta" className="btn-primary text-[13px]" style={{ padding: "6px 16px", borderRadius: 8 }}>
-            Request Access <ArrowRight size={14} aria-hidden="true" className="hidden sm:inline-block" />
+            Get Early Access <ArrowRight size={14} aria-hidden="true" className="hidden sm:inline-block" />
           </a>
           <button onClick={dismiss} className="text-text-3 hover:text-text transition-colors p-1" aria-label="Dismiss notification">
             <X size={16} aria-hidden="true" />

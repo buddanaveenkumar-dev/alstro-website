@@ -28,7 +28,7 @@ export default function ShadowPilot() {
             {/* Connecting line behind circles */}
             <div className="absolute top-[24px] left-[calc(16.67%)] right-[calc(16.67%)] h-[2px] bg-border z-0" aria-hidden="true" />
 
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div key={s.num} className="flex flex-col items-center text-center relative z-10 px-4">
                 <div className="w-[48px] h-[48px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[16px] font-bold shadow-[0_0_0_8px_var(--color-bg)] mb-6">
                   {s.num}

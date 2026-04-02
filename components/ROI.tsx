@@ -21,7 +21,10 @@ function AnimatedNumber({ end, suffix, color }: { end: number; suffix?: string; 
   useEffect(() => {
     if (!visible) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) { setCount(end); return; }
+    if (prefersReducedMotion) {
+      window.setTimeout(() => setCount(end), 0);
+      return;
+    }
 
     let startTime: number;
     const animate = (timestamp: number) => {

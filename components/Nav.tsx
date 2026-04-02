@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ArrowRight } from "lucide-react";
 
 const links = [
   { label: "Architecture", href: "#solution" },
@@ -20,7 +19,7 @@ export default function Nav() {
   // Scroll + active section tracking
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 80);
 
       const sectionIds = links.map((l) => l.href.replace("#", ""));
       let current = "";
@@ -84,13 +83,13 @@ export default function Nav() {
         role="banner"
         className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.06)] border-b border-border"
-            : "bg-white border-b border-transparent"
+            ? "bg-surface/80 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)]"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav aria-label="Main" className="container-main flex items-center justify-between h-full">
-          <a href="#" className="font-heading text-[18px] font-semibold text-text tracking-tight z-50 relative" aria-label="Alstro home">
-            ALSTRO<span className="text-accent">.</span>
+          <a href="#" className="font-heading text-[20px] font-extrabold tracking-widest text-white z-50 relative" aria-label="Alstro home">
+            ALSTRO<span className="text-accent-primary">.</span>
           </a>
 
           {/* Desktop links */}
@@ -119,14 +118,14 @@ export default function Nav() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
             <a href="#cta" className="btn-primary" style={{ padding: "10px 20px", fontSize: 14 }}>
-              Contact Sales
+              Early Access
             </a>
           </div>
 
           {/* Mobile: CTA always visible + Hamburger */}
           <div className="flex md:hidden items-center gap-3">
             <a href="#cta" className="btn-primary text-[13px]" style={{ padding: "8px 16px" }}>
-              Contact Sales
+              Early Access
             </a>
             <button
               ref={hamburgerRef}

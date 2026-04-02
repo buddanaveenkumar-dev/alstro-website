@@ -1,5 +1,3 @@
-import { ShieldCheck } from "lucide-react";
-
 const navLinks = [
   { label: "Architecture", href: "#solution" },
   { label: "Pilot Program", href: "#shadow-pilot" },

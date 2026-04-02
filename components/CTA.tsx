@@ -53,8 +53,6 @@ export default function CTA() {
     }
   };
 
-  const inputClass = `input-field ${errors ? "" : ""}`;
-
   return (
     <section id="cta" className="py-[100px] max-md:py-[60px] bg-bg" aria-labelledby="cta-heading">
       <div className="container-main">
@@ -142,7 +140,7 @@ export default function CTA() {
                         Submitting…
                       </span>
                     ) : (
-                      <>Request Shadow Pilot <ArrowRight size={16} aria-hidden="true" /></>
+                      <>Get Early Access <ArrowRight size={16} aria-hidden="true" /></>
                     )}
                   </button>
 

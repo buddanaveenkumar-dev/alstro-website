@@ -52,14 +52,16 @@ export default function StatsBar() {
   useEffect(() => {
     if (!isVisible || hasAnimated) return;
 
-    setHasAnimated(true);
+    window.setTimeout(() => setHasAnimated(true), 0);
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setC1(8369);
-      setC2(37.4);
-      setC3(74.77);
-      setC4(400);
+      window.setTimeout(() => {
+        setC1(8369);
+        setC2(37.4);
+        setC3(74.77);
+        setC4(400);
+      }, 0);
       return;
     }
 
