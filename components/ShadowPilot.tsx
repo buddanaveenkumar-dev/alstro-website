@@ -29,7 +29,7 @@ export default function ShadowPilot() {
 
             {steps.map((s) => (
               <div key={s.num} className="flex flex-col items-center text-center relative z-10">
-                <div className="w-14 h-14 rounded-full bg-accent text-[#07090F] flex items-center justify-center font-mono text-[18px] font-bold shadow-[0_0_0_8px_var(--color-bg)] mb-5">
+                <div className="w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center font-mono text-[18px] font-bold shadow-[0_0_0_8px_var(--color-surface)] mb-5">
                   {s.num}
                 </div>
                 <h3 className="text-[18px] mb-2">{s.title}</h3>
@@ -45,7 +45,7 @@ export default function ShadowPilot() {
             <div className="absolute left-[22px] top-[28px] bottom-[28px] w-[2px] bg-border z-0" aria-hidden="true" />
             {steps.map((s) => (
               <div key={s.num} className="relative mb-10 last:mb-0">
-                <div className="absolute left-[-36px] w-[44px] h-[44px] rounded-full bg-accent text-[#07090F] flex items-center justify-center font-mono text-[16px] font-bold shadow-[0_0_0_6px_var(--color-surface)] z-10">
+                <div className="absolute left-[-36px] w-[44px] h-[44px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[16px] font-bold shadow-[0_0_0_6px_var(--color-surface)] z-10">
                   {s.num}
                 </div>
                 <h3 className="text-[18px] mb-1">{s.title}</h3>
@@ -58,7 +58,7 @@ export default function ShadowPilot() {
         </div>
 
         <div className="reveal flex justify-center">
-          <a href="#cta" className="btn-primary">Apply for Shadow Pilot</a>
+          <a href="#cta" className="btn-primary">Join Shadow Pilot</a>
         </div>
       </div>
     </section>

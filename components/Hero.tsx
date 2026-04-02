@@ -40,14 +40,14 @@ export default function Hero() {
   return (
     <section ref={sectionRef} className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#090C13] via-[#07090F] to-[#07090F]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F8FA] via-white to-white" aria-hidden="true" />
       <ParticleCanvas />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,229,160,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,201,139,0.05),transparent_40%)] pointer-events-none" aria-hidden="true" />
 
       <div className="container-main relative z-10 grid gap-12 lg:grid-cols-2 items-center">
         {/* Left — copy */}
         <div className="space-y-6">
-          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,229,160,0.25)] bg-[rgba(0,229,160,0.06)] px-4 py-1.5 text-[13px] font-mono text-text-2">
+          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,201,139,0.25)] bg-[rgba(0,201,139,0.05)] px-4 py-1.5 text-[13px] font-mono text-text-2">
             <span className="h-2 w-2 rounded-full bg-accent animate-pulse" aria-hidden="true" />
             Accepting shadow pilots
           </div>
@@ -56,7 +56,7 @@ export default function Hero() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(90deg, #00E5A0 0%, #F0F2F5 60%)",
+                backgroundImage: "linear-gradient(90deg, #00C98B 0%, #1A1D26 60%)",
                 backgroundSize: "200% auto",
                 animation: "shimmer 4s ease-in-out infinite",
               }}
@@ -69,13 +69,13 @@ export default function Hero() {
           </p>
 
           <div className="reveal flex flex-col sm:flex-row sm:items-center gap-4">
-            <a href="#cta" className="btn-primary">Get Early Access</a>
+            <a href="#cta" className="btn-primary">Join Shadow Pilot</a>
             <a href="#how-it-works" className="btn-secondary">How It Works</a>
           </div>
         </div>
 
         {/* Right — live decision card */}
-        <div className="reveal relative rounded-2xl border border-[rgba(0,229,160,0.2)] bg-[rgba(255,255,255,0.04)] p-6 shadow-[0_0_40px_rgba(0,229,160,0.08)] backdrop-blur-xl">
+        <div className="reveal relative rounded-2xl border border-[rgba(0,201,139,0.2)] bg-white p-6 shadow-[0_0_40px_rgba(0,201,139,0.06),0_4px_20px_rgba(0,0,0,0.04)]">
           <div className="font-mono text-[13px] leading-relaxed space-y-1">
             {visibleLines.map((line, idx) => (
               <div key={idx} className="animate-fade-in">

@@ -67,10 +67,10 @@ export default function CTAForm() {
         </div>
 
         <div className="reveal max-w-[520px] mx-auto">
-          <div className="rounded-2xl border border-border bg-[rgba(255,255,255,0.03)] backdrop-blur-xl p-8">
+          <div className="rounded-2xl border border-border bg-white p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
             {status === "success" ? (
               <div className="text-center py-10">
-                <div className="w-14 h-14 rounded-full bg-[rgba(0,229,160,0.1)] text-accent flex items-center justify-center mx-auto mb-5">
+                <div className="w-14 h-14 rounded-full bg-[rgba(0,201,139,0.08)] text-accent flex items-center justify-center mx-auto mb-5">
                   <CheckCircle2 size={28} aria-hidden="true" />
                 </div>
                 <h3 className="text-[22px] mb-2">Application received</h3>
@@ -130,7 +130,7 @@ export default function CTAForm() {
                         Submitting…
                       </span>
                     ) : (
-                      <>Get Early Access <ArrowRight size={16} aria-hidden="true" /></>
+                      <>Join Shadow Pilot <ArrowRight size={16} aria-hidden="true" /></>
                     )}
                   </button>
                   {status === "error" && <p className="text-[13px] text-[#FF6B35] text-center mt-3">Something went wrong. Please try again.</p>}

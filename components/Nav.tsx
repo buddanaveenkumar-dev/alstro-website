@@ -58,7 +58,7 @@ export default function Nav() {
         role="banner"
         className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${
           scrolled
-            ? "bg-surface/80 backdrop-blur-xl border-b border-[rgba(255,255,255,0.06)]"
+            ? "bg-white/90 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
             : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -74,16 +74,10 @@ export default function Nav() {
                 {l.label}
               </a>
             ))}
-            <a href="#cta" className="btn-primary" style={{ padding: "10px 20px" }}>
-              Early Access
-            </a>
           </div>
 
           {/* Mobile */}
           <div className="flex md:hidden items-center gap-3">
-            <a href="#cta" className="btn-primary text-[13px]" style={{ padding: "8px 16px" }}>
-              Early Access
-            </a>
             <button
               className="text-text-2 p-2 -mr-2 relative z-50 flex flex-col justify-center items-center w-10 h-10"
               onClick={() => setOpen(!open)}
@@ -108,7 +102,7 @@ export default function Nav() {
             id="mobile-menu"
             role="dialog"
             aria-label="Mobile navigation"
-            className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-surface shadow-2xl md:hidden flex flex-col pt-24 px-6"
+            className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-white shadow-2xl md:hidden flex flex-col pt-24 px-6"
             style={{ animation: "slideIn 0.3s ease forwards" }}
           >
             <style>{`@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>

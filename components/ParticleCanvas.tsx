@@ -43,7 +43,7 @@ export default function ParticleCanvas() {
         if (p.y > height) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 229, 160, ${p.alpha})`;
+        ctx.fillStyle = `rgba(0, 201, 139, ${p.alpha * 0.5})`;
         ctx.fill();
       });
       frameRef.current = requestAnimationFrame(render);

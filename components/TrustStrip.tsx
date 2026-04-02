@@ -9,7 +9,7 @@ const badges = [
 
 function BadgeItem({ text }: { text: string }) {
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-[12px] font-medium text-text-2 border border-border bg-[rgba(255,255,255,0.03)] rounded-full px-4 py-2.5 whitespace-nowrap select-none">
+    <span className="inline-flex items-center gap-2 font-mono text-[12px] font-medium text-text-2 border border-border bg-white rounded-full px-4 py-2.5 whitespace-nowrap select-none">
       <CheckCircle2 size={14} className="text-accent shrink-0" aria-hidden="true" />
       {text}
     </span>

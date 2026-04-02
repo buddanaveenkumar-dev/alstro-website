@@ -8,7 +8,7 @@ export default function Problem() {
           The problem
         </p>
         <h2 id="problem-heading" className="reveal mb-6">
-          AI models deny credit in milliseconds. Proving compliance takes months.
+          AI models deny credit in milliseconds. Proving compliance never catches up.
         </h2>
         <p className="reveal text-[17px] text-text-2 leading-relaxed">
           When regulators ask why a borrower was denied, most lenders reconstruct the answer manually — weeks later. Adverse action notices are boilerplate. Fair lending tests lag quarters behind model updates. No provable record exists at the point of decision.
