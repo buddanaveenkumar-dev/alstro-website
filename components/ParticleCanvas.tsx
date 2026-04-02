@@ -21,36 +21,31 @@ export default function ParticleCanvas() {
     canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
 
-    const limit = 40;
-
     const createParticle = (): Particle => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: (Math.random() - 0.5) * 0.15,
       radius: Math.random() * 1.1 + 0.4,
-      alpha: Math.random() * 0.3 + 0.1,
+      alpha: Math.random() * 0.12 + 0.04,
     });
 
-    const particles: Particle[] = Array.from({ length: limit }, createParticle);
+    const particles: Particle[] = Array.from({ length: 30 }, createParticle);
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
-
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 201, 139, ${p.alpha * 0.4})`;
+        ctx.fillStyle = `rgba(0, 229, 160, ${p.alpha})`;
         ctx.fill();
       });
-
       frameRef.current = requestAnimationFrame(render);
     };
 
@@ -65,7 +60,6 @@ export default function ParticleCanvas() {
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => {
       cancelAnimationFrame(frameRef.current);
       window.removeEventListener("resize", handleResize);

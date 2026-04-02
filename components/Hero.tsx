@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowDown } from "lucide-react";
 import ParticleCanvas from "@/components/ParticleCanvas";
 
-const heroCardLines = [
-  "Decision intercepted",
-  "14ms · live",
-  "Model: XGBoost v3.2",
-  "Action: Denial → Blocked",
-  "Reason: ECOA §701(a)",
-  "Status: ██████████ Compliant",
+const cardLines = [
+  { label: "", value: "● Decision intercepted · 14ms" },
+  { label: "Model", value: "XGBoost v3.2" },
+  { label: "Action", value: "Denial → Blocked" },
+  { label: "Policy", value: "ECOA §701(a)" },
+  { label: "Status", value: "██████████ Compliant" },
 ];
 
 export default function Hero() {
@@ -18,83 +16,83 @@ export default function Hero() {
   const [lineIndex, setLineIndex] = useState(0);
 
   useEffect(() => {
-    if (lineIndex >= heroCardLines.length) return;
-    const timer = window.setTimeout(() => setLineIndex((prev) => prev + 1), 220);
+    if (lineIndex >= cardLines.length) return;
+    const timer = window.setTimeout(() => setLineIndex((p) => p + 1), 220);
     return () => window.clearTimeout(timer);
   }, [lineIndex]);
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       sectionRef.current.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
       return;
     }
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
       { threshold: 0.15 }
     );
-
-    const reveals = sectionRef.current.querySelectorAll(".reveal");
-    reveals.forEach((el) => observer.observe(el));
-
+    sectionRef.current.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const typewriterLines = useMemo(() => heroCardLines.slice(0, lineIndex), [lineIndex]);
+  const visibleLines = useMemo(() => cardLines.slice(0, lineIndex), [lineIndex]);
 
   return (
-    <section id="hero" ref={sectionRef} className="relative overflow-hidden py-28 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F8FA] via-white to-white" aria-hidden="true" />
+    <section ref={sectionRef} className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#090C13] via-[#07090F] to-[#07090F]" aria-hidden="true" />
       <ParticleCanvas />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,229,160,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,201,139,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
-      <div className="container-main relative z-10 grid gap-10 lg:grid-cols-2 items-start">
+      <div className="container-main relative z-10 grid gap-12 lg:grid-cols-2 items-center">
+        {/* Left — copy */}
         <div className="space-y-6">
-          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,201,139,0.25)] bg-[rgba(0,201,139,0.06)] px-4 py-1.5 text-[13px] font-mono text-text-2">
-            <span className="h-2 w-2 rounded-full bg-status-live animate-pulse" />
-            Now accepting enterprise shadow pilots
+          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,229,160,0.25)] bg-[rgba(0,229,160,0.06)] px-4 py-1.5 text-[13px] font-mono text-text-2">
+            <span className="h-2 w-2 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+            Accepting shadow pilots
           </div>
 
-          <h1 className="reveal max-w-[720px] text-[42px] md:text-[64px] leading-[1.06] font-bold tracking-tight">
-            Deploy AI models with <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-[#1A1D26]">cryptographic proof</span> of compliance.
+          <h1 className="reveal max-w-[640px]">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: "linear-gradient(90deg, #00E5A0 0%, #F0F2F5 60%)",
+                backgroundSize: "200% auto",
+                animation: "shimmer 4s ease-in-out infinite",
+              }}
+            >Prove</span>{" "}
+            every AI lending decision before execution.
           </h1>
 
-          <p className="reveal text-[17px] md:text-[19px] text-text-2 max-w-[640px] leading-relaxed">
-            The institutional enforcement layer for AI lending. Every decision — transparent, explainable, and regulation-ready before execution.
+          <p className="reveal text-[17px] md:text-[19px] text-text-2 max-w-[560px] leading-relaxed">
+            Alstro intercepts AI-driven lending decisions and enforces ECOA, FCRA, and fair lending compliance — automatically, in under 14ms.
           </p>
 
           <div className="reveal flex flex-col sm:flex-row sm:items-center gap-4">
-            <a href="#cta" className="btn-primary">
-              Get Early Access
-            </a>
-            <a href="#solution" className="btn-secondary">
-              View Architecture <ArrowDown size={16} aria-hidden="true" />
-            </a>
-          </div>
-
-          <div className="reveal flex flex-wrap gap-2 text-[12px] font-mono text-text-2">
-            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Policy-first enforcement</span>
-            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Live decision proof</span>
-            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Regulator-ready output</span>
+            <a href="#cta" className="btn-primary">Get Early Access</a>
+            <a href="#how-it-works" className="btn-secondary">How It Works</a>
           </div>
         </div>
 
-        <div className="reveal relative rounded-2xl border border-[rgba(0,201,139,0.25)] bg-white p-6 shadow-[0_0_30px_rgba(0,201,139,0.08),0_4px_20px_rgba(0,0,0,0.04)] min-h-[280px]">
-          <div className="mb-4 text-[12px] font-mono uppercase tracking-widest text-text-3">Decision intercepted</div>
-          <div className="relative text-[13px] font-mono leading-snug text-text">
-            <div className="h-5">
-              {typewriterLines.map((line, idx) => (
-                <p key={idx} className="animate-fade-in text-text">{line}</p>
-              ))}
-            </div>
+        {/* Right — live decision card */}
+        <div className="reveal relative rounded-2xl border border-[rgba(0,229,160,0.2)] bg-[rgba(255,255,255,0.04)] p-6 shadow-[0_0_40px_rgba(0,229,160,0.08)] backdrop-blur-xl">
+          <div className="font-mono text-[13px] leading-relaxed space-y-1">
+            {visibleLines.map((line, idx) => (
+              <div key={idx} className="animate-fade-in">
+                {idx === 0 ? (
+                  <span className="text-accent font-semibold">{line.value}</span>
+                ) : (
+                  <div className="flex gap-4">
+                    <span className="text-text-3 w-[70px] shrink-0">{line.label}</span>
+                    <span className="text-text">{line.value}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+            {/* Blinking cursor */}
+            {lineIndex < cardLines.length && (
+              <span className="inline-block w-[8px] h-[16px] bg-accent/60 animate-pulse" aria-hidden="true" />
+            )}
           </div>
         </div>
       </div>
