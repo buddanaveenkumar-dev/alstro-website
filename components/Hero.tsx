@@ -47,11 +47,6 @@ export default function Hero() {
       <div className="container-main relative z-10 grid gap-12 lg:grid-cols-2 items-center">
         {/* Left — copy */}
         <div className="space-y-6">
-          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,201,139,0.25)] bg-[rgba(0,201,139,0.05)] px-4 py-1.5 text-[13px] font-mono text-text-2">
-            <span className="h-2 w-2 rounded-full bg-accent animate-pulse" aria-hidden="true" />
-            Accepting shadow pilots
-          </div>
-
           <h1 className="reveal max-w-[640px]">
             <span
               className="bg-clip-text text-transparent"
