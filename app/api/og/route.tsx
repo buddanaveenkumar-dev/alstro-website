@@ -30,7 +30,7 @@ export async function GET() {
             left: '48px',
           }}
         >
-          ALSTRO<span style={{ color: '#2563EB' }}>.</span>
+          ALSTRO<span style={{ color: '#00C98B' }}>.</span>
         </div>
 
         {/* Main Content */}
@@ -75,7 +75,7 @@ export async function GET() {
             bottom: '48px',
             width: 'calc(100% - 96px)',
             height: '2px',
-            background: '#2563EB',
+            background: '#00C98B',
             opacity: 0.2,
           }}
         />

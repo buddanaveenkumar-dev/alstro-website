@@ -83,12 +83,12 @@ export default function Nav() {
         role="banner"
         className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${
           scrolled
-            ? "bg-surface/80 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)]"
+            ? "bg-white/90 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
             : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav aria-label="Main" className="container-main flex items-center justify-between h-full">
-          <a href="#" className="font-heading text-[20px] font-extrabold tracking-widest text-white z-50 relative" aria-label="Alstro home">
+          <a href="#" className="font-heading text-[20px] font-extrabold tracking-widest text-text z-50 relative" aria-label="Alstro home">
             ALSTRO<span className="text-accent-primary">.</span>
           </a>
 
@@ -129,15 +129,15 @@ export default function Nav() {
             </a>
             <button
               ref={hamburgerRef}
-              className="text-text p-2 -mr-2 relative z-50 flex flex-col justify-center items-center w-10 h-10"
+              className="text-text-2 p-2 -mr-2 relative z-50 flex flex-col justify-center items-center w-10 h-10"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
             >
-              <span className={`bg-text block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm ${open ? "rotate-45 translate-y-[5px]" : "-translate-y-1"}`} />
-              <span className={`bg-text block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm my-0.5 ${open ? "opacity-0" : "opacity-100"}`} />
-              <span className={`bg-text block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm ${open ? "-rotate-45 -translate-y-[5px]" : "translate-y-1"}`} />
+              <span className={`bg-text-2 block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm ${open ? "rotate-45 translate-y-[5px]" : "-translate-y-1"}`} />
+              <span className={`bg-text-2 block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm my-0.5 ${open ? "opacity-0" : "opacity-100"}`} />
+              <span className={`bg-text-2 block transition-all duration-300 ease-out h-[2px] w-6 rounded-sm ${open ? "-rotate-45 -translate-y-[5px]" : "translate-y-1"}`} />
             </button>
           </div>
         </nav>

@@ -52,22 +52,22 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={sectionRef} className="relative overflow-hidden py-28 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#090C13] via-[#07090F] to-[#07090F]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F8FA] via-white to-white" aria-hidden="true" />
       <ParticleCanvas />
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,229,160,0.08),transparent_40%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,201,139,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
       <div className="container-main relative z-10 grid gap-10 lg:grid-cols-2 items-start">
         <div className="space-y-6">
-          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,229,160,0.25)] bg-[rgba(0,229,160,0.08)] px-4 py-1.5 text-[13px] font-mono text-text-secondary">
+          <div className="reveal inline-flex items-center gap-2.5 rounded-full border border-[rgba(0,201,139,0.25)] bg-[rgba(0,201,139,0.06)] px-4 py-1.5 text-[13px] font-mono text-text-2">
             <span className="h-2 w-2 rounded-full bg-status-live animate-pulse" />
             Now accepting enterprise shadow pilots
           </div>
 
           <h1 className="reveal max-w-[720px] text-[42px] md:text-[64px] leading-[1.06] font-bold tracking-tight">
-            Deploy AI models with <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-white">cryptographic proof</span> of compliance.
+            Deploy AI models with <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent to-[#1A1D26]">cryptographic proof</span> of compliance.
           </h1>
 
-          <p className="reveal text-[17px] md:text-[19px] text-text-secondary max-w-[640px] leading-relaxed">
+          <p className="reveal text-[17px] md:text-[19px] text-text-2 max-w-[640px] leading-relaxed">
             The institutional enforcement layer for AI lending. Every decision — transparent, explainable, and regulation-ready before execution.
           </p>
 
@@ -80,19 +80,19 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="reveal flex flex-wrap gap-2 text-[12px] font-mono text-text-secondary">
-            <span className="inline-flex items-center rounded-full bg-[rgba(255,255,255,0.06)] px-3 py-1">Policy-first enforcement</span>
-            <span className="inline-flex items-center rounded-full bg-[rgba(255,255,255,0.06)] px-3 py-1">Live decision proof</span>
-            <span className="inline-flex items-center rounded-full bg-[rgba(255,255,255,0.06)] px-3 py-1">Regulator-ready output</span>
+          <div className="reveal flex flex-wrap gap-2 text-[12px] font-mono text-text-2">
+            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Policy-first enforcement</span>
+            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Live decision proof</span>
+            <span className="inline-flex items-center rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1">Regulator-ready output</span>
           </div>
         </div>
 
-        <div className="reveal relative rounded-2xl border border-[rgba(0,229,160,0.25)] bg-[rgba(255,255,255,0.06)] p-6 shadow-[0_0_30px_rgba(0,229,160,0.12)] backdrop-blur-xl min-h-[280px]">
-          <div className="mb-4 text-[12px] font-mono uppercase tracking-widest text-text-secondary">Decision intercepted</div>
-          <div className="relative text-[13px] font-mono leading-snug text-text-primary">
+        <div className="reveal relative rounded-2xl border border-[rgba(0,201,139,0.25)] bg-white p-6 shadow-[0_0_30px_rgba(0,201,139,0.08),0_4px_20px_rgba(0,0,0,0.04)] min-h-[280px]">
+          <div className="mb-4 text-[12px] font-mono uppercase tracking-widest text-text-3">Decision intercepted</div>
+          <div className="relative text-[13px] font-mono leading-snug text-text">
             <div className="h-5">
               {typewriterLines.map((line, idx) => (
-                <p key={idx} className="animate-fade-in text-text-primary">{line}</p>
+                <p key={idx} className="animate-fade-in text-text">{line}</p>
               ))}
             </div>
           </div>

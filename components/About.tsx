@@ -28,7 +28,7 @@ export default function About() {
               </p>
             </blockquote>
 
-            <div className="bg-surface rounded-xl p-6 border border-border">
+            <div className="bg-[#F7F8FA] rounded-xl p-6 border border-border">
               <h4 className="font-mono text-[12px] text-accent font-semibold uppercase tracking-wider mb-4">Core Expertise</h4>
               <ul className="space-y-3 text-[15px] text-text-2 leading-relaxed">
                 <li className="flex items-start gap-3">

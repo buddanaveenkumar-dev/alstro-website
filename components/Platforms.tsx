@@ -51,10 +51,10 @@ export default function Platforms() {
               <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-green-light text-green px-2.5 py-1 rounded">
                 <span className="w-1.5 h-1.5 rounded-full bg-green" aria-hidden="true" />US Pack · Live
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-surface text-text-3 px-2.5 py-1 rounded border border-border">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-[#F7F8FA] text-text-3 px-2.5 py-1 rounded border border-border">
                 <span className="w-1.5 h-1.5 rounded-full bg-text-3" aria-hidden="true" />UK Pack · In design
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-surface text-text-3 px-2.5 py-1 rounded border border-border">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-mono bg-[#F7F8FA] text-text-3 px-2.5 py-1 rounded border border-border">
                 <span className="w-1.5 h-1.5 rounded-full bg-text-3" aria-hidden="true" />EU Pack · In design
               </span>
             </div>
@@ -68,7 +68,7 @@ export default function Platforms() {
 
         {/* "Not a partnership pitch" callout */}
         <div className="reveal mt-8 text-center">
-          <p className="font-mono text-[12px] text-text-3 uppercase tracking-[0.05em] font-medium p-4 bg-surface rounded-lg border border-border inline-block">
+          <p className="font-mono text-[12px] text-text-3 uppercase tracking-[0.05em] font-medium p-4 bg-[#F7F8FA] rounded-lg border border-border inline-block">
             This is not a partnership pitch. It is a capability gap that drives acquisition.
           </p>
         </div>

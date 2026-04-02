@@ -41,7 +41,7 @@ export default function Architecture() {
               <h4 className="font-mono text-[12px] text-text-3 font-semibold uppercase tracking-wider mb-5">Your Models</h4>
               <div className="space-y-3">
                 {["FICO Score", "ML Scorecards", "LLM Underwriting", "Alternative Data"].map((m) => (
-                  <div key={m} className="flex items-center gap-3 p-3 bg-surface rounded-lg border border-border-subtle">
+                  <div key={m} className="flex items-center gap-3 p-3 bg-[#F7F8FA] rounded-lg border border-[rgba(0,0,0,0.06)]">
                     <div className="w-2 h-2 rounded-full bg-text-3 shrink-0" aria-hidden="true" />
                     <span className="text-[14px] text-text-2 font-medium">{m}</span>
                   </div>
@@ -53,16 +53,16 @@ export default function Architecture() {
             <div className="h-10 lg:h-auto lg:w-16 flex justify-center items-center relative z-0 shrink-0">
               {/* Desktop horizontal */}
               <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden">
-                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(37,99,235,0.6)]" style={{ animation: "flowRight 3s infinite linear", top: "-2px" }} />
+                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.5)]" style={{ animation: "flowRight 3s infinite linear", top: "-2px" }} />
               </div>
               {/* Mobile vertical */}
               <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[40px]">
-                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(37,99,235,0.6)]" style={{ animation: "flowDown 3s infinite linear", left: "-2px" }} />
+                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.5)]" style={{ animation: "flowDown 3s infinite linear", left: "-2px" }} />
               </div>
             </div>
 
             {/* Center: ALSTRO ENFORCEMENT LAYER */}
-            <div className="flex-[1.3] lg:min-w-[340px] relative z-10 p-[2px] rounded-xl bg-accent shadow-[0_0_24px_rgba(37,99,235,0.15)] shrink-0">
+            <div className="flex-[1.3] lg:min-w-[340px] relative z-10 p-[2px] rounded-xl bg-accent shadow-[0_0_24px_rgba(0,201,139,0.15)] shrink-0">
               <div className="rounded-[10px] px-6 py-8 bg-accent-light h-full">
                 <div className="text-center mb-6">
                   <p className="text-accent text-[13px] font-bold uppercase tracking-wider mb-1">Alstro Enforcement Layer</p>
@@ -87,10 +87,10 @@ export default function Architecture() {
             {/* Arrow 2 */}
             <div className="h-10 lg:h-auto lg:w-16 flex justify-center items-center relative z-0 shrink-0">
               <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden">
-                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(37,99,235,0.6)]" style={{ animation: "flowRight 3s infinite linear 1.5s", top: "-2px" }} />
+                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.5)]" style={{ animation: "flowRight 3s infinite linear 1.5s", top: "-2px" }} />
               </div>
               <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[40px]">
-                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(37,99,235,0.6)]" style={{ animation: "flowDown 3s infinite linear 1.5s", left: "-2px" }} />
+                <div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.5)]" style={{ animation: "flowDown 3s infinite linear 1.5s", left: "-2px" }} />
               </div>
             </div>
 
@@ -99,8 +99,8 @@ export default function Architecture() {
               <h4 className="font-mono text-[12px] text-text-3 font-semibold uppercase tracking-wider mb-5">Your Systems</h4>
               <div className="space-y-3">
                 {["Loan Origination Sys.", "Decision Engine", "Adverse Action Engine"].map((s) => (
-                  <div key={s} className="flex items-center gap-3 p-3 bg-surface rounded-lg border border-border-subtle">
-                    <div className="w-2 h-2 rounded-full bg-green shrink-0" aria-hidden="true" />
+                  <div key={s} className="flex items-center gap-3 p-3 bg-[#F7F8FA] rounded-lg border border-[rgba(0,0,0,0.06)]">
+                    <div className="w-2 h-2 rounded-full bg-accent shrink-0" aria-hidden="true" />
                     <span className="text-[14px] text-text-2 font-medium">{s}</span>
                   </div>
                 ))}
@@ -117,7 +117,7 @@ export default function Architecture() {
               <div key={c.title} className="reveal card flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center gap-4 mb-5">
-                    <div className="p-3 rounded-lg bg-surface border border-border text-text-2 group-hover:bg-accent-light group-hover:border-accent/30 group-hover:text-accent transition-colors duration-300">
+                    <div className="p-3 rounded-lg bg-[#F7F8FA] border border-border text-text-2 group-hover:bg-accent-light group-hover:border-accent/30 group-hover:text-accent transition-colors duration-300">
                       <Icon size={20} aria-hidden="true" />
                     </div>
                     <h3 className="text-[18px] sm:text-[20px] m-0 p-0 leading-tight">{c.title}</h3>
@@ -127,7 +127,7 @@ export default function Architecture() {
 
                 <div className="mt-auto">
                   <span className={`inline-flex font-mono text-[11px] font-semibold rounded px-3 py-1.5 uppercase tracking-wide whitespace-normal ${
-                    c.special ? "bg-accent text-white" : "bg-surface border border-border text-text-2"
+                    c.special ? "bg-accent text-white" : "bg-[#F7F8FA] border border-border text-text-2"
                   }`}>
                     {c.badge}
                   </span>

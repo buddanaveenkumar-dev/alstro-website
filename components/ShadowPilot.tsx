@@ -30,7 +30,7 @@ export default function ShadowPilot() {
 
             {steps.map((s) => (
               <div key={s.num} className="flex flex-col items-center text-center relative z-10 px-4">
-                <div className="w-[48px] h-[48px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[16px] font-bold shadow-[0_0_0_8px_var(--color-bg)] mb-6">
+                <div className="w-[48px] h-[48px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[16px] font-bold shadow-[0_0_0_8px_white] mb-6">
                   {s.num}
                 </div>
                 <h3 className="text-[20px] mb-2">{s.title}</h3>
@@ -46,7 +46,7 @@ export default function ShadowPilot() {
 
             {steps.map((s) => (
               <div key={s.num} className="relative mb-10 last:mb-0">
-                <div className="absolute left-[-34px] w-[40px] h-[40px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[14px] font-bold shadow-[0_0_0_6px_var(--color-bg)] z-10">
+                <div className="absolute left-[-34px] w-[40px] h-[40px] rounded-full bg-accent text-white flex items-center justify-center font-mono text-[14px] font-bold shadow-[0_0_0_6px_white] z-10">
                   {s.num}
                 </div>
                 <h3 className="text-[18px] mb-1">{s.title}</h3>

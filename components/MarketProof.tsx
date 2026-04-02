@@ -45,7 +45,7 @@ export default function MarketProof() {
           </div>
 
           {/* Right: Alstro — wins visually */}
-          <div className="bg-white rounded-2xl p-8 border-2 border-accent relative shadow-[0_0_24px_rgba(37,99,235,0.08)] bg-gradient-to-br from-accent-light/30 to-white border-l-4 border-l-accent">
+          <div className="bg-white rounded-2xl p-8 border-2 border-accent relative shadow-[0_0_24px_rgba(0,201,139,0.08)] bg-gradient-to-br from-accent-light/30 to-white border-l-4 border-l-accent">
             <p className="font-mono text-[12px] text-accent uppercase tracking-wider mb-2 font-bold">Upstream</p>
             <h3 className="text-[22px] text-text mb-6">Alstro</h3>
             <ul className="space-y-4 text-[15px] text-text">
