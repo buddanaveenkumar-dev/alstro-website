@@ -15,7 +15,7 @@ const docs = ["Technical Overview", "Security Architecture", "Pilot Scope & Crit
 const badges = ["ECOA", "FCRA", "SR 11-7", "TILA", "UDAAP", "OCC Exam-Ready", "CFPB Exam-Ready", "Audit-Ready Records"];
 
 function Badge({ text }: { text: string }) {
-  return <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.05em] text-text-2 border border-border rounded-full px-4 py-1.5 whitespace-nowrap select-none">{text}</span>;
+  return <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.05em] text-text-2 border border-border bg-white rounded-full px-4 py-1.5 whitespace-nowrap select-none">{text}</span>;
 }
 
 export default function TrustProtection() {
@@ -39,7 +39,7 @@ export default function TrustProtection() {
           </div>
 
           {/* Right — Governance Card */}
-          <div className="reveal rounded-xl border border-border bg-glass backdrop-blur-xl p-8">
+          <div className="reveal rounded-xl border border-border bg-white p-8 shadow-sm">
             <p className="text-[17px] text-text font-bold mb-4">Institution retains full control.</p>
             <p className="text-[15px] text-text-2 leading-relaxed mb-4">
               Policies evaluated by Alstro are configured and approved by the institution. Alstro supports decision evaluation, documentation, and workflow control.

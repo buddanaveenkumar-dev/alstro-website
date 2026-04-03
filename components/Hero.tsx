@@ -19,9 +19,9 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#090C13] via-bg to-bg" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F8FA] via-white to-white" aria-hidden="true" />
       <ParticleCanvas />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,229,160,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,201,139,0.05),transparent_40%)] pointer-events-none" aria-hidden="true" />
 
       <div className="container-main relative z-10 grid gap-12 lg:grid-cols-2 items-center">
         <div className="space-y-6">
@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative rounded-xl border border-border-accent bg-glass p-6 shadow-[0_0_40px_rgba(0,229,160,0.06)] backdrop-blur-xl">
+        <div className="relative rounded-xl border border-border-accent bg-white p-6 shadow-[0_0_40px_rgba(0,201,139,0.06),0_4px_20px_rgba(0,0,0,0.04)]">
           <div className="font-mono text-[14px] leading-relaxed space-y-1.5">
             {cardLines.map((line, idx) => (
               <div key={idx} className="typewriter-line" style={{ animationDelay: `${500 + idx * 300}ms` }}>

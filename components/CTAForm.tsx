@@ -52,7 +52,7 @@ export default function CTAForm() {
         </div>
 
         <div className="reveal max-w-[520px] mx-auto">
-          <div className="rounded-2xl border border-border bg-glass backdrop-blur-xl p-8 md:p-10">
+          <div className="rounded-2xl border border-border bg-white p-8 md:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
             {status === "success" ? (
               <div className="text-center py-10 transition-opacity duration-500">
                 <h3 className="text-[20px] mb-2">Thank you.</h3>

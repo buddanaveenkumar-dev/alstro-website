@@ -24,7 +24,7 @@ export default function ParticleCanvas() {
         if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
         if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,229,160,${p.a})`; ctx.fill();
+        ctx.fillStyle = `rgba(0,201,139,${p.a * 0.5})`; ctx.fill();
       });
       if (!reduced) frame.current = requestAnimationFrame(render);
     };

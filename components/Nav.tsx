@@ -25,7 +25,7 @@ export default function Nav() {
 
   return (
     <>
-      <header role="banner" className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${scrolled ? "bg-surface/85 backdrop-blur-xl border-b border-border" : "bg-transparent border-b border-transparent"}`}>
+      <header role="banner" className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.04)]" : "bg-transparent border-b border-transparent"}`}>
         <nav aria-label="Main" className="container-main flex items-center justify-between h-full">
           <a href="#" className="font-heading text-[20px] font-extrabold tracking-widest text-text z-50" aria-label="Alstro home">ALSTRO<span className="text-accent">.</span></a>
           <div className="hidden md:flex items-center gap-8">
@@ -43,7 +43,7 @@ export default function Nav() {
       </header>
       {open && (<>
         <div className="fixed inset-0 z-[100] bg-black/40 md:hidden" onClick={close} aria-hidden="true" />
-        <div ref={menuRef} id="mobile-menu" role="dialog" aria-label="Mobile navigation" className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-surface shadow-2xl md:hidden flex flex-col pt-24 px-6">
+        <div ref={menuRef} id="mobile-menu" role="dialog" aria-label="Mobile navigation" className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-white shadow-2xl md:hidden flex flex-col pt-24 px-6">
           <div className="flex flex-col gap-1">
             {links.map(l => <a key={l.href} href={l.href} onClick={close} className="text-[18px] font-semibold text-text hover:text-accent transition-colors py-3 border-b border-border" style={{ minHeight: 48 }}>{l.label}</a>)}
             <a href="#cta" onClick={close} className="btn-primary mt-5 justify-center">Request Shadow Pilot <span className="live-dot-sm" aria-hidden="true" /></a>

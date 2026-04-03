@@ -14,7 +14,7 @@ export default function HowItWorks() {
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes flowRight{0%{left:-6px;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% + 6px);opacity:0}}
         @keyframes flowDown{0%{top:-6px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% + 6px);opacity:0}}
-        .alstro-layer{position:relative;padding:2px;border-radius:12px;background:linear-gradient(90deg,rgba(0,229,160,0.3),rgba(0,229,160,0.06),rgba(0,229,160,0.3));background-size:200% 100%;animation:border-spin 4s ease-in-out infinite;box-shadow:0 0 30px rgba(0,229,160,0.06)}
+        .alstro-layer{position:relative;padding:2px;border-radius:12px;background:linear-gradient(90deg,rgba(0,201,139,0.3),rgba(0,201,139,0.06),rgba(0,201,139,0.3));background-size:200% 100%;animation:border-spin 4s ease-in-out infinite;box-shadow:0 0 30px rgba(0,201,139,0.05)}
         @media(prefers-reduced-motion:reduce){.alstro-layer{animation:none}}
       `}} />
       <div className="container-main">
@@ -28,11 +28,11 @@ export default function HowItWorks() {
         <div className="reveal max-w-[1024px] mx-auto mb-20" role="img" aria-label="Architecture diagram: models through Alstro to systems">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-0">
             {/* Left */}
-            <div className="flex-1 bg-surface p-5 rounded-xl border border-border relative z-10">
+            <div className="flex-1 bg-white p-5 rounded-xl border border-border shadow-sm relative z-10">
               <h4 className="font-mono text-[12px] text-text-3 font-semibold uppercase tracking-wider mb-4">Your Models</h4>
               <div className="space-y-2">
                 {["FICO", "ML Models", "LLMs", "Alt Data"].map(m => (
-                  <div key={m} className="flex items-center gap-3 p-2.5 bg-glass rounded-lg border border-border">
+                  <div key={m} className="flex items-center gap-3 p-2.5 bg-surface rounded-lg border border-border">
                     <div className="w-1.5 h-1.5 rounded-full bg-text-3 shrink-0" aria-hidden="true" />
                     <span className="text-[13px] text-text-2 font-medium">{m}</span>
                   </div>
@@ -41,12 +41,12 @@ export default function HowItWorks() {
             </div>
             {/* Arrow 1 */}
             <div className="h-8 lg:h-auto lg:w-12 flex justify-center items-center relative z-0 shrink-0">
-              <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,229,160,0.4)]" style={{ animation: "flowRight 3s infinite linear", top: "-2px" }} /></div>
-              <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[32px]"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,229,160,0.4)]" style={{ animation: "flowDown 3s infinite linear", left: "-2px" }} /></div>
+              <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.4)]" style={{ animation: "flowRight 3s infinite linear", top: "-2px" }} /></div>
+              <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[32px]"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.4)]" style={{ animation: "flowDown 3s infinite linear", left: "-2px" }} /></div>
             </div>
             {/* Center */}
             <div className="flex-[1.4] lg:min-w-[320px] relative z-10 alstro-layer shrink-0">
-              <div className="rounded-[10px] px-5 py-6 bg-bg h-full">
+              <div className="rounded-[10px] px-5 py-6 bg-white h-full">
                 <p className="text-center text-accent text-[13px] font-bold uppercase tracking-wider mb-4">Alstro Control Layer</p>
                 <div className="grid grid-cols-2 gap-2">
                   {[{ I: ShieldCheck, t: "Policy Engine" }, { I: MessageSquare, t: "Explanation Gen" }, { I: Database, t: "Audit Ledger" }, { I: RotateCcw, t: "Replay" }].map(({ I, t }) => (
@@ -60,15 +60,15 @@ export default function HowItWorks() {
             </div>
             {/* Arrow 2 */}
             <div className="h-8 lg:h-auto lg:w-12 flex justify-center items-center relative z-0 shrink-0">
-              <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,229,160,0.4)]" style={{ animation: "flowRight 3s infinite linear 1.5s", top: "-2px" }} /></div>
-              <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[32px]"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,229,160,0.4)]" style={{ animation: "flowDown 3s infinite linear 1.5s", left: "-2px" }} /></div>
+              <div className="hidden lg:block w-full h-[2px] bg-border relative overflow-hidden"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.4)]" style={{ animation: "flowRight 3s infinite linear 1.5s", top: "-2px" }} /></div>
+              <div className="block lg:hidden w-[2px] h-full bg-border relative overflow-hidden min-h-[32px]"><div className="absolute w-[6px] h-[6px] rounded-full bg-accent shadow-[0_0_8px_rgba(0,201,139,0.4)]" style={{ animation: "flowDown 3s infinite linear 1.5s", left: "-2px" }} /></div>
             </div>
             {/* Right */}
-            <div className="flex-1 bg-surface p-5 rounded-xl border border-border relative z-10">
+            <div className="flex-1 bg-white p-5 rounded-xl border border-border shadow-sm relative z-10">
               <h4 className="font-mono text-[12px] text-text-3 font-semibold uppercase tracking-wider mb-4">Your Systems</h4>
               <div className="space-y-2">
                 {["LOS", "Decision Engine", "Adverse Action"].map(s => (
-                  <div key={s} className="flex items-center gap-3 p-2.5 bg-glass rounded-lg border border-border">
+                  <div key={s} className="flex items-center gap-3 p-2.5 bg-surface rounded-lg border border-border">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
                     <span className="text-[13px] text-text-2 font-medium">{s}</span>
                   </div>
