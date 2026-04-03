@@ -1,15 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import WhatAlstroIs from "@/components/WhatAlstroIs";
-import WhoThisIsFor from "@/components/WhoThisIsFor";
+import Problem from "@/components/Problem";
 import HowItWorks from "@/components/HowItWorks";
-import Outputs from "@/components/Outputs";
-import ConcreteExample from "@/components/ConcreteExample";
 import ShadowPilot from "@/components/ShadowPilot";
-import DataProtection from "@/components/DataProtection";
-import ReplayAudit from "@/components/ReplayAudit";
-import Responsibility from "@/components/Responsibility";
-import DocumentRequest from "@/components/DocumentRequest";
+import TrustProtection from "@/components/TrustProtection";
 import CTAForm from "@/components/CTAForm";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
@@ -20,16 +14,10 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <WhatAlstroIs />
-        <WhoThisIsFor />
+        <Problem />
         <HowItWorks />
-        <Outputs />
-        <ConcreteExample />
         <ShadowPilot />
-        <DataProtection />
-        <ReplayAudit />
-        <Responsibility />
-        <DocumentRequest />
+        <TrustProtection />
         <CTAForm />
       </main>
       <Footer />
