@@ -5,7 +5,7 @@ import "./globals.css";
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -24,14 +24,14 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alstro — Provable AI Lending Decisions | Compliance Enforcement Layer",
-  description: "Deploy AI lending models with cryptographic proof of compliance. Pre-execution enforcement for ECOA, FCRA, SR 11-7. Model-agnostic API with shadow pilot available.",
-  keywords: "AI lending compliance, ECOA adverse action, FCRA compliance, credit decision AI, model governance SR 11-7, fair lending AI, regtech, fintech compliance infrastructure",
+  title: "Alstro — Decision Infrastructure for AI-Driven Lending",
+  description: "API-based decision control layer for regulated lending institutions. Policy evaluation, decision documentation, audit logging, and shadow pilot deployment.",
+  keywords: "AI lending governance, decision infrastructure, lending compliance, model risk management, fair lending, adverse action, audit trail, regtech",
   metadataBase: new URL("https://alstro.ai"),
   alternates: { canonical: "https://alstro.ai" },
   openGraph: {
-    title: "Alstro — Provable AI Lending Decisions",
-    description: "The enforcement layer for AI lending. Cryptographic proof of compliance for every credit decision.",
+    title: "Alstro — Decision Infrastructure for AI-Driven Lending",
+    description: "API-based decision control layer for regulated lending institutions. Policy evaluation, documentation, and audit-ready logging.",
     type: "website",
     url: "https://alstro.ai",
     siteName: "Alstro",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alstro — Provable AI Lending Decisions",
-    description: "Cryptographic proof of compliance for every AI lending decision.",
+    title: "Alstro — Decision Infrastructure for AI-Driven Lending",
+    description: "API-based decision control and audit infrastructure for regulated lending.",
     images: ["/api/og"],
   },
   robots: { index: true, follow: true },
@@ -51,7 +51,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Alstro",
   applicationCategory: "BusinessApplication",
-  description: "Compliance enforcement layer for AI-driven lending decisions. Pre-execution policy checks, explainability, audit trails, and deterministic replay.",
+  description: "Decision control infrastructure for AI-driven lending. API-based policy evaluation, decision documentation, and audit logging.",
   operatingSystem: "Cloud/API",
   offers: { "@type": "Offer", category: "Enterprise" },
   creator: { "@type": "Organization", name: "Alstro AI", url: "https://alstro.ai" },

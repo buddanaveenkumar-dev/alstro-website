@@ -1,9 +1,12 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
+import WhatAlstroIs from "@/components/WhatAlstroIs";
 import HowItWorks from "@/components/HowItWorks";
+import Outputs from "@/components/Outputs";
 import ShadowPilot from "@/components/ShadowPilot";
-import TrustStrip from "@/components/TrustStrip";
+import DataProtection from "@/components/DataProtection";
+import Responsibility from "@/components/Responsibility";
+import DocumentRequest from "@/components/DocumentRequest";
 import CTAForm from "@/components/CTAForm";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
@@ -14,10 +17,13 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <Problem />
+        <WhatAlstroIs />
         <HowItWorks />
+        <Outputs />
         <ShadowPilot />
-        <TrustStrip />
+        <DataProtection />
+        <Responsibility />
+        <DocumentRequest />
         <CTAForm />
       </main>
       <Footer />

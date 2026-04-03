@@ -5,6 +5,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 const links = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Shadow Pilot", href: "#shadow-pilot" },
+  { label: "Data Protection", href: "#data-protection" },
 ];
 
 export default function Nav() {
@@ -13,7 +14,7 @@ export default function Nav() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -32,7 +33,7 @@ export default function Nav() {
 
   useEffect(() => {
     if (!open || !menuRef.current) return;
-    const focusable = menuRef.current.querySelectorAll<HTMLElement>('a, button');
+    const focusable = menuRef.current.querySelectorAll<HTMLElement>("a, button");
     if (!focusable.length) return;
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -55,73 +56,63 @@ export default function Nav() {
     <>
       <header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-[110] h-[72px] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[110] h-[64px] transition-all duration-200 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+            ? "bg-white border-b border-border"
             : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav aria-label="Main" className="container-main flex items-center justify-between h-full">
-          <a href="#" className="font-heading text-[20px] font-extrabold tracking-widest text-text z-50 relative" aria-label="Alstro home">
-            ALSTRO<span className="text-accent">.</span>
+          <a href="#" className="font-heading text-[18px] font-bold tracking-wide text-text" aria-label="Alstro home">
+            Alstro
           </a>
 
-          {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-[14px] font-medium text-text-2 hover:text-text transition-colors">
+              <a key={l.href} href={l.href} className="text-[14px] text-text-2 hover:text-text transition-colors">
                 {l.label}
               </a>
             ))}
-            <a href="#cta" className="btn-primary inline-flex items-center gap-2" style={{ padding: "8px 20px", fontSize: 14 }}>
-              Join Shadow Pilot
-              <span className="live-dot-sm" aria-hidden="true" />
+            <a href="#contact" className="btn-primary" style={{ padding: "8px 18px", fontSize: 13 }}>
+              Request Shadow Pilot
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex md:hidden">
             <button
-              className="text-text-2 p-2 -mr-2 relative z-50 flex flex-col justify-center items-center w-10 h-10"
+              className="text-text-2 p-2 -mr-2 flex flex-col justify-center items-center w-10 h-10 relative z-50"
               onClick={() => setOpen(!open)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-menu"
             >
-              <span className={`bg-text-2 block transition-all duration-300 h-[2px] w-6 rounded-sm ${open ? "rotate-45 translate-y-[5px]" : "-translate-y-1"}`} />
-              <span className={`bg-text-2 block transition-all duration-300 h-[2px] w-6 rounded-sm my-0.5 ${open ? "opacity-0" : "opacity-100"}`} />
-              <span className={`bg-text-2 block transition-all duration-300 h-[2px] w-6 rounded-sm ${open ? "-rotate-45 -translate-y-[5px]" : "translate-y-1"}`} />
+              <span className={`bg-text-2 block transition-all duration-200 h-[1.5px] w-5 rounded-sm ${open ? "rotate-45 translate-y-[4px]" : "-translate-y-1"}`} />
+              <span className={`bg-text-2 block transition-all duration-200 h-[1.5px] w-5 rounded-sm my-0.5 ${open ? "opacity-0" : "opacity-100"}`} />
+              <span className={`bg-text-2 block transition-all duration-200 h-[1.5px] w-5 rounded-sm ${open ? "-rotate-45 -translate-y-[4px]" : "translate-y-1"}`} />
             </button>
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu */}
       {open && (
         <>
-          <div className="fixed inset-0 z-[100] bg-black/20 md:hidden" onClick={close} aria-hidden="true" />
+          <div className="fixed inset-0 z-[100] bg-black/10 md:hidden" onClick={close} aria-hidden="true" />
           <div
             ref={menuRef}
             id="mobile-menu"
             role="dialog"
             aria-label="Mobile navigation"
-            className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-white shadow-2xl md:hidden flex flex-col pt-24 px-6"
-            style={{ animation: "slideIn 0.3s ease forwards" }}
+            className="fixed top-0 right-0 bottom-0 w-[280px] z-[105] bg-white border-l border-border md:hidden flex flex-col pt-20 px-6"
           >
-            <style>{`@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-0">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={close} className="text-[18px] font-semibold text-text hover:text-accent transition-colors py-3 border-b border-border" style={{ minHeight: 48 }}>
+                <a key={l.href} href={l.href} onClick={close} className="text-[16px] text-text hover:text-text-2 transition-colors py-3 border-b border-border">
                   {l.label}
                 </a>
               ))}
-              <a href="#cta" onClick={close} className="btn-primary mt-4 justify-center">
-                Join Shadow Pilot
-                <span className="live-dot-sm" aria-hidden="true" />
+              <a href="#contact" onClick={close} className="btn-primary mt-6 justify-center text-[14px]">
+                Request Shadow Pilot
               </a>
-            </div>
-            <div className="mt-auto mb-8">
-              <p className="font-mono text-[12px] text-text-3 tracking-wider uppercase">Institutional Compliance Layer</p>
             </div>
           </div>
         </>
