@@ -6,7 +6,7 @@ const steps = [
   { num: "03", title: "Compare", lines: ["Side-by-side reporting:", "your current outputs alongside", "Alstro-generated artifacts."] },
 ];
 
-const tags = ["Read-only deployment", "Customer-controlled scope", "30-day defined period", "Low integration friction"];
+const tags = ["Read-only deployment", "Customer-controlled scope", "Defined evaluation period", "Low integration friction"];
 
 export default function ShadowPilot() {
   return (
@@ -15,7 +15,7 @@ export default function ShadowPilot() {
         <div className="reveal text-center mb-16">
           <p className="section-label">Shadow pilot</p>
           <h2 id="pilot-heading" className="max-w-[520px] mx-auto mb-3">Evaluate Alstro on your own terms.</h2>
-          <p className="text-[16px] text-text-2 max-w-[560px] mx-auto">Read-only. 30 days. Parallel to your pipeline. No production decisions affected.</p>
+          <p className="text-[16px] text-text-2 max-w-[560px] mx-auto">Read-only. Parallel to your pipeline. No production decisions affected.</p>
         </div>
 
         <div className="reveal max-w-[900px] mx-auto mb-12">
