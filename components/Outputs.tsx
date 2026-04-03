@@ -2,7 +2,7 @@ const outputs = [
   "Policy evaluation result per decision",
   "Decision explanation and reason mapping support",
   "Adverse action notice support artifacts",
-  "Timestamped, immutable audit log entry",
+  "Append-only, timestamped audit log entry",
   "Replayable decision record",
   "Pilot summary and comparison outputs",
 ];

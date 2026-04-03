@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <span className="font-heading text-[16px] font-bold text-text">Alstro</span>
-            <span className="text-[13px] text-text-3 ml-3">Decision Infrastructure for AI-Driven Lending</span>
+            <span className="text-[13px] text-text-3 ml-3">Runtime Control for AI-Driven Lending</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-[13px] text-text-3">
@@ -17,10 +17,10 @@ export default function Footer() {
 
         <div className="text-[11px] text-text-3 leading-relaxed max-w-[720px] space-y-3">
           <p>
-            Alstro provides technology infrastructure for decision evaluation, documentation, and audit support. Alstro does not provide legal advice, legal opinions, or compliance certifications. Use of Alstro does not constitute compliance with any regulation.
+            Alstro provides technology infrastructure for decision evaluation, documentation, and audit support. Alstro does not provide legal advice, legal opinions, or compliance certifications. Use of Alstro does not constitute or guarantee compliance with any regulation or legal requirement.
           </p>
           <p>
-            Final responsibility for lending decisions, regulatory compliance, and legal obligations remains with the financial institution. Policies evaluated by Alstro are configured and approved by the customer. Alstro&apos;s outputs are informational and operational — they are not legal determinations.
+            Final responsibility for all lending decisions, regulatory compliance, and legal obligations remains exclusively with the financial institution. All policies evaluated by Alstro are configured and approved by the customer. Alstro&apos;s outputs are informational and operational — they are not legal determinations, legal conclusions, or regulatory certifications.
           </p>
           <p>&copy; {new Date().getFullYear()} Alstro AI. All rights reserved.</p>
         </div>

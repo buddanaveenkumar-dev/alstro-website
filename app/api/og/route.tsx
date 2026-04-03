@@ -20,7 +20,7 @@ export async function GET() {
         <div
           style={{
             display: "flex",
-            fontSize: "36px",
+            fontSize: "32px",
             fontWeight: 700,
             color: "#1A1D26",
             position: "absolute",
@@ -34,7 +34,7 @@ export async function GET() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h1
             style={{
-              fontSize: "56px",
+              fontSize: "52px",
               fontWeight: 700,
               margin: "0 0 24px 0",
               color: "#1A1D26",
@@ -42,17 +42,18 @@ export async function GET() {
               lineHeight: 1.15,
             }}
           >
-            Decision Infrastructure for AI-Driven Lending
+            Runtime Control for AI-Driven Lending Decisions
           </h1>
           <p
             style={{
-              fontSize: "28px",
+              fontSize: "24px",
               color: "#4B5563",
               margin: "0",
               maxWidth: "800px",
+              lineHeight: 1.5,
             }}
           >
-            API-based policy evaluation, decision documentation, and audit-ready logging.
+            API-based policy evaluation, decision documentation, and audit-ready logging for regulated lending institutions.
           </p>
         </div>
 
@@ -61,7 +62,7 @@ export async function GET() {
             position: "absolute",
             bottom: "60px",
             left: "60px",
-            fontSize: "20px",
+            fontSize: "18px",
             color: "#9CA3AF",
           }}
         >

@@ -24,14 +24,14 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alstro — Decision Infrastructure for AI-Driven Lending",
-  description: "API-based decision control layer for regulated lending institutions. Policy evaluation, decision documentation, audit logging, and shadow pilot deployment.",
+  title: "Alstro — Runtime Control for AI-Driven Lending Decisions",
+  description: "API-based runtime control layer for regulated lending institutions. Policy evaluation, decision documentation, audit logging, and shadow pilot deployment.",
   keywords: "AI lending governance, decision infrastructure, lending compliance, model risk management, fair lending, adverse action, audit trail, regtech",
   metadataBase: new URL("https://alstro.ai"),
   alternates: { canonical: "https://alstro.ai" },
   openGraph: {
-    title: "Alstro — Decision Infrastructure for AI-Driven Lending",
-    description: "API-based decision control layer for regulated lending institutions. Policy evaluation, documentation, and audit-ready logging.",
+    title: "Alstro — Runtime Control for AI-Driven Lending Decisions",
+    description: "API-based runtime control layer for regulated lending institutions. Policy evaluation, documentation, and audit-ready logging.",
     type: "website",
     url: "https://alstro.ai",
     siteName: "Alstro",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alstro — Decision Infrastructure for AI-Driven Lending",
-    description: "API-based decision control and audit infrastructure for regulated lending.",
+    title: "Alstro — Runtime Control for AI-Driven Lending Decisions",
+    description: "API-based runtime control and audit infrastructure for regulated lending.",
     images: ["/api/og"],
   },
   robots: { index: true, follow: true },
@@ -51,7 +51,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Alstro",
   applicationCategory: "BusinessApplication",
-  description: "Decision control infrastructure for AI-driven lending. API-based policy evaluation, decision documentation, and audit logging.",
+  description: "Runtime control infrastructure for AI-driven lending decisions. API-based policy evaluation, decision documentation, and audit logging.",
   operatingSystem: "Cloud/API",
   offers: { "@type": "Offer", category: "Enterprise" },
   creator: { "@type": "Organization", name: "Alstro AI", url: "https://alstro.ai" },

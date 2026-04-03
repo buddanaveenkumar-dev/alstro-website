@@ -1,10 +1,10 @@
 const attributes = [
-  { title: "Read-only", desc: "Shadow mode operates in parallel with your existing pipeline. No production decisions are affected." },
-  { title: "Customer-controlled scope", desc: "The institution defines which decision types, models, and data are included in the pilot." },
-  { title: "Limited engagement", desc: "Designed as a 30-day evaluation period with defined entry and exit criteria." },
-  { title: "Parallel operation", desc: "Runs alongside current workflows. No immediate replacement of existing compliance processes required." },
-  { title: "Comparison outputs", desc: "Provides side-by-side reporting: your current process outputs alongside Alstro-generated artifacts." },
-  { title: "Low integration friction", desc: "API-based integration with structured onboarding support. Read-only pilot structure designed to minimize operational disruption." },
+  { title: "Read-only operation", desc: "Shadow mode processes decision payloads in parallel. No production lending decisions are modified or affected." },
+  { title: "Customer-controlled scope", desc: "The institution defines which decision types, models, and data are included. Scope is documented before initiation." },
+  { title: "Defined evaluation period", desc: "Structured as a 30-day evaluation with documented entry criteria, milestones, and exit criteria." },
+  { title: "No immediate production replacement", desc: "The pilot does not require changes to existing compliance processes or production systems during the evaluation." },
+  { title: "Comparison outputs", desc: "Provides side-by-side reporting: current process outputs alongside Alstro-generated artifacts for direct evaluation." },
+  { title: "Low operational disruption", desc: "API-based integration with structured onboarding support. Designed to minimize demands on internal engineering and compliance teams." },
 ];
 
 export default function ShadowPilot() {
@@ -13,10 +13,10 @@ export default function ShadowPilot() {
       <div className="container-main">
         <p className="section-label reveal">Shadow pilot</p>
         <h2 id="pilot-heading" className="reveal max-w-[520px] mb-4">
-          Evaluate Alstro on your own terms.
+          Evaluate on your terms, at your pace.
         </h2>
-        <p className="reveal text-[15px] text-text-2 max-w-[560px] mb-12 leading-relaxed">
-          The shadow pilot is a read-only evaluation period. Alstro processes your decision payloads in parallel and generates comparison outputs — without affecting production lending operations.
+        <p className="reveal text-[15px] text-text-2 max-w-[580px] mb-12 leading-relaxed">
+          The shadow pilot is a read-only evaluation period. Alstro processes decision payloads in parallel with your existing workflow and generates comparison outputs — without affecting production lending operations or requiring immediate process changes.
         </p>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-[720px]">

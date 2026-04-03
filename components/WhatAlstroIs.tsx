@@ -1,23 +1,23 @@
 const items = [
   {
     title: "API-based decision control layer",
-    desc: "Integrates between model output and downstream lending systems. Receives decision payloads, applies evaluation logic, and returns structured results.",
+    desc: "Integrates between model output and downstream lending systems. Receives decision payloads, applies configured evaluation logic, and returns structured results.",
   },
   {
-    title: "Policy evaluation before execution",
+    title: "Policy evaluation before downstream execution",
     desc: "Evaluates each decision against institution-configured policy rules before it reaches loan origination, adverse action, or servicing systems.",
   },
   {
-    title: "Decision documentation and reason mapping",
-    desc: "Generates structured decision artifacts including reason codes, policy evaluation results, and explanation support for adverse action workflows.",
+    title: "Decision documentation and reason mapping support",
+    desc: "Generates structured decision artifacts including reason codes, policy evaluation results, and notice support data for adverse action workflows.",
   },
   {
-    title: "Audit-ready logging",
-    desc: "Writes immutable, timestamped records for each decision evaluation. Designed to support regulatory examination and internal audit requirements.",
+    title: "Append-only audit logging",
+    desc: "Writes append-only, timestamped records for each decision evaluation. Designed to support regulatory examination and internal audit review.",
   },
   {
-    title: "Read-only shadow deployment",
-    desc: "Available in shadow mode — operating in parallel with existing workflows without affecting production lending operations.",
+    title: "Shadow deployment available",
+    desc: "Operates in read-only shadow mode alongside existing workflows, without affecting production lending operations.",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function WhatAlstroIs() {
       <div className="container-main">
         <p className="section-label reveal">What Alstro is</p>
         <h2 id="what-heading" className="reveal max-w-[560px] mb-12">
-          A control layer for lending decision governance.
+          A runtime control layer for lending decision governance.
         </h2>
 
         <div className="space-y-8">

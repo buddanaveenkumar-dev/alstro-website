@@ -2,32 +2,32 @@ const steps = [
   {
     num: "01",
     title: "Receive decision payload",
-    desc: "Your lending system sends the model output and decision context to Alstro via API.",
+    desc: "Your lending system sends the model output and decision context to Alstro via API at the point of decision.",
   },
   {
     num: "02",
     title: "Evaluate configured policy checks",
-    desc: "Alstro applies institution-defined policy rules to the decision — including fair lending checks, documentation requirements, and business logic constraints.",
+    desc: "Alstro applies institution-defined policy rules — including fair lending documentation checks, reason code mapping, and business logic constraints.",
   },
   {
     num: "03",
     title: "Generate decision artifacts",
-    desc: "Produces structured outputs: policy evaluation results, reason mapping, explanation support data, and notice-ready artifacts.",
+    desc: "Produces structured outputs: policy evaluation results, reason mapping data, notice support artifacts, and explanation support records.",
   },
   {
     num: "04",
-    title: "Return results and write audit trail",
-    desc: "Returns the evaluation to your system and writes a timestamped, immutable audit record of the decision and its evaluation.",
+    title: "Return results and write audit record",
+    desc: "Returns the evaluation result to your system and writes an append-only, timestamped audit record of the decision and its evaluation.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-surface" aria-labelledby="how-heading">
+    <section id="how-it-works" className="py-20 md:py-28 border-t border-border" aria-labelledby="how-heading">
       <div className="container-main">
         <p className="section-label reveal">How it works</p>
         <h2 id="how-heading" className="reveal max-w-[480px] mb-14">
-          Four steps, one API call.
+          Four steps per decision, one API call.
         </h2>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 max-w-[720px]">
